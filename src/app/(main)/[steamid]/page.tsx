@@ -1,13 +1,27 @@
+import { getGrenadeIdFromIndex } from '@/utils/getFromIndex/getGrenadeIdFromIndex';
+import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
+import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
+import { getSteamStats } from '@/utils/getSteamStats/getSteamStats';
 import { getTagline } from '@/utils/getTagline';
-import { steamStatsArrayToObject } from '@/utils/steamStatsArrayToObject';
 
-export default async function Home() {
-    console.log(process.env.STEAM_WEB_API_KEY);
-    const response = await fetch(
-        `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=414740&key=${process.env.STEAM_WEB_API_KEY}&steamid=76561198061159261&format=json`
+export default async function Home({
+    params: { steamid },
+}: {
+    params: { steamid: string };
+}) {
+    const stats = await getSteamStats(
+        process.env.NODE_ENV === 'development' ? '76561198061159261' : steamid
     );
-    const data = await response.json();
-    const stats = steamStatsArrayToObject(data.playerstats.stats);
-
-    return <div>{getTagline(stats)}</div>;
+    return (
+        <>
+            <code>
+                {getTagline(stats)}
+                {getWeaponIdFromIndex(stats.equipped_primary)}
+                {getWeaponIdFromIndex(stats.equipped_secondary)}
+                {getGrenadeIdFromIndex(stats.equipped_grenade)}
+                {getMeleeIdFromIndex(stats.equipped_melee)}
+            </code>
+            <div>{JSON.stringify(stats)}</div>
+        </>
+    );
 }
