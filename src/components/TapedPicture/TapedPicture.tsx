@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from './TapedPicture.module.scss';
+import styles from './TapedPicture.module.css';
 
 /**
  * Frame for a picture with two piece of tape
