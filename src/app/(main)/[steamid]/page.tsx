@@ -3,18 +3,22 @@ import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
 import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
 import { getSteamStats } from '@/utils/getSteamStats/getSteamStats';
 import { getTagline } from '@/utils/getTagline';
+import { getUserInfo } from '@/utils/getUserInfo/getUserInfo';
 
 export default async function Home({
     params: { steamid },
 }: {
     params: { steamid: string };
 }) {
-    const stats = await getSteamStats(
-        process.env.NODE_ENV === 'development' ? '76561198061159261' : steamid
-    );
+    // My steamid: 76561198061159261
+    const user = await getUserInfo(steamid);
+    const stats = await getSteamStats(steamid);
     return (
         <>
             <code>
+                {user.personaname}
+                {user.avatarfull}
+                {user.profileurl}
                 {getTagline(stats)}
                 {getWeaponIdFromIndex(stats.equipped_primary)}
                 {getWeaponIdFromIndex(stats.equipped_secondary)}
