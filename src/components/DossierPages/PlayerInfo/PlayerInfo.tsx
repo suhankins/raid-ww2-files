@@ -53,7 +53,8 @@ export function PlayerInfo({
                     </p>
                     <p>
                         Last notable reporting of the operative:{' '}
-                        {numberToIsoDate(latestAchievement.unlocktime)}
+                        {numberToIsoDate(latestAchievement.unlocktime)}, see
+                        note &quot;{latestAchievement.name}&quot; for details.
                     </p>
                 </div>
             </section>
