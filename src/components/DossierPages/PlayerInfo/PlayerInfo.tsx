@@ -37,7 +37,7 @@ export function PlayerInfo({
                     <p>Operations completed: {stats.ach_open_loot_crates}</p>
                     <p>
                         Confirmed kills: {stats.ach_kill_enemies}, of which{' '}
-                        {stats.ach_kill_enemies_headshot} were headshots,{' '}
+                        {stats.ach_kill_enemies_with_headshot} were headshots,{' '}
                         {stats.ach_kill_enemies_with_melee} were performed using
                         melee, {stats.ach_kill_enemies_with_grenades} with
                         grenades, {stats.ach_kill_enemies_with_turret} with
