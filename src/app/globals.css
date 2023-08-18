@@ -28,3 +28,13 @@
     --raid_light_gold: #d8b883;
     --raid_list_background: rgba(215, 215, 215, 0.1);
 }
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
