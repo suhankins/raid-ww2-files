@@ -1,10 +1,9 @@
-import { PlayerCard } from '@/components/PlayerCard/PlayerCard';
+import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
 import { getAchievements } from '@/utils/getAchievements';
 import { getGrenadeIdFromIndex } from '@/utils/getFromIndex/getGrenadeIdFromIndex';
 import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
 import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
 import { getStats } from '@/utils/getStats/getStats';
-import { getTagline } from '@/utils/getTagline';
 import { getUserInfo } from '@/utils/getUserInfo';
 import { resolveVanityUrl } from '@/utils/resolveVanityUrl';
 import { redirect } from 'next/navigation';
@@ -30,11 +29,15 @@ export default async function Home({
     }
     const user = await getUserInfo(steamid);
     const stats = await getStats(steamid);
-    await getAchievements(steamid);
+    const achievements = await getAchievements(steamid);
     return (
         <main>
             <div>
-                <PlayerCard {...user} tagline={getTagline(stats)} />
+                <PlayerInfo
+                    user={user}
+                    stats={stats}
+                    achievements={achievements}
+                />
                 {getWeaponIdFromIndex(stats.equipped_primary)}
                 {getWeaponIdFromIndex(stats.equipped_secondary)}
                 {getGrenadeIdFromIndex(stats.equipped_grenade)}
