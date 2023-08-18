@@ -4,9 +4,17 @@ import styles from './TapedPicture.module.css';
 /**
  * Frame for a picture with two piece of tape
  */
-export function TapedPicture({ src, alt }: { src: string; alt: string }) {
+export function TapedPicture({
+    src,
+    alt,
+    className,
+}: {
+    src: string;
+    alt: string;
+    className?: string;
+}) {
     return (
-        <div className={styles.frame}>
+        <div className={`${styles.frame} ${className}`}>
             <img src={src} alt={alt} />
         </div>
     );
