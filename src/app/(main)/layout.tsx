@@ -20,16 +20,16 @@ export default function MainLayout({
         }
     };
     return (
-        <main>
+        <div>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Steam ID or URL"
                     ref={inputRef}
                 />
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
             {children}
-        </main>
+        </div>
     );
 }

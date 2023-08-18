@@ -32,7 +32,7 @@ export default async function Home({
     const stats = await getStats(steamid);
     await getAchievements(steamid);
     return (
-        <>
+        <main>
             <div>
                 <PlayerCard {...user} tagline={getTagline(stats)} />
                 {getWeaponIdFromIndex(stats.equipped_primary)}
@@ -41,6 +41,6 @@ export default async function Home({
                 {getMeleeIdFromIndex(stats.equipped_melee)}
             </div>
             <div>{JSON.stringify(stats)}</div>
-        </>
+        </main>
     );
 }
