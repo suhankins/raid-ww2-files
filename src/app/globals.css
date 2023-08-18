@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'IM Fell DW Pica';
+    src: url('/static/fonts/imfelldwpica/IMFellDWPica-Regular.ttf')
+        format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IM Fell DW Pica';
+    src: url('/static/fonts/imfelldwpica/IMFellDWPica-Italic.ttf')
+        format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
 :root {
     --raid_red: #de4a3e;
     --raid_dark_red: #c04236;
