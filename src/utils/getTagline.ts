@@ -1,11 +1,16 @@
+import { IAchievement } from '@/lib/IAchievement';
+import { ISteamStats } from '@/lib/ISteamStats';
+
 function fullfilmentLevel40CountFactory(count: number) {
-    return (achievementData: any) =>
-        achievementData.ach_reach_level_40_count >= count;
+    return (stats: ISteamStats, achievements: IAchievement[]) =>
+        stats.ach_reach_level_40_count >= count;
 }
 
 function fullfilmentLevelFactory(level: number) {
-    return (achievementData: any) =>
-        achievementData[`ach_reach_level_${level}`] === 1;
+    return (stats: ISteamStats, achievements: IAchievement[]) =>
+        achievements.find(
+            (achievement) => achievement.apiname === `ach_reach_level_${level}`
+        )?.achieved === 1;
 }
 
 /**
@@ -59,9 +64,9 @@ const taglines = [
     },
 ];
 
-export function getTagline(achievementData: any) {
+export function getTagline(stats: ISteamStats, achievements: IAchievement[]) {
     const tagline = taglines.find((tagline) =>
-        tagline.fullfilment(achievementData)
+        tagline.fullfilment(stats, achievements)
     );
-    return tagline ? tagline.tagline : 'Level 1';
+    return tagline ? tagline.tagline : 'MIA';
 }

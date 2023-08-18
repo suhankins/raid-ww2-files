@@ -31,7 +31,9 @@ export function PlayerInfo({
                 <h2>
                     <a href={user.profileurl}>{user.personaname}</a>
                 </h2>
-                <p className={pageStyles.handWritten}>{getTagline(stats)}</p>
+                <p className={pageStyles.handWritten}>
+                    {getTagline(stats, achievements)}
+                </p>
                 <p>Operations completed: {stats.ach_open_loot_crates}</p>
                 <p>
                     Confirmed kills: {stats.ach_kill_enemies}, of which{' '}
