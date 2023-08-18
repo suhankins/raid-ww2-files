@@ -6,6 +6,8 @@ import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex'
 import { getStats } from '@/utils/getStats/getStats';
 import { getTagline } from '@/utils/getTagline';
 import { getUserInfo } from '@/utils/getUserInfo';
+import { resolveVanityUrl } from '@/utils/resolveVanityUrl';
+import { redirect } from 'next/navigation';
 
 export default async function Home({
     params: { steamid },
@@ -16,13 +18,16 @@ export default async function Home({
         // Instead of SteamID we were probably given a vanity URL
         const givenUrl = decodeURIComponent(steamid);
         const vanityUrl = givenUrl.match(
-            /(?<=https:\/\/steamcommunity\.com\/id\/)(\w+)/gm
+            /(?<=https:\/\/steamcommunity\.com\/id\/)(\w+)/gim
         );
+        let vanityToResolve;
         if (vanityUrl) {
-            // TODO: call resolveVanityUrl with vanityUrl[0]
+            vanityToResolve = vanityUrl[0];
+        } else {
+            vanityToResolve = steamid;
         }
+        redirect(`/${await resolveVanityUrl(vanityToResolve)}`);
     }
-    // My steamid: 76561198061159261
     const user = await getUserInfo(steamid);
     const stats = await getStats(steamid);
     await getAchievements(steamid);
