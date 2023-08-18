@@ -1,14 +1,14 @@
 import { TapedPicture } from '../TapedPicture/TapedPicture';
 
 export interface PlayerCardProps {
-    profileUrl: string;
+    profileurl: string;
     personaname: string;
     avatarfull: string;
     tagline: string;
 }
 
 export function PlayerCard({
-    profileUrl,
+    profileurl,
     personaname,
     avatarfull,
     tagline,
@@ -19,7 +19,9 @@ export function PlayerCard({
                 src={avatarfull}
                 alt={`${personaname}'s profile picture`}
             />
-            <a href={profileUrl}>{personaname}</a>
+            <a href={profileurl}>
+                {tagline} {personaname}
+            </a>
         </div>
     );
 }
