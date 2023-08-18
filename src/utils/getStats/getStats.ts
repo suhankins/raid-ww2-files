@@ -1,4 +1,4 @@
-import { ISteamStats } from '@/lib/ISteamStats';
+import type { ISteamStats } from '@/lib/ISteamStats';
 import { steamStatsArrayToObject } from './statsArrayToObject';
 
 /**

@@ -1,4 +1,4 @@
-import { IUserInfo } from '@/lib/IUserInfo';
+import type { IUserInfo } from '@/lib/IUserInfo';
 
 /**
  * Gets user info for given steamid.

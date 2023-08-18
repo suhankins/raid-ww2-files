@@ -1,11 +1,11 @@
 import { PlayerCard } from '@/components/PlayerCard/PlayerCard';
-import { getAchievements } from '@/utils/getAchievements/getAchievements';
+import { getAchievements } from '@/utils/getAchievements';
 import { getGrenadeIdFromIndex } from '@/utils/getFromIndex/getGrenadeIdFromIndex';
 import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
 import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
 import { getStats } from '@/utils/getStats/getStats';
 import { getTagline } from '@/utils/getTagline';
-import { getUserInfo } from '@/utils/getUserInfo/getUserInfo';
+import { getUserInfo } from '@/utils/getUserInfo';
 
 export default async function Home({
     params: { steamid },
