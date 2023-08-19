@@ -15,7 +15,17 @@ export function TapedPicture({
 }) {
     return (
         <div className={`${styles.frame} ${className}`}>
-            <img src={src} alt={alt} />
+            <img
+                src="/static/images/raid/tape_0.webp"
+                alt=""
+                className={`${styles.tape} ${styles.tapeLeft}`}
+            />
+            <img
+                src="/static/images/raid/tape_1.webp"
+                alt=""
+                className={`${styles.tape} ${styles.tapeRight}`}
+            />
+            <img src={src} alt={alt} className={styles.photo} />
         </div>
     );
 }

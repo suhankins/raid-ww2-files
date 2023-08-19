@@ -1,3 +1,30 @@
-/*
-TODO: Styles
-*/
+.frame {
+    position: relative;
+    margin: 1.5rem;
+}
+
+.tape {
+    position: absolute;
+    rotate: 45deg;
+    width: 50%;
+}
+
+.tapeLeft {
+    top: 0;
+    left: -2rem;
+    rotate: 316deg;
+}
+
+.tapeRight {
+    bottom: 0;
+    right: -2rem;
+    rotate: 314deg;
+}
+
+.photo {
+    border-radius: 0;
+    border-width: 1rem 1rem 3rem 1rem;
+    border-style: solid;
+    border-color: var(--raid_white);
+    box-shadow: 0px 0px 5px var(--raid_black);
+}
