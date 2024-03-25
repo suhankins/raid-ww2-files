@@ -2,19 +2,22 @@
     background-image: url('/static/images/raid/paper.webp');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 
     aspect-ratio: 1 / 1.4;
     max-width: 48rem;
     width: 100%;
 
-    padding: 1.5rem;
+    padding: 2rem;
 
     font-family: 'IM Fell DW Pica', serif;
     color: var(--raid_black);
 }
 
-.paper * {
+.paper h1,
+.paper h2,
+.paper h3,
+.paper p {
     margin: 0;
 }
 
