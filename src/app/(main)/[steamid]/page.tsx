@@ -1,8 +1,5 @@
 import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
 import { getAchievements } from '@/utils/getAchievements';
-import { getGrenadeIdFromIndex } from '@/utils/getFromIndex/getGrenadeIdFromIndex';
-import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
-import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
 import { getStats } from '@/utils/getStats/getStats';
 import { getUserInfo } from '@/utils/getUserInfo';
 import { resolveVanityUrl } from '@/utils/resolveVanityUrl';
@@ -38,10 +35,6 @@ export default async function Home({
                     stats={stats}
                     achievements={achievements}
                 />
-                {getWeaponIdFromIndex(stats.equipped_primary)}
-                {getWeaponIdFromIndex(stats.equipped_secondary)}
-                {getGrenadeIdFromIndex(stats.equipped_grenade)}
-                {getMeleeIdFromIndex(stats.equipped_melee)}
             </div>
             <div>{JSON.stringify(stats)}</div>
         </main>

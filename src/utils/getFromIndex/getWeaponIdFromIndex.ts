@@ -7,16 +7,16 @@ const weaponList = [
     'thompson',
     'sten',
     'garand',
-    'm1918',
+    'm1918', // BAR
     'm1903',
     'm1912',
     'mp38',
-    'carbine',
-    'mp44',
+    'carbine', // M1 Carbine
+    'mp44', // StG 44
     'mg42',
     'mosin',
     'sterling',
-    'geco',
+    'geco', // Double-barrel
     'dp28',
     'tt33',
     'ithaca',

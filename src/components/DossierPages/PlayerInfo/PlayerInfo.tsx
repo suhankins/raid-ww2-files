@@ -7,6 +7,7 @@ import type { ISteamStats } from '@/lib/ISteamStats';
 import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import type { IAchievement } from '@/lib/IAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
+import { LastSeenWith } from './LastSeenWith/LastSeenWith';
 
 export function PlayerInfo({
     user,
@@ -56,6 +57,7 @@ export function PlayerInfo({
                     &quot;{latestAchievement.name}&quot; for details.
                 </p>
             </section>
+            <LastSeenWith stats={stats} />
         </div>
     );
 }
