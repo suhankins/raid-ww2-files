@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ISteamStats } from '@/lib/ISteamStats';
+import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
 import { getWeaponName } from '@/utils/getWeaponName';
 
 export function Weapon({
@@ -9,10 +10,7 @@ export function Weapon({
     stats: ISteamStats;
     weaponId: string;
 }) {
-    const killCount =
-        stats[`weapon_kills_${weaponId}`] ||
-        stats[`melee_kills_${weaponId}`] ||
-        stats[`grenade_kills_${weaponId}`];
+    const killCount = getWeaponKillCount(weaponId, stats);
     return (
         <>
             <img alt="" src={`/static/images/raid/weapons/${weaponId}.png`} />
