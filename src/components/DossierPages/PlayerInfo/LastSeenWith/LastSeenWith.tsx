@@ -5,6 +5,7 @@ import { getMeleeIdFromIndex } from '@/utils/getFromIndex/getMeleeIdFromIndex';
 import { getWeaponIdFromIndex } from '@/utils/getFromIndex/getWeaponIdFromIndex';
 import styles from './LastSeenWith.module.css';
 import { Weapon } from './Weapon';
+import { getWeaponById } from '@/utils/WeaponsDB';
 
 export function LastSeenWith({ stats }: { stats: ISteamStats }) {
     return (
@@ -13,19 +14,27 @@ export function LastSeenWith({ stats }: { stats: ISteamStats }) {
             <div className={styles.lastSeenWithGrid}>
                 <Weapon
                     stats={stats}
-                    weaponId={getWeaponIdFromIndex(stats.equipped_primary)}
+                    weapon={getWeaponById(
+                        getWeaponIdFromIndex(stats.equipped_primary)
+                    )}
                 />
                 <Weapon
                     stats={stats}
-                    weaponId={getWeaponIdFromIndex(stats.equipped_secondary)}
+                    weapon={getWeaponById(
+                        getWeaponIdFromIndex(stats.equipped_secondary)
+                    )}
                 />
                 <Weapon
                     stats={stats}
-                    weaponId={getGrenadeIdFromIndex(stats.equipped_grenade)}
+                    weapon={getWeaponById(
+                        getGrenadeIdFromIndex(stats.equipped_grenade)
+                    )}
                 />
                 <Weapon
                     stats={stats}
-                    weaponId={getMeleeIdFromIndex(stats.equipped_melee)}
+                    weapon={getWeaponById(
+                        getMeleeIdFromIndex(stats.equipped_melee)
+                    )}
                 />
             </div>
         </section>

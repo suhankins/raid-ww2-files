@@ -91,3 +91,6 @@ export const WeaponsSortedByType: Weapon[] = WeaponsDB.sort((a, b) => {
 
     return 0;
 });
+
+export const getWeaponById = (weaponId: string) =>
+    WeaponsDB.find((weapon) => weapon.id === weaponId);

@@ -1,21 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import { ISteamStats } from '@/lib/ISteamStats';
+import { Weapon } from '@/utils/WeaponsDB';
 import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
-import { getWeaponName } from '@/utils/getWeaponName';
 
 export function Weapon({
     stats,
-    weaponId,
+    weapon,
 }: {
     stats: ISteamStats;
-    weaponId: string;
+    weapon: Weapon | undefined;
 }) {
-    const killCount = getWeaponKillCount(weaponId, stats);
+    if (!weapon) {
+        return <></>;
+    }
+    const killCount = getWeaponKillCount(weapon.id, stats);
     return (
         <>
-            <img alt="" src={`/static/images/raid/weapons/${weaponId}.png`} />
+            <img alt="" src={`/static/images/raid/weapons/${weapon.id}.png`} />
             <div>
-                <h3>{getWeaponName(weaponId) || 'Name goes here'}</h3>
+                <h3>{weapon.name || 'Name goes here'}</h3>
                 <p>Confirmed kills: {killCount || 'Unknown'}</p>
             </div>
         </>
