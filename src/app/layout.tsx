@@ -1,3 +1,4 @@
+import AnimatedBackground from '@/components/AnimatedBackground/AnimatedBackground';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <AnimatedBackground />
+                {children}
+            </body>
         </html>
     );
 }

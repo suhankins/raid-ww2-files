@@ -1,3 +1,4 @@
+import { LastSeenWith } from '@/components/DossierPages/LastSeenWith/LastSeenWith';
 import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
 import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
 import { getAchievements } from '@/utils/getAchievements';
@@ -30,15 +31,10 @@ export default async function Home({
     const achievements = await getAchievements(steamid);
     return (
         <main>
-            <div>
-                <PlayerInfo
-                    user={user}
-                    stats={stats}
-                    achievements={achievements}
-                />
-                <WeaponsTable stats={stats} />
-            </div>
-            <div>{JSON.stringify(stats)}</div>
+            <h1>Raider dossier</h1>
+            <PlayerInfo user={user} stats={stats} achievements={achievements} />
+            <LastSeenWith stats={stats} />
+            <WeaponsTable stats={stats} />
         </main>
     );
 }

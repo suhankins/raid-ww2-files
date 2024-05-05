@@ -1,0 +1,10 @@
+.animatedBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    z-index: -999999;
+    object-fit: cover;
+}

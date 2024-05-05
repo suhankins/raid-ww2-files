@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ISteamStats } from '@/lib/ISteamStats';
-import { Weapon } from '@/utils/WeaponsDB';
+import { type Weapon } from '@/utils/WeaponsDB';
 import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
 
 export function Weapon({
@@ -18,8 +18,8 @@ export function Weapon({
         <>
             <img alt="" src={`/static/images/raid/weapons/${weapon.id}.png`} />
             <div>
-                <h3>{weapon.name || 'Name goes here'}</h3>
-                <p>Confirmed kills: {killCount || 'Unknown'}</p>
+                <h3>{weapon.name}</h3>
+                <p>Confirmed kills: {killCount ?? 'Unknown'}</p>
             </div>
         </>
     );

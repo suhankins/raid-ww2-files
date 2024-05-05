@@ -1,22 +1,6 @@
 @font-face {
-    font-family: 'IM Fell DW Pica';
-    src: url('/static/fonts/imfelldwpica/IMFellDWPica-Regular.ttf')
-        format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'IM Fell DW Pica';
-    src: url('/static/fonts/imfelldwpica/IMFellDWPica-Italic.ttf')
-        format('truetype');
-    font-weight: 400;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Caveat';
-    src: url('/static/fonts/caveat/Caveat-Medium.ttf') format('truetype');
+    font-family: 'Lato';
+    src: url('/static/fonts/lato/Lato-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -44,4 +28,44 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+}
+
+body {
+    background-image: url('/static/images/raid/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--raid_white);
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0.5rem;
+}
+
+h1 {
+    color: var(--raid_red);
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    color: var(--raid_red);
+}
+
+main {
+    width: 100%;
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
 }
