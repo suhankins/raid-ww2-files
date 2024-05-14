@@ -1,26 +1,22 @@
-// Weapons:
-// https://github.com/steam-test1/Raid-WW2-Lua-Complete/blob/c593f4b5b08f2a1ee8e72e0c8a7f50514e89a0a2/lib/tweak_data/statisticstweakdata.lua#L196C4-L196C4
-
-// Melee:
-// https://github.com/steam-test1/Raid-WW2-Lua-Complete/blob/c593f4b5b08f2a1ee8e72e0c8a7f50514e89a0a2/lib/tweak_data/statisticstweakdata.lua#L223
-
-// Grenades:
-
 export interface Weapon {
     id: string;
     name: string;
-    type: 'melee' | 'grenade' | 'primary' | 'secondary';
+    type:
+        | 'melee'
+        | 'grenade'
+        | 'primary'
+        | 'secondary'
+        | 'all'
+        | 'turret'
+        | 'mine';
     hidden?: boolean;
 }
-
-// https://github.com/steam-test1/Raid-WW2-Lua-Complete/blob/c593f4b5b08f2a1ee8e72e0c8a7f50514e89a0a2/lib/tweak_data/statisticstweakdata.lua#L235
 
 export const Grenades: Weapon[] = [
     { id: 'm24', name: 'M24 Stielhandgranate', type: 'grenade' },
     { id: 'concrete', name: 'Concrete Grenade', type: 'grenade' },
     { id: 'd343', name: '343d Hand Grenade', type: 'grenade' },
     { id: 'mills', name: 'Mills Grenade', type: 'grenade' },
-    { id: 'betty', name: 'Spring Mine', type: 'grenade' },
 ];
 
 export const Melee: Weapon[] = [
@@ -76,14 +72,34 @@ export const Guns: Weapon[] = [
     { id: 'shotty', name: 'Pocket Double-Barrel', type: 'secondary' },
 ];
 
-export const WeaponsDB: Weapon[] = [...Grenades, ...Melee, ...Guns];
+export const Mines: Weapon[] = [
+    { id: 'betty', name: 'Spring Mine', type: 'mine' },
+];
+
+export const Turrets: Weapon[] = [
+    { id: 'turret', name: 'Mounted Turret', type: 'turret' },
+];
+
+export const All: Weapon[] = [{ id: 'all', name: 'Total', type: 'all' }];
+
+export const WeaponsDB: Weapon[] = [
+    ...Grenades,
+    ...Mines,
+    ...Melee,
+    ...Guns,
+    ...Turrets,
+    ...All,
+];
 
 export const WeaponsSortedByType: Weapon[] = WeaponsDB.sort((a, b) => {
     const typeOrder = {
         primary: 0,
         secondary: 1,
         grenade: 2,
+        mine: 3,
         melee: 3,
+        turret: 4,
+        all: 5,
     };
 
     if (typeOrder[a.type] < typeOrder[b.type]) return -1;

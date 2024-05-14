@@ -13,7 +13,7 @@ export function Weapon({
     if (!weapon) {
         return <></>;
     }
-    const killCount = getWeaponKillCount(weapon.id, stats);
+    const killCount = getWeaponKillCount(weapon, stats);
     return (
         <>
             <img alt="" src={`/static/images/raid/weapons/${weapon.id}.png`} />
