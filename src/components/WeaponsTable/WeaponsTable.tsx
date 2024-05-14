@@ -17,11 +17,9 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
             </thead>
             <tbody>
                 {WeaponsSortedByType.filter((weapon) => !weapon.hidden).map(
-                    (weapon, index, weapons) => (
+                    (weapon) => (
                         <TableRow
                             weapon={weapon}
-                            index={index}
-                            weapons={weapons}
                             key={weapon.id}
                             stats={stats}
                         />

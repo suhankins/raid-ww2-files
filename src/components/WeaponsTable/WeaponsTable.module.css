@@ -23,8 +23,3 @@
 .table thead th {
     padding: 10px;
 }
-
-.separate th,
-.separate td {
-    border-top: 1px solid var(--raid_dirty_white);
-}
