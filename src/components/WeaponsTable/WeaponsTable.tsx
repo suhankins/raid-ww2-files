@@ -18,17 +18,21 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
 
     return (
         <>
-            <Stepper
-                options={PrettyTypes}
-                selectedOption={typesToPrettyType(selectedType)}
-                onChange={(value) =>
-                    setSelectedType(
-                        prettyTypeToTypes(value as (typeof PrettyTypes)[number])
-                    )
-                }
-            >
-                Slot
-            </Stepper>
+            <div className={styles.controls}>
+                <Stepper
+                    options={PrettyTypes}
+                    selectedOption={typesToPrettyType(selectedType)}
+                    onChange={(value) =>
+                        setSelectedType(
+                            prettyTypeToTypes(
+                                value as (typeof PrettyTypes)[number]
+                            )
+                        )
+                    }
+                >
+                    Slot
+                </Stepper>
+            </div>
             <table className={styles.table}>
                 <thead>
                     <tr>
