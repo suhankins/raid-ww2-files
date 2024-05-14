@@ -119,21 +119,32 @@ export const WeaponsDB: IWeapon[] = [
     ...All,
 ];
 
+export const Types: NonNullable<IWeapon['type']>[] = [
+    'primary',
+    'secondary',
+    'grenade',
+    'mine',
+    'melee',
+    'turret',
+    'all',
+];
+
+export const Categories: NonNullable<IWeapon['category']>[] = [
+    'assault_rifle',
+    'smg',
+    'lmg',
+    'snp',
+    'pistol',
+    'shotgun',
+];
+
 export const WeaponsSortedByType: IWeapon[] = WeaponsDB.sort((a, b) => {
-    const typeOrder = {
-        primary: 0,
-        secondary: 1,
-        grenade: 2,
-        mine: 3,
-        melee: 3,
-        turret: 4,
-        all: 5,
-    };
-
-    if (typeOrder[a.type] < typeOrder[b.type]) return -1;
-    if (typeOrder[a.type] > typeOrder[b.type]) return 1;
-
-    return 0;
+    const typeDifference = Types.indexOf(a.type) - Types.indexOf(b.type);
+    if (typeDifference === 0 && a.category && b.category) {
+        return Categories.indexOf(a.category) - Categories.indexOf(b.category);
+    } else {
+        return typeDifference;
+    }
 });
 
 export const getWeaponById = (weaponId: string) =>
