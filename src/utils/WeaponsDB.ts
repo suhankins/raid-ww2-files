@@ -125,14 +125,11 @@ export const Turrets: IWeapon[] = [
     { id: 'turret', name: 'Mounted Turret', type: 'turret' },
 ];
 
-export const All: IWeapon[] = [{ id: 'all', name: 'Total', type: 'all' }];
-
 export const WeaponsDB: IWeapon[] = [
     ...Grenades,
     ...Melee,
     ...Guns,
     ...Turrets,
-    ...All,
 ];
 
 const WeaponTypes: NonNullable<IWeapon['type']>[] = [

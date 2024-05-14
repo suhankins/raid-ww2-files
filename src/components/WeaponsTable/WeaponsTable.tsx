@@ -5,15 +5,28 @@ import { WeaponsSortedByType } from '@/utils/WeaponsDB';
 import styles from './WeaponsTable.module.css';
 import TableRow from './TableRow';
 import Stepper from '../Stepper/Stepper';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { IWeapon } from '@/lib/IWeapon';
 import { PrettyTypes } from '@/utils/prettyType/PrettyTypes';
 import typeToPrettyType from '@/utils/prettyType/typesToPrettyType';
 import prettyTypeToTypes from '@/utils/prettyType/prettyTypeToType';
+import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import toPercentage from '@/utils/toPercentage';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const [selectedType, setSelectedType] = useState<IWeapon['type'] | null>(
         null
+    );
+
+    const sortedWeapons = useMemo(
+        () =>
+            WeaponsSortedByType.filter(
+                (weapon) =>
+                    !weapon.hidden &&
+                    (selectedType === null ||
+                        selectedType.includes(weapon.type))
+            ),
+        [selectedType]
     );
 
     return (
@@ -44,12 +57,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {WeaponsSortedByType.filter(
-                        (weapon) =>
-                            !weapon.hidden &&
-                            (selectedType === null ||
-                                selectedType.includes(weapon.type))
-                    ).map((weapon) => (
+                    {sortedWeapons.map((weapon) => (
                         <TableRow
                             weapon={weapon}
                             key={weapon.id}
@@ -57,6 +65,24 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                         />
                     ))}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Totals</th>
+                        <td>
+                            {getKillsByWeaponType(selectedType || 'all', stats)}
+                        </td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>
+                            {toPercentage(
+                                getKillsByWeaponType(
+                                    selectedType || 'all',
+                                    stats
+                                ) / getKillsByWeaponType('all', stats)
+                            )}
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </>
     );

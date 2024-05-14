@@ -3,6 +3,7 @@ import { IWeapon } from '@/lib/IWeapon';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
 import getKillsByWeaponCategory from '@/utils/getKills/getKillsByWeaponCategory';
+import toPercentage from '@/utils/toPercentage';
 
 export default function TableRow({
     weapon,
@@ -18,22 +19,17 @@ export default function TableRow({
             <td>{kills ?? '-'}</td>
             <td>
                 {weapon.category && kills
-                    ? `${(
-                          (kills /
-                              getKillsByWeaponCategory(
-                                  weapon.category,
-                                  stats
-                              )) *
-                          100
-                      ).toFixed(1)}%`
+                    ? toPercentage(
+                          kills /
+                              getKillsByWeaponCategory(weapon.category, stats)
+                      )
                     : '-'}
             </td>
             <td>
                 {kills
-                    ? `${(
-                          (kills / getKillsByWeaponType(weapon.type, stats)) *
-                          100
-                      ).toFixed(1)}%`
+                    ? toPercentage(
+                          kills / getKillsByWeaponType(weapon.type, stats)
+                      )
                     : '-'}
             </td>
             <td>
