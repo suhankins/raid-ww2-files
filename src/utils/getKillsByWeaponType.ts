@@ -1,8 +1,8 @@
-import { type Weapon } from './WeaponsDB';
+import { type IWeapon } from '../lib/IWeapon';
 import type { ISteamStats } from '@/lib/ISteamStats';
 
 export default function getKillsByWeaponType(
-    type: Weapon['type'],
+    type: IWeapon['type'],
     stats: ISteamStats
 ): number {
     switch (type) {

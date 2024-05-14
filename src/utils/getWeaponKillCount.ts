@@ -1,8 +1,8 @@
 import { ISteamStats } from '@/lib/ISteamStats';
-import { Weapon } from './WeaponsDB';
+import { IWeapon } from '../lib/IWeapon';
 
 export function getWeaponKillCount(
-    weapon: Weapon,
+    weapon: IWeapon,
     stats: ISteamStats
 ): number | undefined {
     switch (weapon.type) {

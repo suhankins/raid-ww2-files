@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ISteamStats } from '@/lib/ISteamStats';
-import { type Weapon } from '@/utils/WeaponsDB';
+import { type IWeapon } from '@/lib/IWeapon';
 import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
 
 export function Weapon({
@@ -8,7 +8,7 @@ export function Weapon({
     weapon,
 }: {
     stats: ISteamStats;
-    weapon: Weapon | undefined;
+    weapon: IWeapon | undefined;
 }) {
     if (!weapon) {
         return <></>;

@@ -1,9 +1,10 @@
 import type { ISteamStats } from '@/lib/ISteamStats';
-import { WeaponsDB, type Weapon } from './WeaponsDB';
+import { WeaponsDB } from './WeaponsDB';
+import { type IWeapon } from '../lib/IWeapon';
 import { getWeaponKillCount } from './getWeaponKillCount';
 
 export default function getKillsByWeaponCategory(
-    category: NonNullable<Weapon['category']>,
+    category: NonNullable<IWeapon['category']>,
     stats: ISteamStats
 ): number {
     return WeaponsDB.filter((weapon) => weapon.category === category).reduce(

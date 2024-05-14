@@ -1,26 +1,13 @@
-export interface Weapon {
-    id: string;
-    name: string;
-    type:
-        | 'melee'
-        | 'grenade'
-        | 'primary'
-        | 'secondary'
-        | 'all'
-        | 'turret'
-        | 'mine';
-    hidden?: boolean;
-    category?: 'smg' | 'assault_rifle' | 'lmg' | 'pistol' | 'snp' | 'shotgun';
-}
+import { IWeapon } from '../lib/IWeapon';
 
-export const Grenades: Weapon[] = [
+export const Grenades: IWeapon[] = [
     { id: 'm24', name: 'M24 Stielhandgranate', type: 'grenade' },
     { id: 'concrete', name: 'Concrete Grenade', type: 'grenade' },
     { id: 'd343', name: '343d Hand Grenade', type: 'grenade' },
     { id: 'mills', name: 'Mills Grenade', type: 'grenade' },
 ];
 
-export const Melee: Weapon[] = [
+export const Melee: IWeapon[] = [
     { id: 'weapon', name: 'Weapon butt', type: 'melee' },
     { id: 'fists', name: 'Fists', type: 'melee', hidden: true },
     { id: 'm3_knife', name: 'M3 Combat Knife', type: 'melee' },
@@ -45,7 +32,7 @@ export const Melee: Weapon[] = [
     { id: 'lc14b', name: 'Bloody Machete', type: 'melee' },
 ];
 
-export const Guns: Weapon[] = [
+export const Guns: IWeapon[] = [
     { id: 'm1911', name: 'Colt M1911', type: 'secondary', category: 'pistol' },
     {
         id: 'webley',
@@ -113,17 +100,17 @@ export const Guns: Weapon[] = [
     },
 ];
 
-export const Mines: Weapon[] = [
+export const Mines: IWeapon[] = [
     { id: 'betty', name: 'Spring Mine', type: 'mine' },
 ];
 
-export const Turrets: Weapon[] = [
+export const Turrets: IWeapon[] = [
     { id: 'turret', name: 'Mounted Turret', type: 'turret' },
 ];
 
-export const All: Weapon[] = [{ id: 'all', name: 'Total', type: 'all' }];
+export const All: IWeapon[] = [{ id: 'all', name: 'Total', type: 'all' }];
 
-export const WeaponsDB: Weapon[] = [
+export const WeaponsDB: IWeapon[] = [
     ...Grenades,
     ...Mines,
     ...Melee,
@@ -132,7 +119,7 @@ export const WeaponsDB: Weapon[] = [
     ...All,
 ];
 
-export const WeaponsSortedByType: Weapon[] = WeaponsDB.sort((a, b) => {
+export const WeaponsSortedByType: IWeapon[] = WeaponsDB.sort((a, b) => {
     const typeOrder = {
         primary: 0,
         secondary: 1,

@@ -1,5 +1,5 @@
 import { ISteamStats } from '@/lib/ISteamStats';
-import { Weapon } from '@/utils/WeaponsDB';
+import { IWeapon } from '@/lib/IWeapon';
 import getKillsByWeaponType from '@/utils/getKillsByWeaponType';
 import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
 import styles from './WeaponsTable.module.css';
@@ -11,9 +11,9 @@ export default function TableRow({
     weapons,
     stats,
 }: {
-    weapon: Weapon;
+    weapon: IWeapon;
     index: number;
-    weapons: Weapon[];
+    weapons: IWeapon[];
     stats: ISteamStats;
 }) {
     const kills = getWeaponKillCount(weapon, stats);
