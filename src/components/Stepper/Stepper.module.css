@@ -1,5 +1,5 @@
 .stepperWrapper {
-    width: 180px;
+    width: 250px;
     height: 48px;
     display: flex;
 }
@@ -44,6 +44,10 @@
     padding: 10px;
     font-size: 1.2rem;
     font-family: inherit;
+}
+
+.stepper:disabled {
+    color: var(--raid_grey);
 }
 
 .stepper:hover {

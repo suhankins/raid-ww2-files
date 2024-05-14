@@ -37,6 +37,7 @@ export default function Stepper({
                     className={styles.stepper}
                     value={selectedOption}
                     id={id}
+                    disabled={options.length === 1}
                 >
                     {options.map((option) => (
                         <option value={option} key={option}>
