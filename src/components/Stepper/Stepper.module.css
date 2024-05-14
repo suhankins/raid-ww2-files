@@ -1,0 +1,47 @@
+.stepperWrapper {
+    width: 180px;
+    height: 48px;
+    display: flex;
+}
+
+.chevron {
+    width: 30px;
+    background: none;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.chevron:hover {
+    color: var(--raid_red);
+}
+
+.chevron:disabled {
+    color: var(--raid_grey);
+}
+
+.chevron svg {
+    height: 48px;
+}
+
+.stepper {
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    appearance: none;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: inherit;
+}
+
+.stepper:hover {
+    color: var(--raid_red);
+}
+
+.stepper option {
+    color: var(--raid_black);
+}
