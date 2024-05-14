@@ -4,4 +4,5 @@ export const PrettyTypes = [
     'Secondary',
     'Equipment',
     'Melee',
+    'Turret',
 ] as const;

@@ -15,5 +15,7 @@ export default function prettyTypeToTypes(
             return 'primary';
         case 'Secondary':
             return 'secondary';
+        case 'Turret':
+            return 'turret';
     }
 }

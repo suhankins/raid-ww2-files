@@ -14,6 +14,8 @@ export default function typeToPrettyType(
             return 'Equipment';
         case 'melee':
             return 'Melee';
+        case 'turret':
+            return 'Turret';
         default:
             return 'All';
     }
