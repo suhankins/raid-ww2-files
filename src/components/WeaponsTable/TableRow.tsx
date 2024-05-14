@@ -3,6 +3,7 @@ import { Weapon } from '@/utils/WeaponsDB';
 import getKillsByWeaponType from '@/utils/getKillsByWeaponType';
 import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
 import styles from './WeaponsTable.module.css';
+import getKillsByWeaponCategory from '@/utils/getKillsByWeaponCategory';
 
 export default function TableRow({
     weapon,
@@ -27,6 +28,18 @@ export default function TableRow({
         >
             <th scope="row">{weapon.name}</th>
             <td>{kills ?? '-'}</td>
+            <td>
+                {weapon.category && kills
+                    ? `${(
+                          (kills /
+                              getKillsByWeaponCategory(
+                                  weapon.category,
+                                  stats
+                              )) *
+                          100
+                      ).toFixed(1)}%`
+                    : '-'}
+            </td>
             <td>
                 {kills
                     ? `${(

@@ -10,6 +10,7 @@ export interface Weapon {
         | 'turret'
         | 'mine';
     hidden?: boolean;
+    category?: 'smg' | 'assault_rifle' | 'lmg' | 'pistol' | 'snp' | 'shotgun';
 }
 
 export const Grenades: Weapon[] = [
@@ -45,31 +46,71 @@ export const Melee: Weapon[] = [
 ];
 
 export const Guns: Weapon[] = [
-    { id: 'm1911', name: 'Colt M1911', type: 'secondary' },
-    { id: 'webley', name: 'Webley MK VI', type: 'secondary' },
-    { id: 'c96', name: 'C96 Mauser', type: 'secondary' },
-    { id: 'thompson', name: 'Thompson M1A1', type: 'primary' },
-    { id: 'sten', name: 'Sten MkII', type: 'primary' },
-    { id: 'garand', name: 'M1 Garand', type: 'primary' },
-    { id: 'm1918', name: 'BAR', type: 'primary' },
-    { id: 'm1903', name: 'M1903 Springfield', type: 'primary' },
-    { id: 'm1912', name: 'M12', type: 'primary' },
-    { id: 'mp38', name: 'MP 38', type: 'primary' },
-    { id: 'carbine', name: 'M1 Carbine', type: 'primary' },
-    { id: 'mp44', name: 'StG 44', type: 'primary' },
-    { id: 'mg42', name: 'MG 42', type: 'primary' },
-    { id: 'mosin', name: 'Mosin Nagant', type: 'primary' },
-    { id: 'sterling', name: 'Sterling', type: 'primary' },
-    { id: 'geco', name: 'Double-Barrel', type: 'primary' },
-    { id: 'dp28', name: 'Degtyaryov DP-28', type: 'primary' },
-    { id: 'tt33', name: 'Tokarev TT-33', type: 'secondary' },
-    { id: 'ithaca', name: 'Ithaca 37', type: 'primary' },
-    { id: 'kar_98k', name: 'Karabiner 98k', type: 'primary' },
-    { id: 'bren', name: 'Bren', type: 'primary' },
-    { id: 'lee_enfield', name: 'Lee-Enfield', type: 'primary' },
-    { id: 'browning', name: 'Browning Auto-5', type: 'primary' },
-    { id: 'welrod', name: 'Welrod', type: 'secondary' },
-    { id: 'shotty', name: 'Pocket Double-Barrel', type: 'secondary' },
+    { id: 'm1911', name: 'Colt M1911', type: 'secondary', category: 'pistol' },
+    {
+        id: 'webley',
+        name: 'Webley MK VI',
+        type: 'secondary',
+        category: 'pistol',
+    },
+    { id: 'c96', name: 'C96 Mauser', type: 'secondary', category: 'pistol' },
+    { id: 'thompson', name: 'Thompson M1A1', type: 'primary', category: 'smg' },
+    { id: 'sten', name: 'Sten MkII', type: 'primary', category: 'smg' },
+    {
+        id: 'garand',
+        name: 'M1 Garand',
+        type: 'primary',
+        category: 'assault_rifle',
+    },
+    { id: 'm1918', name: 'BAR', type: 'primary', category: 'lmg' },
+    {
+        id: 'm1903',
+        name: 'M1903 Springfield',
+        type: 'primary',
+        category: 'snp',
+    },
+    { id: 'm1912', name: 'M12', type: 'primary', category: 'shotgun' },
+    { id: 'mp38', name: 'MP 38', type: 'primary', category: 'smg' },
+    {
+        id: 'carbine',
+        name: 'M1 Carbine',
+        type: 'primary',
+        category: 'assault_rifle',
+    },
+    { id: 'mp44', name: 'StG 44', type: 'primary', category: 'assault_rifle' },
+    { id: 'mg42', name: 'MG 42', type: 'primary', category: 'lmg' },
+    { id: 'mosin', name: 'Mosin Nagant', type: 'primary', category: 'snp' },
+    { id: 'sterling', name: 'Sterling', type: 'primary', category: 'smg' },
+    { id: 'geco', name: 'Double-Barrel', type: 'primary', category: 'shotgun' },
+    { id: 'dp28', name: 'Degtyaryov DP-28', type: 'primary', category: 'lmg' },
+    {
+        id: 'tt33',
+        name: 'Tokarev TT-33',
+        type: 'secondary',
+        category: 'pistol',
+    },
+    { id: 'ithaca', name: 'Ithaca 37', type: 'primary', category: 'shotgun' },
+    { id: 'kar_98k', name: 'Karabiner 98k', type: 'primary', category: 'snp' },
+    { id: 'bren', name: 'Bren', type: 'primary', category: 'lmg' },
+    {
+        id: 'lee_enfield',
+        name: 'Lee-Enfield',
+        type: 'primary',
+        category: 'snp',
+    },
+    {
+        id: 'browning',
+        name: 'Browning Auto-5',
+        type: 'primary',
+        category: 'shotgun',
+    },
+    { id: 'welrod', name: 'Welrod', type: 'secondary', category: 'pistol' },
+    {
+        id: 'shotty',
+        name: 'Pocket Double-Barrel',
+        type: 'secondary',
+        category: 'pistol',
+    },
 ];
 
 export const Mines: Weapon[] = [

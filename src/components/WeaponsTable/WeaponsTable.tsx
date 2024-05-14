@@ -10,6 +10,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Kills</th>
+                    <th scope="col">% of category</th>
                     <th scope="col">% of slot</th>
                     <th scope="col">% of total</th>
                 </tr>
