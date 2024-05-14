@@ -1,0 +1,30 @@
+.table {
+    width: 100%;
+    border-spacing: 0 3px;
+}
+
+.table th,
+.table td {
+    padding: 5px;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--raid_list_background);
+}
+
+.table thead {
+    color: var(--raid_red);
+}
+
+.table thead th {
+    padding: 10px;
+}
+
+.separate th,
+.separate td {
+    border-top: 1px solid var(--raid_dirty_white);
+}
