@@ -117,7 +117,7 @@ export const Guns: IWeapon[] = [
         id: 'shotty',
         name: 'Pocket Double-Barrel',
         type: 'secondary',
-        category: 'pistol',
+        category: 'shotgun',
     },
 ];
 
