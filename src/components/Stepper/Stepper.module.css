@@ -4,6 +4,13 @@
     display: flex;
 }
 
+.stepperLabel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
 .chevron {
     width: 30px;
     background: none;

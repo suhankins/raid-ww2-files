@@ -1,8 +1,8 @@
 import { ISteamStats } from '@/lib/ISteamStats';
 import { IWeapon } from '@/lib/IWeapon';
-import getKillsByWeaponType from '@/utils/getKillsByWeaponType';
-import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
-import getKillsByWeaponCategory from '@/utils/getKillsByWeaponCategory';
+import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
+import getKillsByWeaponCategory from '@/utils/getKills/getKillsByWeaponCategory';
 
 export default function TableRow({
     weapon,

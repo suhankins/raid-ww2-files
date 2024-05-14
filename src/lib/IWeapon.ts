@@ -10,5 +10,12 @@ export interface IWeapon {
         | 'turret'
         | 'mine';
     hidden?: boolean;
-    category?: 'smg' | 'assault_rifle' | 'lmg' | 'pistol' | 'snp' | 'shotgun';
+    category?:
+        | 'all'
+        | 'smg'
+        | 'assault_rifle'
+        | 'lmg'
+        | 'pistol'
+        | 'snp'
+        | 'shotgun';
 }

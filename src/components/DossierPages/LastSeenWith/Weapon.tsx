@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { ISteamStats } from '@/lib/ISteamStats';
 import { type IWeapon } from '@/lib/IWeapon';
-import { getWeaponKillCount } from '@/utils/getWeaponKillCount';
+import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
 
 export function Weapon({
     stats,

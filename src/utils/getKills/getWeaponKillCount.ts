@@ -1,5 +1,5 @@
 import { ISteamStats } from '@/lib/ISteamStats';
-import { IWeapon } from '../lib/IWeapon';
+import { IWeapon } from '../../lib/IWeapon';
 
 export function getWeaponKillCount(
     weapon: IWeapon,

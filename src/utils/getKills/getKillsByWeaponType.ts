@@ -1,4 +1,4 @@
-import { type IWeapon } from '../lib/IWeapon';
+import { type IWeapon } from '../../lib/IWeapon';
 import type { ISteamStats } from '@/lib/ISteamStats';
 
 export default function getKillsByWeaponType(
@@ -9,9 +9,11 @@ export default function getKillsByWeaponType(
         case 'melee':
             return stats.ach_kill_enemies_with_melee;
         case 'grenade':
-            return stats.ach_kill_enemies_with_grenades;
         case 'mine':
-            return stats.ach_kill_enemies_with_mines;
+            return (
+                stats.ach_kill_enemies_with_grenades +
+                stats.ach_kill_enemies_with_mines
+            );
         case 'turret':
             return stats.ach_kill_enemies_with_turret;
         case 'secondary':
