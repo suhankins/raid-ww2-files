@@ -12,7 +12,6 @@ export function getWeaponKillCount(
         case 'melee':
             return stats[`melee_kills_${weapon.id}`];
         case 'grenade':
-        case 'mine':
             return stats[`grenade_kills_${weapon.id}`];
         case 'turret':
             return stats.ach_kill_enemies_with_turret;

@@ -8,11 +8,11 @@ import Stepper from '../Stepper/Stepper';
 import { useState } from 'react';
 import { IWeapon } from '@/lib/IWeapon';
 import { PrettyTypes } from '@/utils/prettyType/PrettyTypes';
-import typesToPrettyType from '@/utils/prettyType/typesToPrettyType';
-import prettyTypeToTypes from '@/utils/prettyType/prettyTypeToTypes';
+import typeToPrettyType from '@/utils/prettyType/typesToPrettyType';
+import prettyTypeToTypes from '@/utils/prettyType/prettyTypeToType';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
-    const [selectedType, setSelectedType] = useState<IWeapon['type'][] | null>(
+    const [selectedType, setSelectedType] = useState<IWeapon['type'] | null>(
         null
     );
 
@@ -21,7 +21,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
             <div className={styles.controls}>
                 <Stepper
                     options={PrettyTypes}
-                    selectedOption={typesToPrettyType(selectedType)}
+                    selectedOption={typeToPrettyType(selectedType)}
                     onChange={(value) =>
                         setSelectedType(
                             prettyTypeToTypes(

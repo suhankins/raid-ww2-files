@@ -7,8 +7,18 @@ export default function getKillsByWeaponCategory(
     category: NonNullable<IWeapon['category']>,
     stats: ISteamStats
 ): number {
-    return WeaponsDB.filter((weapon) => weapon.category === category).reduce(
-        (total, weapon) => total + (getWeaponKillCount(weapon, stats) ?? 0),
-        0
-    );
+    switch (category) {
+        case 'mine':
+            return stats.ach_kill_enemies_with_mines;
+        case 'grenade':
+            return stats.ach_kill_enemies_with_grenades;
+        default:
+            return WeaponsDB.filter(
+                (weapon) => weapon.category === category
+            ).reduce(
+                (total, weapon) =>
+                    total + (getWeaponKillCount(weapon, stats) ?? 0),
+                0
+            );
+    }
 }

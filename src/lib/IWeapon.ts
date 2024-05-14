@@ -1,14 +1,7 @@
 export interface IWeapon {
     id: string;
     name: string;
-    type:
-        | 'melee'
-        | 'grenade'
-        | 'primary'
-        | 'secondary'
-        | 'all'
-        | 'turret'
-        | 'mine';
+    type: 'melee' | 'grenade' | 'primary' | 'secondary' | 'all' | 'turret';
     hidden?: boolean;
     category?:
         | 'all'
@@ -17,5 +10,7 @@ export interface IWeapon {
         | 'lmg'
         | 'pistol'
         | 'snp'
-        | 'shotgun';
+        | 'shotgun'
+        | 'mine'
+        | 'grenade';
 }

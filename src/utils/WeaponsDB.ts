@@ -1,10 +1,31 @@
 import { IWeapon } from '../lib/IWeapon';
 
 export const Grenades: IWeapon[] = [
-    { id: 'm24', name: 'M24 Stielhandgranate', type: 'grenade' },
-    { id: 'concrete', name: 'Concrete Grenade', type: 'grenade' },
-    { id: 'd343', name: '343d Hand Grenade', type: 'grenade' },
-    { id: 'mills', name: 'Mills Grenade', type: 'grenade' },
+    {
+        id: 'm24',
+        name: 'M24 Stielhandgranate',
+        type: 'grenade',
+        category: 'grenade',
+    },
+    {
+        id: 'concrete',
+        name: 'Concrete Grenade',
+        type: 'grenade',
+        category: 'grenade',
+    },
+    {
+        id: 'd343',
+        name: '343d Hand Grenade',
+        type: 'grenade',
+        category: 'grenade',
+    },
+    {
+        id: 'mills',
+        name: 'Mills Grenade',
+        type: 'grenade',
+        category: 'grenade',
+    },
+    { id: 'betty', name: 'Spring Mine', type: 'grenade', category: 'mine' },
 ];
 
 export const Melee: IWeapon[] = [
@@ -100,10 +121,6 @@ export const Guns: IWeapon[] = [
     },
 ];
 
-export const Mines: IWeapon[] = [
-    { id: 'betty', name: 'Spring Mine', type: 'mine' },
-];
-
 export const Turrets: IWeapon[] = [
     { id: 'turret', name: 'Mounted Turret', type: 'turret' },
 ];
@@ -112,7 +129,6 @@ export const All: IWeapon[] = [{ id: 'all', name: 'Total', type: 'all' }];
 
 export const WeaponsDB: IWeapon[] = [
     ...Grenades,
-    ...Mines,
     ...Melee,
     ...Guns,
     ...Turrets,
@@ -123,7 +139,6 @@ const WeaponTypes: NonNullable<IWeapon['type']>[] = [
     'primary',
     'secondary',
     'grenade',
-    'mine',
     'melee',
     'turret',
     'all',
@@ -136,6 +151,8 @@ const WeaponCategories: NonNullable<IWeapon['category']>[] = [
     'snp',
     'pistol',
     'shotgun',
+    'grenade',
+    'mine',
 ];
 
 export const WeaponsSortedByType: IWeapon[] = WeaponsDB.sort((a, b) => {

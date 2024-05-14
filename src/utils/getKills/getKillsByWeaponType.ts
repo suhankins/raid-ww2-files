@@ -9,7 +9,6 @@ export default function getKillsByWeaponType(
         case 'melee':
             return stats.ach_kill_enemies_with_melee;
         case 'grenade':
-        case 'mine':
             return (
                 stats.ach_kill_enemies_with_grenades +
                 stats.ach_kill_enemies_with_mines
