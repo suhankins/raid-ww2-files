@@ -1,0 +1,8 @@
+.weaponCard {
+    height: 150px;
+    display: flex;
+}
+
+.weaponCard img {
+    height: 100%;
+}
