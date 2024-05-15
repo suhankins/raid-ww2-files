@@ -10,17 +10,15 @@ export default function getJobAccomplishments(
     completed: boolean;
 }[] {
     if (!job.accomplishments) {
-        return [];
-    }
-    if (typeof job.accomplishments === 'string') {
-        const operation = Operations.find(
-            (operation) => operation.id === job.accomplishments
-        );
-        if (operation) {
-            return getJobAccomplishments(operation, achievements);
-        } else {
-            return [];
+        if ('parent' in job && job.parent) {
+            const operation = Operations.find(
+                (operation) => operation.id === job.parent
+            );
+            if (operation) {
+                return getJobAccomplishments(operation, achievements);
+            }
         }
+        return [];
     }
     return job.accomplishments.map((accomplishment) => ({
         type: accomplishment.type,

@@ -17,10 +17,10 @@ export type IRaid = {
     id: string;
     name: string;
     /**
-     * List of IAccomplishment objects
-     * or string with ID of operation that contains it instead
+     * Parent operation
      */
-    accomplishments?: IAccomplishment[] | string;
+    parent?: string;
+    accomplishments?: IAccomplishment[];
 };
 
 export type IOperation = {
@@ -28,7 +28,7 @@ export type IOperation = {
     id: string;
     name: string;
     parts: IRaid[];
-    accomplishments?: IAccomplishment[];
+    accomplishments: IAccomplishment[];
 };
 
 export type IJob = IRaid | IOperation;
