@@ -1,12 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
 import pageStyles from '../Pages.module.css';
 import styles from './PlayerInfo.module.css';
-import { TapedPicture } from '@/components/TapedPicture/TapedPicture';
 import { getLevelString } from '@/utils/getLevelString';
 import type { ISteamStats } from '@/lib/ISteamStats';
 import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import type { IAchievement } from '@/lib/IAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
+import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
 
 export function PlayerInfo({
     user,
@@ -18,16 +19,22 @@ export function PlayerInfo({
     achievements: IAchievement[];
 }) {
     const latestAchievement = getLatestAchievement(achievements);
+    const character = getCharaterFromIndex(stats.equipped_character ?? 0);
 
     return (
         <section>
-            <TapedPicture
+            <img
                 className={styles.profilePicture}
-                src={user.avatarfull}
                 alt=""
+                src={`/static/images/raid/characters/${character.id}.png`}
             />
             <h2>
-                <a href={user.profileurl}>{user.personaname}</a>
+                <a href={user.profileurl}>{user.personaname}</a>{' '}
+                {character.id !== 'none' && (
+                    <span className={styles.sidenote}>
+                        Known as {character.name}
+                    </span>
+                )}
             </h2>
             <p className={pageStyles.handWritten}>
                 {getLevelString(stats, achievements)}
