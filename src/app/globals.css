@@ -13,9 +13,13 @@
     --raid_white: #d7d7d7;
     --raid_dirty_white: #d3d3d3;
     --raid_grey: #9e9e9e;
+    --raid_grey_filter: invert(68%) sepia(0%) saturate(3%) hue-rotate(189deg)
+        brightness(98%) contrast(72%);
     --raid_dark_grey: #565656;
     --raid_black: #0f0f0f;
     --raid_gold: #c78e38;
+    --raid_gold_filter: invert(49%) sepia(76%) saturate(356%) hue-rotate(357deg)
+        brightness(102%) contrast(98%);
     --raid_light_gold: #d8b883;
     --raid_list_background: rgba(215, 215, 215, 0.1);
 }

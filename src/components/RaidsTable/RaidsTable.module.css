@@ -1,6 +1,18 @@
 .bar {
     color: var(--red_white);
-    background-color: var(--raid_red);
-    height: 1.3rem;
+    background-color: var(--raid_dark_red);
+    height: 32px;
+    display: flex;
+    align-items: center;
     white-space: nowrap;
+}
+
+.accomplishment {
+    height: 32px;
+    opacity: 40%;
+}
+
+.accomplishment[data-completed='true'] {
+    opacity: 100%;
+    filter: var(--raid_gold_filter);
 }

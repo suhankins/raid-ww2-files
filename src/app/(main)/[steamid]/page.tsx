@@ -36,7 +36,7 @@ export default async function Home({
             <PlayerInfo user={user} stats={stats} achievements={achievements} />
             <LastSeenWith stats={stats} />
             <WeaponsTable stats={stats} />
-            <RaidsTable stats={stats} />
+            <RaidsTable stats={stats} achievements={achievements} />
         </main>
     );
 }

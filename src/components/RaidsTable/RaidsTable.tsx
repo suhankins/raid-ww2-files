@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { type ISteamStats } from '@/lib/ISteamStats';
@@ -9,8 +10,16 @@ import Stepper from '../Stepper/Stepper';
 import toPercentage from '@/utils/toPercentage';
 import { type IRaidStat } from '@/lib/IRaidStat';
 import formatJobStat from '@/utils/formatJobStat';
+import getJobAccomplishments from '@/utils/getJobAccomplishments';
+import { type IAchievement } from '@/lib/IAchievement';
 
-export default function RaidsTable({ stats }: { stats: ISteamStats }) {
+export default function RaidsTable({
+    stats,
+    achievements,
+}: {
+    stats: ISteamStats;
+    achievements: IAchievement[];
+}) {
     const [selectedStat, setSelectedStat] = useState<IRaidStat>('Completions');
 
     const total = useMemo(
@@ -48,6 +57,7 @@ export default function RaidsTable({ stats }: { stats: ISteamStats }) {
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Name</th>
+                        <th scope="col">Accomplishments</th>
                         <th scope="col">{selectedStat}</th>
                     </tr>
                 </thead>
@@ -65,6 +75,22 @@ export default function RaidsTable({ stats }: { stats: ISteamStats }) {
                             <tr key={raid.name}>
                                 <td>ICON</td>
                                 <td>{raid.name}</td>
+                                <td>
+                                    {getJobAccomplishments(
+                                        raid,
+                                        achievements
+                                    ).map((accomplishment) => (
+                                        <img
+                                            key={accomplishment.type}
+                                            src={`/static/images/raid/accomplishments/${accomplishment.type}.png`}
+                                            className={styles.accomplishment}
+                                            data-completed={
+                                                accomplishment.completed
+                                            }
+                                            alt=""
+                                        />
+                                    ))}
+                                </td>
                                 <td title={percentageOfTotal}>
                                     <div
                                         className={styles.bar}
@@ -74,8 +100,7 @@ export default function RaidsTable({ stats }: { stats: ISteamStats }) {
                                     >
                                         {formatJobStat(
                                             jobStat,
-                                            percentageOfTotal,
-                                            selectedStat
+                                            percentageOfTotal
                                         )}
                                     </div>
                                 </td>

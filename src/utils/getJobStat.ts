@@ -8,7 +8,7 @@ export default function getJobStat(
     stats: ISteamStats
 ) {
     const getter = statGetters[stat];
-    if ('id' in job) {
+    if (job.type === 'raid') {
         return getter(job, stats);
     }
     return job.parts.reduce((starts, raid) => starts + getter(raid, stats), 0);
