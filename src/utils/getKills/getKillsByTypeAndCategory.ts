@@ -2,7 +2,7 @@ import { ISteamStats } from '@/lib/ISteamStats';
 import { IWeapon } from '@/lib/IWeapon';
 import getKillsByWeaponType from './getKillsByWeaponType';
 import getKillsByWeaponCategory from './getKillsByWeaponCategory';
-import { getWeaponKillCount } from './getWeaponKillCount';
+import getKillsForGivenWeapons from './getKillsForGivenWeapons';
 
 export default function getKillsByTypeAndCategory(
     type: IWeapon['type'] | null,
@@ -16,8 +16,5 @@ export default function getKillsByTypeAndCategory(
     if (type === null) {
         getKillsByWeaponCategory(category, stats);
     }
-    return weapons.reduce(
-        (total, weapon) => total + (getWeaponKillCount(weapon, stats) ?? 0),
-        0
-    );
+    return getKillsForGivenWeapons(weapons, stats);
 }

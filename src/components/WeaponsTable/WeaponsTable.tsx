@@ -15,9 +15,8 @@ import toPercentage from '@/utils/toPercentage';
 import { PrettyCategories } from '@/utils/prettyCategory/PrettyCategories';
 import categoryToPrettyCategory from '@/utils/prettyCategory/categoryToPrettyCategory';
 import prettyCategoryToCategory from '@/utils/prettyCategory/prettyCategoryToCategory';
-import getKillsByWeaponCategory from '@/utils/getKills/getKillsByWeaponCategory';
-import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
 import getKillsByTypeAndCategory from '@/utils/getKills/getKillsByTypeAndCategory';
+import getKillsForGivenWeapons from '@/utils/getKills/getKillsForGivenWeapons';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const [selectedType, setSelectedType] = useState<IWeapon['type'] | null>(
@@ -138,7 +137,23 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                         <th scope="row">Totals</th>
                         <td>{killsByTypeAndCategory}</td>
                         <td>-</td>
-                        <td>-</td>
+                        <td>
+                            {categorizedWeapons.every(
+                                (weapon, _, array) =>
+                                    weapon.type === array[0].type
+                            )
+                                ? toPercentage(
+                                      getKillsForGivenWeapons(
+                                          categorizedWeapons,
+                                          stats
+                                      ) /
+                                          getKillsByWeaponType(
+                                              categorizedWeapons[0]?.type,
+                                              stats
+                                          )
+                                  )
+                                : '-'}
+                        </td>
                         <td>
                             {toPercentage(
                                 killsByTypeAndCategory /
