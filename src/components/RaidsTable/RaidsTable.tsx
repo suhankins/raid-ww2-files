@@ -45,6 +45,7 @@ export default function RaidsTable({
     return (
         <section>
             <Stepper
+                id="raidStat"
                 options={['Completions', 'Starts', 'Time']}
                 selectedOption={selectedStat}
                 onChange={(value) =>

@@ -87,6 +87,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
         <section>
             <div className={styles.controls}>
                 <Stepper
+                    id="weaponType"
                     options={PrettyTypes}
                     selectedOption={typeToPrettyType(selectedType)}
                     onChange={(value) =>
@@ -100,6 +101,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     Slot
                 </Stepper>
                 <Stepper
+                    id="weaponCategory"
                     options={filteredCategories}
                     selectedOption={categoryToPrettyCategory(selectedCategory)}
                     onChange={(value) =>
