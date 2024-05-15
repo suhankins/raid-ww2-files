@@ -30,12 +30,8 @@ export function PlayerInfo({
             />
             <h2>
                 <a href={user.profileurl}>{user.personaname}</a>{' '}
-                {character.id !== 'none' && (
-                    <span className={styles.sidenote}>
-                        Known as {character.name}
-                    </span>
-                )}
             </h2>
+            <h3 className={styles.sidenote}>{character.description}</h3>
             <p className={pageStyles.handWritten}>
                 {getLevelString(stats, achievements)}
             </p>

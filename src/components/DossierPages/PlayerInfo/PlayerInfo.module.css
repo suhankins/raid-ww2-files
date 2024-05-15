@@ -1,8 +1,9 @@
 .profilePicture {
     float: left;
-    width: 40ch;
+    width: 36ch;
+    margin-right: 2ch;
 }
 
 .sidenote {
-    font-size: 0.7em;
+    font-size: 1.2rem;
 }
