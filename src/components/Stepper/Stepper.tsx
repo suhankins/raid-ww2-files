@@ -29,6 +29,7 @@ export default function Stepper({
                         onChange(options[newOptionIndex]);
                     }}
                     disabled={options.indexOf(selectedOption) === 0}
+                    type="button"
                 >
                     <ChevronLeftIcon />
                 </button>
@@ -56,6 +57,7 @@ export default function Stepper({
                     disabled={
                         options.indexOf(selectedOption) === options.length - 1
                     }
+                    type="button"
                 >
                     <ChevronRightIcon />
                 </button>
