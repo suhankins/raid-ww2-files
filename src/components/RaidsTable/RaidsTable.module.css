@@ -1,3 +1,20 @@
+.table td:nth-child(1),
+.table th:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+.table td:nth-child(2),
+.table th:nth-child(2) {
+    font-size: 1.1rem;
+    width: 20ch;
+}
+
+.table td:nth-child(3),
+.table th:nth-child(3) {
+    width: 150px;
+}
+
 .bar {
     color: var(--red_white);
     background-color: var(--raid_dark_red);

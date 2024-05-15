@@ -53,7 +53,7 @@ export default function RaidsTable({
             >
                 Sort by
             </Stepper>
-            <table>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th scope="col"></th>
@@ -74,7 +74,12 @@ export default function RaidsTable({
 
                         return (
                             <tr key={raid.name}>
-                                <td>ICON</td>
+                                <td>
+                                    <img
+                                        alt=""
+                                        src={`/static/images/raid/raids/${raid.type === 'raid' && raid.parent ? raid.parent : raid.id}.png`}
+                                    />
+                                </td>
                                 <td>{raid.name}</td>
                                 <td>
                                     {getJobAccomplishments(
