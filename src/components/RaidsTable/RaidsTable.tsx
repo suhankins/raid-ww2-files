@@ -7,11 +7,11 @@ import getJobStat from '@/utils/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '../Stepper/Stepper';
 import toPercentage from '@/utils/toPercentage';
-
-type Stat = 'Completions' | 'Time';
+import { type IRaidStat } from '@/lib/IRaidStat';
+import formatJobStat from '@/utils/formatJobStat';
 
 export default function RaidsTable({ stats }: { stats: ISteamStats }) {
-    const [selectedStat, setSelectedStat] = useState<Stat>('Completions');
+    const [selectedStat, setSelectedStat] = useState<IRaidStat>('Completions');
 
     const total = useMemo(
         () =>
@@ -35,7 +35,7 @@ export default function RaidsTable({ stats }: { stats: ISteamStats }) {
     return (
         <section>
             <Stepper
-                options={['Completions', 'Time']}
+                options={['Completions', 'Starts', 'Time']}
                 selectedOption={selectedStat}
                 onChange={(value) =>
                     setSelectedStat(value as 'Completions' | 'Time')
@@ -72,13 +72,11 @@ export default function RaidsTable({ stats }: { stats: ISteamStats }) {
                                             width: percentageOfMax,
                                         }}
                                     >
-                                        {jobStat !== 0
-                                            ? selectedStat === 'Completions'
-                                                ? percentageOfTotal
-                                                : `${(
-                                                      jobStat / 3600000
-                                                  ).toFixed(1)} hours`
-                                            : 'Unknown'}
+                                        {formatJobStat(
+                                            jobStat,
+                                            percentageOfTotal,
+                                            selectedStat
+                                        )}
                                     </div>
                                 </td>
                             </tr>
