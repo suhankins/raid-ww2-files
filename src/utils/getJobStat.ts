@@ -18,7 +18,10 @@ const statGetters: {
     [stat in IRaidStat]: (raid: IRaid, stats: ISteamStats) => number;
 } = {
     Completions: (raid, stats) =>
-        (stats[`${raid.id}_victory`] || stats[`${raid.id}_completed`]) ?? 0,
+        (stats[`${raid.id}_victory`] ||
+            stats[`${raid.id}_completed`] ||
+            stats[`${raid.id}_quit`]) ??
+        0,
     Time: (raid, stats) => stats[`${raid.id}_time`] ?? 0,
     Starts: (raid, stats) =>
         (stats[`${raid.id}_started`] ?? 0) + (stats[`${raid.id}_drop_in`] ?? 0),
