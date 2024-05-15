@@ -9,7 +9,7 @@ export type IAccomplishmentType =
  */
 export type IAccomplishment = {
     type: IAccomplishmentType;
-    statName: string;
+    achievementName: string;
 };
 
 export type IRaid = {

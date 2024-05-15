@@ -25,7 +25,8 @@ export default function getJobAccomplishments(
     return job.accomplishments.map((accomplishment) => ({
         type: accomplishment.type,
         completed: !!achievements.find(
-            (achievement) => achievement.apiname === accomplishment.statName
+            (achievement) =>
+                achievement.apiname === accomplishment.achievementName
         )?.achieved,
     }));
 }

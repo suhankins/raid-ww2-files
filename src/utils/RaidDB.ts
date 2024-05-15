@@ -6,8 +6,11 @@ export const Raids: IRaid[] = [
         name: 'Amber Train',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: 'The rest is history' },
-            { type: 'dogtags', statName: 'ach_bring_them_home_trainyard' },
+            { type: 'veryHard', achievementName: 'The rest is history' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_trainyard',
+            },
         ],
     },
     {
@@ -15,8 +18,14 @@ export const Raids: IRaid[] = [
         name: 'Wiretap',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: 'Radio defence - Over and out' },
-            { type: 'dogtags', statName: 'ach_bring_them_home_radiodefence' },
+            {
+                type: 'veryHard',
+                achievementName: 'Radio defence - Over and out',
+            },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_radiodefence',
+            },
         ],
     },
     {
@@ -26,9 +35,9 @@ export const Raids: IRaid[] = [
         accomplishments: [
             {
                 type: 'veryHard',
-                statName: "Flaktower - Ain't no tower high enough",
+                achievementName: "Flaktower - Ain't no tower high enough",
             },
-            { type: 'dogtags', statName: 'ach_bring_them_home_flak' },
+            { type: 'dogtags', achievementName: 'ach_bring_them_home_flak' },
         ],
     },
     {
@@ -36,8 +45,8 @@ export const Raids: IRaid[] = [
         name: 'Trainwreck',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: 'Bridge that gap' },
-            { type: 'dogtags', statName: 'ach_bring_them_home_bridge' },
+            { type: 'veryHard', achievementName: 'Bridge that gap' },
+            { type: 'dogtags', achievementName: 'ach_bring_them_home_bridge' },
         ],
     },
     {
@@ -45,8 +54,8 @@ export const Raids: IRaid[] = [
         name: 'Strongpoint',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: 'Sweep and clear' },
-            { type: 'dogtags', statName: 'ach_bring_them_home_castle' },
+            { type: 'veryHard', achievementName: 'Sweep and clear' },
+            { type: 'dogtags', achievementName: 'ach_bring_them_home_castle' },
         ],
     },
     {
@@ -74,8 +83,8 @@ export const Raids: IRaid[] = [
         name: 'Gold Rush',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: 'That will do' },
-            { type: 'dogtags', statName: 'ach_bring_them_home_bank' },
+            { type: 'veryHard', achievementName: 'That will do' },
+            { type: 'dogtags', achievementName: 'ach_bring_them_home_bank' },
         ],
     },
     {
@@ -107,14 +116,16 @@ export const Raids: IRaid[] = [
         id: 'level_silo',
         name: 'Countdown',
         type: 'raid',
-        accomplishments: [{ type: 'veryHard', statName: 'That will suffice' }],
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'That will suffice' },
+        ],
     },
     {
         id: 'level_kelly',
         name: 'Kelly',
         type: 'raid',
         accomplishments: [
-            { type: 'veryHard', statName: "Kelly - Kelly's Heroes" },
+            { type: 'veryHard', achievementName: "Kelly - Kelly's Heroes" },
         ],
     },
 ];
@@ -163,12 +174,15 @@ export const Operations: IOperation[] = [
             },
         ],
         accomplishments: [
-            { type: 'veryHard', statName: 'ach_clear_skies_hardest' },
+            { type: 'veryHard', achievementName: 'ach_clear_skies_hardest' },
             {
                 type: 'veryHardNoBleedout',
-                statName: 'ach_clear_skies_hardest_no_bleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
             },
-            { type: 'noBleedout', statName: 'ach_clear_skies_no_bleedout' },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
         ],
     },
     {
@@ -202,12 +216,12 @@ export const Operations: IOperation[] = [
             },
         ],
         accomplishments: [
-            { type: 'veryHard', statName: 'ach_burn_hardest' },
+            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
             {
                 type: 'veryHardNoBleedout',
-                statName: 'ach_burn_hardest_no_bleedout',
+                achievementName: 'ach_burn_hardest_no_bleedout',
             },
-            { type: 'noBleedout', statName: 'ach_burn_no_bleedout' },
+            { type: 'noBleedout', achievementName: 'ach_burn_no_bleedout' },
         ],
     },
 ];
