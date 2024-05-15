@@ -12,6 +12,7 @@ import { type IRaidStat } from '@/lib/IRaidStat';
 import formatJobStat from '@/utils/formatJobStat';
 import getJobAccomplishments from '@/utils/getJobAccomplishments';
 import { type IAchievement } from '@/lib/IAchievement';
+import getAccomplishmentString from '@/utils/getAccomplishmentString';
 
 export default function RaidsTable({
     stats,
@@ -87,7 +88,12 @@ export default function RaidsTable({
                                             data-completed={
                                                 accomplishment.completed
                                             }
-                                            alt=""
+                                            title={getAccomplishmentString(
+                                                accomplishment
+                                            )}
+                                            alt={getAccomplishmentString(
+                                                accomplishment
+                                            )}
                                         />
                                     ))}
                                 </td>
