@@ -40,4 +40,22 @@
         grid-template-columns: repeat(1, minmax(0, 1fr));
         gap: 1rem;
     }
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        display: none;
+    }
 }
