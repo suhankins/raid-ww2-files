@@ -84,7 +84,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     );
 
     return (
-        <>
+        <section>
             <div className={styles.controls}>
                 <Stepper
                     options={PrettyTypes}
@@ -163,6 +163,6 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     </tr>
                 </tfoot>
             </table>
-        </>
+        </section>
     );
 }
