@@ -1,6 +1,7 @@
 .weaponCard {
     height: 150px;
     display: flex;
+    overflow: hidden;
 }
 
 .weaponCard img {
