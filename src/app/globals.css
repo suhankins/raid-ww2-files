@@ -69,3 +69,7 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+section {
+    clear: both;
+}
