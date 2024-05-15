@@ -33,3 +33,10 @@
     opacity: 100%;
     filter: var(--raid_gold_filter);
 }
+
+@media (max-width: 600px) {
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        display: none;
+    }
+}
