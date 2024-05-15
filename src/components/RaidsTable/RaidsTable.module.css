@@ -1,0 +1,6 @@
+.bar {
+    color: var(--red_white);
+    background-color: var(--raid_red);
+    height: 1.3rem;
+    white-space: nowrap;
+}

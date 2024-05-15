@@ -1,5 +1,6 @@
 import { LastSeenWith } from '@/components/DossierPages/LastSeenWith/LastSeenWith';
 import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
+import RaidsTable from '@/components/RaidsTable/RaidsTable';
 import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
 import { getAchievements } from '@/utils/getAchievements';
 import { getStats } from '@/utils/getStats/getStats';
@@ -35,6 +36,7 @@ export default async function Home({
             <PlayerInfo user={user} stats={stats} achievements={achievements} />
             <LastSeenWith stats={stats} />
             <WeaponsTable stats={stats} />
+            <RaidsTable stats={stats} />
         </main>
     );
 }

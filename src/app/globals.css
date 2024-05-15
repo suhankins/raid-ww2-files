@@ -74,3 +74,26 @@ section {
     clear: both;
     margin-bottom: 2rem;
 }
+
+table {
+    width: 100%;
+    border-spacing: 0 3px;
+    table-layout: fixed;
+}
+
+table th,
+table td {
+    padding: 5px;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--raid_list_background);
+}
+
+table thead {
+    color: var(--raid_red);
+}
+
+table thead th {
+    padding: 10px;
+}
