@@ -6,15 +6,17 @@ export async function resolveVanityUrl(vanityurl: string): Promise<string> {
         'http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001?' +
             urlParams.toString()
     );
-    if (!response.ok)
+    if (!response.ok) {
         throw new Error(
             'Steam refused to resolve URL\n' +
                 response.status +
                 ': ' +
                 response.statusText
         );
+    }
     const data = (await response.json()).response;
-    if (!data || data.success !== 1)
+    if (!data || data.success !== 1) {
         throw new Error("Steam couldn't resolve vanity URL");
+    }
     return data.steamid;
 }
