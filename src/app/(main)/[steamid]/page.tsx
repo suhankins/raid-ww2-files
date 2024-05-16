@@ -2,10 +2,10 @@ import { LastSeenWith } from '@/components/DossierPages/LastSeenWith/LastSeenWit
 import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
 import RaidsTable from '@/components/RaidsTable/RaidsTable';
 import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
-import { getAchievements } from '@/utils/getAchievements';
+import { getAchievements } from '@/utils/steamAPI/getAchievements';
 import { getStats } from '@/utils/getStats/getStats';
-import { getUserInfo } from '@/utils/getUserInfo';
-import { resolveVanityUrl } from '@/utils/resolveVanityUrl';
+import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
+import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { redirect } from 'next/navigation';
 
 export default async function Home({
