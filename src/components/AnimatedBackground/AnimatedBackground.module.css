@@ -8,3 +8,9 @@
     z-index: -999999;
     object-fit: cover;
 }
+
+@media (prefers-reduced-motion) {
+    .animatedBackground {
+        display: none;
+    }
+}

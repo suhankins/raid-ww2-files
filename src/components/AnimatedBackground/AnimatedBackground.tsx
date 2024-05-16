@@ -8,6 +8,7 @@ export default function AnimatedBackground() {
             loop
             muted
             playsInline
+            aria-hidden
         >
             <source
                 type="video/mp4"
