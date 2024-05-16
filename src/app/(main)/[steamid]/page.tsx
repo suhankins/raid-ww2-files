@@ -3,7 +3,7 @@ import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
 import RaidsTable from '@/components/RaidsTable/RaidsTable';
 import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
 import { getAchievements } from '@/utils/steamAPI/getAchievements';
-import { getStats } from '@/utils/getStats/getStats';
+import { getStats } from '@/utils/steamAPI/getStats/getStats';
 import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
 import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { redirect } from 'next/navigation';
