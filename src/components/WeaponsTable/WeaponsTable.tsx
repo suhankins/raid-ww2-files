@@ -85,7 +85,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
 
     return (
         <section>
-            <div className={styles.controls}>
+            <div className="controls">
                 <Stepper
                     id="weaponType"
                     options={PrettyTypes}
