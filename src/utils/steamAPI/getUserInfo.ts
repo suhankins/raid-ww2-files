@@ -10,9 +10,12 @@ export async function getUserInfo(steamid: string) {
         `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_WEB_API_KEY}&steamids=${steamid}`,
         { cache: 'no-store' }
     );
-    if (!response.ok) throw new Error("Can't get user info");
+    if (!response.ok)
+        throw new Error(
+            `Can't get Steam user info: server responded ${response.status} (${response.statusText})`
+        );
     const data = (await response.json()).response.players[0] as IUserInfo;
     if (data.communityvisibilitystate !== 3)
-        throw new Error('Profile is not public');
+        throw new Error("Can't get Steam user info: profile is not public");
     return data;
 }

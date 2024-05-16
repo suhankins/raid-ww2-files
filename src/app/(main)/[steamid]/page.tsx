@@ -7,6 +7,7 @@ import { getStats } from '@/utils/getStats/getStats';
 import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
 import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { redirect } from 'next/navigation';
+import ErrorCard from './ErrorCard';
 
 export default async function Home({
     params: { steamid },
@@ -25,18 +26,33 @@ export default async function Home({
         } else {
             vanityToResolve = steamid;
         }
-        redirect(`/${await resolveVanityUrl(vanityToResolve)}`);
+        const resolvedId = await resolveVanityUrl(vanityToResolve).catch(
+            (e) => e
+        );
+        if (!(resolvedId instanceof Error)) {
+            redirect(`/${resolvedId}`);
+        }
+        return <ErrorCard e={resolvedId} />;
     }
-    const user = await getUserInfo(steamid);
-    const stats = await getStats(steamid);
-    const achievements = await getAchievements(steamid);
-    return (
-        <main>
-            <h1>Raider dossier</h1>
-            <PlayerInfo user={user} stats={stats} achievements={achievements} />
-            <LastSeenWith stats={stats} />
-            <WeaponsTable stats={stats} />
-            <RaidsTable stats={stats} achievements={achievements} />
-        </main>
-    );
+    try {
+        const user = await getUserInfo(steamid);
+        const stats = await getStats(steamid);
+        const achievements = await getAchievements(steamid);
+
+        return (
+            <main>
+                <h1>Raider dossier</h1>
+                <PlayerInfo
+                    user={user}
+                    stats={stats}
+                    achievements={achievements}
+                />
+                <LastSeenWith stats={stats} />
+                <WeaponsTable stats={stats} />
+                <RaidsTable stats={stats} achievements={achievements} />
+            </main>
+        );
+    } catch (e) {
+        return <ErrorCard e={e} />;
+    }
 }
