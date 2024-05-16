@@ -1,5 +1,5 @@
-import { LastSeenWith } from '@/components/DossierPages/LastSeenWith/LastSeenWith';
-import { PlayerInfo } from '@/components/DossierPages/PlayerInfo/PlayerInfo';
+import { LastSeenWith } from '@/components/LastSeenWith/LastSeenWith';
+import { PlayerInfo } from '@/components/PlayerInfo/PlayerInfo';
 import RaidsTable from '@/components/RaidsTable/RaidsTable';
 import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
 import { getAchievements } from '@/utils/steamAPI/getAchievements';
@@ -42,14 +42,22 @@ export default async function Home({
         return (
             <main>
                 <h1>Raider dossier</h1>
-                <PlayerInfo
-                    user={user}
-                    stats={stats}
-                    achievements={achievements}
-                />
-                <LastSeenWith stats={stats} />
-                <WeaponsTable stats={stats} />
-                <RaidsTable stats={stats} achievements={achievements} />
+                <section>
+                    <PlayerInfo
+                        user={user}
+                        stats={stats}
+                        achievements={achievements}
+                    />
+                </section>
+                <section>
+                    <LastSeenWith stats={stats} />
+                </section>
+                <section>
+                    <WeaponsTable stats={stats} />
+                </section>
+                <section>
+                    <RaidsTable stats={stats} achievements={achievements} />
+                </section>
             </main>
         );
     } catch (e) {

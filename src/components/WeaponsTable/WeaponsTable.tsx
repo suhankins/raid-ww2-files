@@ -20,7 +20,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     } = useWeaponsWithTypesAndCategories();
 
     return (
-        <section>
+        <>
             <div className="controls">
                 <Stepper
                     id="weaponType"
@@ -73,6 +73,6 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     />
                 </tfoot>
             </table>
-        </section>
+        </>
     );
 }

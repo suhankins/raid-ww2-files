@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
-import pageStyles from '../Pages.module.css';
 import styles from './PlayerInfo.module.css';
 import { getLevelString } from '@/utils/getLevelString';
 import type { ISteamStats } from '@/lib/ISteamStats';
@@ -22,7 +21,7 @@ export function PlayerInfo({
     const character = getCharaterFromIndex(stats.equipped_character ?? 0);
 
     return (
-        <section>
+        <>
             <img
                 className={styles.profilePicture}
                 alt=""
@@ -32,7 +31,7 @@ export function PlayerInfo({
                 <a href={user.profileurl}>{user.personaname}</a>{' '}
             </h2>
             <h3 className={styles.sidenote}>{character.description}</h3>
-            <p className={pageStyles.handWritten}>
+            <p className={styles.level}>
                 {getLevelString(stats, achievements)}
             </p>
             <p>Operations completed: {stats.ach_open_loot_crates}</p>
@@ -55,6 +54,6 @@ export function PlayerInfo({
                 {numberToIsoDate(latestAchievement.unlocktime)}, see note &quot;
                 {latestAchievement.name}&quot; for details.
             </p>
-        </section>
+        </>
     );
 }

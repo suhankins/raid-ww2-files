@@ -35,7 +35,7 @@ export default function RaidsTable({
     );
 
     return (
-        <section>
+        <>
             <div className="controls">
                 <Stepper
                     id="raidStat"
@@ -83,6 +83,6 @@ export default function RaidsTable({
                         ))}
                 </tbody>
             </table>
-        </section>
+        </>
     );
 }
