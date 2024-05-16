@@ -1,0 +1,15 @@
+<!-- This file is not used directly on the website, but it's URI encoded and put into Checkbox.module.css -->
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16px"
+    height="13px"
+    version="1.1"
+    viewBox="0 -0.1 3.58 2.41"
+    fill="none"
+    stroke="#d7d7d7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="0.5px"
+>
+    <polyline points="0.41,1.03 1.4,2 3.17,0.41 " />
+</svg>
