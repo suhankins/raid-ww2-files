@@ -4,12 +4,16 @@
     display: flex;
 }
 
-.stepperLabel {
+.label {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     font-size: 1.2rem;
+}
+
+.labelText {
+    flex-grow: 1;
 }
 
 .chevron {

@@ -17,8 +17,8 @@ export default function Stepper({
     children: React.ReactNode;
 }) {
     return (
-        <label className={styles.stepperLabel} htmlFor={id}>
-            {children}
+        <label className={styles.label} htmlFor={id}>
+            <span className={styles.labelText}>{children}</span>
             <div className={styles.stepperWrapper}>
                 <button
                     className={styles.chevron}
