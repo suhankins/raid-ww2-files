@@ -7,7 +7,7 @@ import { type IJob } from '@/lib/IJob';
 import { type IJobStat } from '@/lib/IRaidStat';
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IAchievement } from '@/lib/IAchievement';
-import styles from './RaidsTable.module.css';
+import styles from '../RaidsTable.module.css';
 
 export default function RaidsTableRow({
     job,
