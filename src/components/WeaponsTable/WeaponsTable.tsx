@@ -1,87 +1,27 @@
 'use client';
 
 import { type ISteamStats } from '@/lib/ISteamStats';
-import { WeaponsSortedByType } from '@/utils/WeaponsDB';
 import styles from './WeaponsTable.module.css';
-import TableRow from './TableRow';
+import WeaponsTableRow from './Row/WeaponsTableRow';
 import Stepper from '../Stepper/Stepper';
-import { useEffect, useMemo, useState } from 'react';
-import { IWeapon } from '@/lib/IWeapon';
 import { PrettyTypes } from '@/utils/prettyType/PrettyTypes';
 import typeToPrettyType from '@/utils/prettyType/typesToPrettyType';
 import prettyTypeToTypes from '@/utils/prettyType/prettyTypeToType';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
-import toPercentage from '@/utils/toPercentage';
 import { PrettyCategories } from '@/utils/prettyCategory/PrettyCategories';
 import categoryToPrettyCategory from '@/utils/prettyCategory/categoryToPrettyCategory';
 import prettyCategoryToCategory from '@/utils/prettyCategory/prettyCategoryToCategory';
-import getKillsByTypeAndCategory from '@/utils/getKills/getKillsByTypeAndCategory';
-import getKillsForGivenWeapons from '@/utils/getKills/getKillsForGivenWeapons';
+import WeaponsTableFooter from './Footer/WeaponsTableFooter';
+import useWeaponsWithTypesAndCategories from './useWeaponsWithTypesAndCategories';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
-    const [selectedType, setSelectedType] = useState<IWeapon['type'] | null>(
-        null
-    );
-    const [selectedCategory, setSelectedCategory] = useState<NonNullable<
-        IWeapon['category']
-    > | null>(null);
-
-    const sortedWeapons = useMemo(
-        () =>
-            WeaponsSortedByType.filter(
-                (weapon) =>
-                    !weapon.hidden &&
-                    (selectedType === null ||
-                        selectedType.includes(weapon.type))
-            ),
-        [selectedType]
-    );
-
-    const filteredCategories = useMemo(
-        () =>
-            PrettyCategories.filter(
-                (category) =>
-                    category === 'All' ||
-                    sortedWeapons.some(
-                        (weapon) =>
-                            weapon.category ===
-                            prettyCategoryToCategory(category)
-                    )
-            ),
-        [sortedWeapons]
-    );
-
-    useEffect(() => {
-        if (
-            selectedCategory &&
-            !filteredCategories.includes(
-                categoryToPrettyCategory(selectedCategory)
-            )
-        ) {
-            setSelectedCategory(null);
-        }
-    }, [filteredCategories, selectedCategory]);
-
-    const categorizedWeapons = useMemo(
-        () =>
-            sortedWeapons.filter(
-                (weapon) =>
-                    selectedCategory === null ||
-                    weapon.category === selectedCategory
-            ),
-        [selectedCategory, sortedWeapons]
-    );
-
-    const killsByTypeAndCategory = useMemo(
-        () =>
-            getKillsByTypeAndCategory(
-                selectedType,
-                selectedCategory,
-                categorizedWeapons,
-                stats
-            ),
-        [categorizedWeapons, selectedCategory, selectedType, stats]
-    );
+    const {
+        selectedType,
+        setSelectedType,
+        categories,
+        selectedCategory,
+        setSelectedCategory,
+        weapons,
+    } = useWeaponsWithTypesAndCategories();
 
     return (
         <section>
@@ -102,7 +42,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 </Stepper>
                 <Stepper
                     id="weaponCategory"
-                    options={filteredCategories}
+                    options={categories}
                     selectedOption={categoryToPrettyCategory(selectedCategory)}
                     onChange={(value) =>
                         setSelectedCategory(
@@ -126,8 +66,8 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {categorizedWeapons.map((weapon) => (
-                        <TableRow
+                    {weapons.map((weapon) => (
+                        <WeaponsTableRow
                             weapon={weapon}
                             key={weapon.id}
                             stats={stats}
@@ -135,34 +75,12 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     ))}
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <th scope="row">Totals</th>
-                        <td>{killsByTypeAndCategory}</td>
-                        <td>-</td>
-                        <td>
-                            {categorizedWeapons.every(
-                                (weapon, _, array) =>
-                                    weapon.type === array[0].type
-                            )
-                                ? toPercentage(
-                                      getKillsForGivenWeapons(
-                                          categorizedWeapons,
-                                          stats
-                                      ) /
-                                          getKillsByWeaponType(
-                                              categorizedWeapons[0]?.type,
-                                              stats
-                                          )
-                                  )
-                                : '-'}
-                        </td>
-                        <td>
-                            {toPercentage(
-                                killsByTypeAndCategory /
-                                    getKillsByWeaponType('all', stats)
-                            )}
-                        </td>
-                    </tr>
+                    <WeaponsTableFooter
+                        type={selectedType}
+                        category={selectedCategory}
+                        weapons={weapons}
+                        stats={stats}
+                    />
                 </tfoot>
             </table>
         </section>
