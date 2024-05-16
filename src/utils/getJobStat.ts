@@ -1,13 +1,13 @@
 import { type IRaid, type IJob } from '@/lib/IJob';
-import { type IJobStat } from '@/lib/IRaidStat';
 import { type ISteamStats } from '@/lib/ISteamStats';
+import { type JobStats } from '@/lib/JobStats';
 
 export default function getJobStat(
     job: IJob,
-    stat: IJobStat,
+    stat: (typeof JobStats)[number],
     stats: ISteamStats
 ) {
-    const getter = statGetters[stat];
+    const getter = statGetters[stat.id];
     if (job.type === 'raid') {
         return getter(job, stats);
     }
@@ -15,14 +15,17 @@ export default function getJobStat(
 }
 
 const statGetters: {
-    [stat in IJobStat]: (raid: IRaid, stats: ISteamStats) => number;
+    [stat in (typeof JobStats)[number]['id']]: (
+        raid: IRaid,
+        stats: ISteamStats
+    ) => number;
 } = {
-    Completions: (raid, stats) =>
+    completions: (raid, stats) =>
         (stats[`${raid.id}_victory`] ||
             stats[`${raid.id}_completed`] ||
             stats[`${raid.id}_quit`]) ??
         0,
-    Time: (raid, stats) => stats[`${raid.id}_time`] ?? 0,
-    Starts: (raid, stats) =>
+    time: (raid, stats) => stats[`${raid.id}_time`] ?? 0,
+    starts: (raid, stats) =>
         (stats[`${raid.id}_started`] ?? 0) + (stats[`${raid.id}_drop_in`] ?? 0),
 };

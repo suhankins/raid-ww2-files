@@ -4,14 +4,10 @@ import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './WeaponsTable.module.css';
 import WeaponsTableRow from './Row/WeaponsTableRow';
 import Stepper from '../Stepper/Stepper';
-import { PrettyTypes } from '@/utils/prettyType/PrettyTypes';
-import typeToPrettyType from '@/utils/prettyType/typesToPrettyType';
-import prettyTypeToTypes from '@/utils/prettyType/prettyTypeToType';
-import { PrettyCategories } from '@/utils/prettyCategory/PrettyCategories';
-import categoryToPrettyCategory from '@/utils/prettyCategory/categoryToPrettyCategory';
-import prettyCategoryToCategory from '@/utils/prettyCategory/prettyCategoryToCategory';
 import WeaponsTableFooter from './Footer/WeaponsTableFooter';
 import useWeaponsWithTypesAndCategories from './useWeaponsWithTypesAndCategories';
+import { WeaponTypes } from '@/lib/WeaponTypes';
+import { WeaponCategories } from '@/lib/WeaponCategories';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {
@@ -28,14 +24,10 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
             <div className="controls">
                 <Stepper
                     id="weaponType"
-                    options={PrettyTypes}
-                    selectedOption={typeToPrettyType(selectedType)}
+                    options={WeaponTypes}
+                    selectedOption={selectedType}
                     onChange={(value) =>
-                        setSelectedType(
-                            prettyTypeToTypes(
-                                value as (typeof PrettyTypes)[number]
-                            )
-                        )
+                        setSelectedType(value as (typeof WeaponTypes)[number])
                     }
                 >
                     Slot
@@ -43,12 +35,10 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 <Stepper
                     id="weaponCategory"
                     options={categories}
-                    selectedOption={categoryToPrettyCategory(selectedCategory)}
+                    selectedOption={selectedCategory}
                     onChange={(value) =>
                         setSelectedCategory(
-                            prettyCategoryToCategory(
-                                value as (typeof PrettyCategories)[number]
-                            )
+                            value as (typeof WeaponCategories)[number]
                         )
                     }
                 >
@@ -76,8 +66,8 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 </tbody>
                 <tfoot>
                     <WeaponsTableFooter
-                        type={selectedType}
-                        category={selectedCategory}
+                        type={selectedType.id}
+                        category={selectedCategory.id}
                         weapons={weapons}
                         stats={stats}
                     />

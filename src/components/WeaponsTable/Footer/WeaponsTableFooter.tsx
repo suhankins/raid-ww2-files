@@ -8,8 +8,8 @@ export default function WeaponsTableFooter({
     weapons,
     stats,
 }: {
-    type: IWeapon['type'] | null;
-    category: NonNullable<IWeapon['category']> | null;
+    type: IWeapon['type'];
+    category: NonNullable<IWeapon['category']>;
     weapons: IWeapon[];
     stats: ISteamStats;
 }) {

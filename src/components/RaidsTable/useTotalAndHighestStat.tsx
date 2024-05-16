@@ -1,12 +1,12 @@
 import { type IJob } from '@/lib/IJob';
-import { type IJobStat } from '@/lib/IRaidStat';
 import { type ISteamStats } from '@/lib/ISteamStats';
+import { type JobStats } from '@/lib/JobStats';
 import getJobStat from '@/utils/getJobStat';
 import { useMemo } from 'react';
 
 export default function useTotalAndHighestStat(
     jobs: IJob[],
-    selectedStat: IJobStat,
+    selectedStat: (typeof JobStats)[number],
     stats: ISteamStats
 ) {
     const total = useMemo(

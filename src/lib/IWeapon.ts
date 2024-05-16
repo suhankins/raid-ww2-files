@@ -1,15 +1,10 @@
+import { type WeaponCategories } from './WeaponCategories';
+import { type WeaponTypes } from './WeaponTypes';
+
 export interface IWeapon {
     id: string;
     name: string;
-    type: 'melee' | 'grenade' | 'primary' | 'secondary' | 'all' | 'turret';
+    type: (typeof WeaponTypes)[number]['id'];
     hidden?: boolean;
-    category?:
-        | 'smg'
-        | 'assault_rifle'
-        | 'lmg'
-        | 'pistol'
-        | 'snp'
-        | 'shotgun'
-        | 'mine'
-        | 'grenade';
+    category?: (typeof WeaponCategories)[number]['id'];
 }

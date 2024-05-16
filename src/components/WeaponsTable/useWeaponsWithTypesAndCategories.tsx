@@ -1,52 +1,45 @@
-import { IWeapon } from '@/lib/IWeapon';
+import {
+    DefaultWeaponCategory,
+    WeaponCategories,
+} from '@/lib/WeaponCategories';
+import { DefaultWeaponType, WeaponTypes } from '@/lib/WeaponTypes';
 import { WeaponsSortedByType } from '@/utils/WeaponsDB';
-import { PrettyCategories } from '@/utils/prettyCategory/PrettyCategories';
-import categoryToPrettyCategory from '@/utils/prettyCategory/categoryToPrettyCategory';
-import prettyCategoryToCategory from '@/utils/prettyCategory/prettyCategoryToCategory';
 import { useEffect, useMemo, useState } from 'react';
 
 export default function useWeaponsWithTypesAndCategories() {
-    const [selectedType, setSelectedType] = useState<IWeapon['type'] | null>(
-        null
-    );
+    const [selectedType, setSelectedType] =
+        useState<(typeof WeaponTypes)[number]>(DefaultWeaponType);
 
-    const [selectedCategory, setSelectedCategory] = useState<NonNullable<
-        IWeapon['category']
-    > | null>(null);
+    const [selectedCategory, setSelectedCategory] = useState<
+        (typeof WeaponCategories)[number]
+    >(DefaultWeaponCategory);
 
     const sortedWeapons = useMemo(
         () =>
             WeaponsSortedByType.filter(
                 (weapon) =>
                     !weapon.hidden &&
-                    (selectedType === null ||
-                        selectedType.includes(weapon.type))
+                    (selectedType.id === DefaultWeaponType.id ||
+                        selectedType.id === weapon.type)
             ),
         [selectedType]
     );
 
     const filteredCategories = useMemo(
         () =>
-            PrettyCategories.filter(
+            WeaponCategories.filter(
                 (category) =>
-                    category === 'All' ||
+                    category.id === DefaultWeaponCategory.id ||
                     sortedWeapons.some(
-                        (weapon) =>
-                            weapon.category ===
-                            prettyCategoryToCategory(category)
+                        (weapon) => weapon.category === category.id
                     )
             ),
         [sortedWeapons]
     );
 
     useEffect(() => {
-        if (
-            selectedCategory &&
-            !filteredCategories.includes(
-                categoryToPrettyCategory(selectedCategory)
-            )
-        ) {
-            setSelectedCategory(null);
+        if (!filteredCategories.includes(selectedCategory)) {
+            setSelectedCategory(DefaultWeaponCategory);
         }
     }, [filteredCategories, selectedCategory]);
 
@@ -54,8 +47,8 @@ export default function useWeaponsWithTypesAndCategories() {
         () =>
             sortedWeapons.filter(
                 (weapon) =>
-                    selectedCategory === null ||
-                    weapon.category === selectedCategory
+                    selectedCategory.id === DefaultWeaponCategory.id ||
+                    weapon.category === selectedCategory.id
             ),
         [selectedCategory, sortedWeapons]
     );

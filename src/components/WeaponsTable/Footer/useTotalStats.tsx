@@ -7,8 +7,8 @@ import toPercentage from '@/utils/toPercentage';
 import { useMemo } from 'react';
 
 export default function useTotalStats(
-    type: IWeapon['type'] | null,
-    category: NonNullable<IWeapon['category']> | null,
+    type: IWeapon['type'],
+    category: NonNullable<IWeapon['category']>,
     weapons: IWeapon[],
     stats: ISteamStats
 ) {

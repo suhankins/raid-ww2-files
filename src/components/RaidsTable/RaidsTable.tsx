@@ -6,11 +6,11 @@ import { Jobs, RaidsAndDays } from '@/utils/RaidDB';
 import getJobStat from '@/utils/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '../Stepper/Stepper';
-import { type IJobStat } from '@/lib/IRaidStat';
 import { type IAchievement } from '@/lib/IAchievement';
 import Checkbox from '../Checkbox/Checkbox';
 import RaidsTableRow from './Row/RaidsTableRow';
 import useTotalAndHighestStat from './useTotalAndHighestStat';
+import { DefaultJobStat, JobStats } from '@/lib/JobStats';
 
 export default function RaidsTable({
     stats,
@@ -19,7 +19,8 @@ export default function RaidsTable({
     stats: ISteamStats;
     achievements: IAchievement[];
 }) {
-    const [selectedStat, setSelectedStat] = useState<IJobStat>('Completions');
+    const [selectedStat, setSelectedStat] =
+        useState<(typeof JobStats)[number]>(DefaultJobStat);
     const [operationDaysSeparate, setOperationDaysSeparate] = useState(false);
 
     const listOfJobs = useMemo(
@@ -38,10 +39,10 @@ export default function RaidsTable({
             <div className="controls">
                 <Stepper
                     id="raidStat"
-                    options={['Completions', 'Starts', 'Time']}
+                    options={JobStats}
                     selectedOption={selectedStat}
                     onChange={(value) =>
-                        setSelectedStat(value as 'Completions' | 'Time')
+                        setSelectedStat(value as (typeof JobStats)[number])
                     }
                 >
                     Sort by
@@ -59,7 +60,7 @@ export default function RaidsTable({
                         <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Accomplishments</th>
-                        <th scope="col">{selectedStat}</th>
+                        <th scope="col">{selectedStat.name}</th>
                     </tr>
                 </thead>
                 <tbody>
