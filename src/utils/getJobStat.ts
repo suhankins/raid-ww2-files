@@ -1,10 +1,10 @@
 import { type IRaid, type IJob } from '@/lib/IJob';
-import { type IRaidStat } from '@/lib/IRaidStat';
+import { type IJobStat } from '@/lib/IRaidStat';
 import { type ISteamStats } from '@/lib/ISteamStats';
 
 export default function getJobStat(
     job: IJob,
-    stat: IRaidStat,
+    stat: IJobStat,
     stats: ISteamStats
 ) {
     const getter = statGetters[stat];
@@ -15,7 +15,7 @@ export default function getJobStat(
 }
 
 const statGetters: {
-    [stat in IRaidStat]: (raid: IRaid, stats: ISteamStats) => number;
+    [stat in IJobStat]: (raid: IRaid, stats: ISteamStats) => number;
 } = {
     Completions: (raid, stats) =>
         (stats[`${raid.id}_victory`] ||

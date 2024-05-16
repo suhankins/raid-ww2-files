@@ -1,1 +1,1 @@
-export type IRaidStat = 'Completions' | 'Starts' | 'Time';
+export type IJobStat = 'Completions' | 'Starts' | 'Time';

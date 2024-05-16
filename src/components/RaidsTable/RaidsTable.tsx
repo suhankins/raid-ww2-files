@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { type ISteamStats } from '@/lib/ISteamStats';
@@ -7,13 +6,11 @@ import { Jobs, RaidsAndDays } from '@/utils/RaidDB';
 import getJobStat from '@/utils/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '../Stepper/Stepper';
-import toPercentage from '@/utils/toPercentage';
-import { type IRaidStat } from '@/lib/IRaidStat';
-import formatJobStat from '@/utils/formatJobStat';
-import getJobAccomplishments from '@/utils/getJobAccomplishments';
+import { type IJobStat } from '@/lib/IRaidStat';
 import { type IAchievement } from '@/lib/IAchievement';
-import getAccomplishmentString from '@/utils/getAccomplishmentString';
 import Checkbox from '../Checkbox/Checkbox';
+import RaidsTableRow from './Row/RaidsTableRow';
+import useTotalAndHighestStat from './useTotalAndHighestStat';
 
 export default function RaidsTable({
     stats,
@@ -22,7 +19,7 @@ export default function RaidsTable({
     stats: ISteamStats;
     achievements: IAchievement[];
 }) {
-    const [selectedStat, setSelectedStat] = useState<IRaidStat>('Completions');
+    const [selectedStat, setSelectedStat] = useState<IJobStat>('Completions');
     const [operationDaysSeparate, setOperationDaysSeparate] = useState(false);
 
     const listOfJobs = useMemo(
@@ -30,23 +27,10 @@ export default function RaidsTable({
         [operationDaysSeparate]
     );
 
-    const total = useMemo(
-        () =>
-            listOfJobs.reduce(
-                (total, job) => total + getJobStat(job, selectedStat, stats),
-                0
-            ),
-        [selectedStat, stats, listOfJobs]
-    );
-
-    const highest = useMemo(
-        () =>
-            listOfJobs.reduce(
-                (highest, job) =>
-                    Math.max(highest, getJobStat(job, selectedStat, stats)),
-                0
-            ),
-        [selectedStat, stats, listOfJobs]
+    const { total, highest } = useTotalAndHighestStat(
+        listOfJobs,
+        selectedStat,
+        stats
     );
 
     return (
@@ -81,71 +65,21 @@ export default function RaidsTable({
                 <tbody>
                     {listOfJobs
                         .sort(
-                            (raid1, raid2) =>
-                                getJobStat(raid2, selectedStat, stats) -
-                                getJobStat(raid1, selectedStat, stats)
+                            (job1, job2) =>
+                                getJobStat(job2, selectedStat, stats) -
+                                getJobStat(job1, selectedStat, stats)
                         )
-                        .map((raid) => {
-                            const jobStat = getJobStat(
-                                raid,
-                                selectedStat,
-                                stats
-                            );
-                            const percentageOfTotal = toPercentage(
-                                jobStat / total
-                            );
-                            const percentageOfMax = toPercentage(
-                                jobStat / highest
-                            );
-
-                            return (
-                                <tr key={raid.name}>
-                                    <td>
-                                        <img
-                                            alt=""
-                                            src={`/static/images/raid/raids/${raid.type === 'raid' && raid.parent ? raid.parent : raid.id}.png`}
-                                        />
-                                    </td>
-                                    <td>{raid.name}</td>
-                                    <td>
-                                        {getJobAccomplishments(
-                                            raid,
-                                            achievements
-                                        ).map((accomplishment) => (
-                                            <img
-                                                key={accomplishment.type}
-                                                src={`/static/images/raid/accomplishments/${accomplishment.type}.png`}
-                                                className={
-                                                    styles.accomplishment
-                                                }
-                                                data-completed={
-                                                    accomplishment.completed
-                                                }
-                                                title={getAccomplishmentString(
-                                                    accomplishment
-                                                )}
-                                                alt={getAccomplishmentString(
-                                                    accomplishment
-                                                )}
-                                            />
-                                        ))}
-                                    </td>
-                                    <td title={percentageOfTotal}>
-                                        <div
-                                            className={styles.bar}
-                                            style={{
-                                                width: percentageOfMax,
-                                            }}
-                                        >
-                                            {formatJobStat(
-                                                jobStat,
-                                                percentageOfTotal
-                                            )}
-                                        </div>
-                                    </td>
-                                </tr>
-                            );
-                        })}
+                        .map((job) => (
+                            <RaidsTableRow
+                                key={job.id}
+                                stats={stats}
+                                job={job}
+                                achievements={achievements}
+                                selectedStat={selectedStat}
+                                total={total}
+                                highest={highest}
+                            />
+                        ))}
                 </tbody>
             </table>
         </section>
