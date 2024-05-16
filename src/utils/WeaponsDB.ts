@@ -28,6 +28,7 @@ export const Grenades: IWeapon[] = [
         category: 'grenade',
     },
     { id: 'betty', name: 'Spring Mine', type: 'grenade', category: 'mine' },
+    { id: 'decoy_coin', name: 'Decoy Coin', type: 'grenade' },
 ];
 
 export const Melee: IWeapon[] = [
