@@ -1,4 +1,6 @@
-import { IWeapon } from '../lib/IWeapon';
+import { getTypeIndex } from '@/lib/WeaponTypes';
+import { getCategoryIndex } from '@/lib/WeaponCategories';
+import { type IWeapon } from '../lib/IWeapon';
 
 export const Grenades: IWeapon[] = [
     {
@@ -132,34 +134,10 @@ export const WeaponsDB: IWeapon[] = [
     ...Turrets,
 ];
 
-const WeaponTypes: NonNullable<IWeapon['type']>[] = [
-    'primary',
-    'secondary',
-    'grenade',
-    'melee',
-    'turret',
-    'all',
-];
-
-const WeaponCategories: NonNullable<IWeapon['category']>[] = [
-    'assault_rifle',
-    'smg',
-    'lmg',
-    'snp',
-    'pistol',
-    'shotgun',
-    'grenade',
-    'mine',
-];
-
 export const WeaponsSortedByType: IWeapon[] = WeaponsDB.sort((a, b) => {
-    const typeDifference =
-        WeaponTypes.indexOf(a.type) - WeaponTypes.indexOf(b.type);
+    const typeDifference = getTypeIndex(a.type) - getTypeIndex(b.type);
     if (typeDifference === 0 && a.category && b.category) {
-        return (
-            WeaponCategories.indexOf(a.category) -
-            WeaponCategories.indexOf(b.category)
-        );
+        return getCategoryIndex(a.category) - getCategoryIndex(b.category);
     } else {
         return typeDifference;
     }

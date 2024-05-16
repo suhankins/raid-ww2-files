@@ -4,10 +4,10 @@ import toPercentage from '@/utils/toPercentage';
 import JobAccomplishments from './JobAccomplishments';
 import JobIcon from './JobIcon';
 import { type IJob } from '@/lib/IJob';
-import { type IJobStat } from '@/lib/IRaidStat';
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IAchievement } from '@/lib/IAchievement';
 import styles from '../RaidsTable.module.css';
+import { type JobStats } from '@/lib/JobStats';
 
 export default function RaidsTableRow({
     job,
@@ -18,7 +18,7 @@ export default function RaidsTableRow({
     achievements,
 }: {
     job: IJob;
-    selectedStat: IJobStat;
+    selectedStat: (typeof JobStats)[number];
     stats: ISteamStats;
     total: number;
     highest: number;
