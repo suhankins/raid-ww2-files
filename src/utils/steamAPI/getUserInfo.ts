@@ -14,8 +14,14 @@ export async function getUserInfo(steamid: string) {
         throw new Error(
             `Can't get Steam user info: server responded ${response.status} (${response.statusText})`
         );
-    const data = (await response.json()).response.players[0] as IUserInfo;
-    if (data.communityvisibilitystate !== 3)
+    const data = (await response.json()).response.players[0] as
+        | IUserInfo
+        | undefined;
+    if (!data) {
+        throw new Error("Can't get Steam user info: user doesn't exist");
+    }
+    if (data.communityvisibilitystate !== 3) {
         throw new Error("Can't get Steam user info: profile is not public");
+    }
     return data;
 }
