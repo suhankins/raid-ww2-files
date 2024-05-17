@@ -8,6 +8,8 @@ import WeaponsTableFooter from './Footer/WeaponsTableFooter';
 import useWeaponsWithTypesAndCategories from './useWeaponsWithTypesAndCategories';
 import { WeaponTypes } from '@/lib/WeaponTypes';
 import { WeaponCategories } from '@/lib/WeaponCategories';
+import useSortWeapons from './useSortWeapons';
+import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {
@@ -16,11 +18,14 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
         categories,
         selectedCategory,
         setSelectedCategory,
-        weapons,
+        weapons: unsortedWeapons,
     } = useWeaponsWithTypesAndCategories(stats);
+
+    const { weapons, sortValuesAndSetters } = useSortWeapons(unsortedWeapons);
 
     return (
         <>
+            <h2>Raider&apos;s arsenal</h2>
             <div className="controls">
                 <Stepper
                     id="weaponType"
@@ -48,11 +53,36 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
             <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Kills</th>
-                        <th scope="col">% of category</th>
-                        <th scope="col">% of slot</th>
-                        <th scope="col">% of total</th>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="name"
+                            {...sortValuesAndSetters}
+                        >
+                            Name
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="kills"
+                            {...sortValuesAndSetters}
+                        >
+                            Kills
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="categoryRatio"
+                            {...sortValuesAndSetters}
+                        >
+                            % of category
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="typeRatio"
+                            {...sortValuesAndSetters}
+                        >
+                            % of slot
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="totalRatio"
+                            {...sortValuesAndSetters}
+                        >
+                            % of total
+                        </WeaponsTableHeaderCell>
                     </tr>
                 </thead>
                 <tbody>

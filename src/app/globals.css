@@ -85,6 +85,10 @@ table {
     table-layout: fixed;
 }
 
+table tr {
+    height: 100%;
+}
+
 table th,
 table td {
     padding: 5px;
