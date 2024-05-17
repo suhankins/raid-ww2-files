@@ -1,9 +1,16 @@
 .weaponCard {
-    height: 150px;
-    display: flex;
+    height: 10em;
     overflow: hidden;
+    position: relative;
+}
+
+.description {
+    min-height: 4em;
+    position: absolute;
+    bottom: 0;
 }
 
 .weaponCard img {
-    height: 100%;
+    max-height: 6em;
+    max-width: 100%;
 }
