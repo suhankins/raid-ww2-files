@@ -17,7 +17,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
         selectedCategory,
         setSelectedCategory,
         weapons,
-    } = useWeaponsWithTypesAndCategories();
+    } = useWeaponsWithTypesAndCategories(stats);
 
     return (
         <>
@@ -57,11 +57,7 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 </thead>
                 <tbody>
                     {weapons.map((weapon) => (
-                        <WeaponsTableRow
-                            weapon={weapon}
-                            key={weapon.id}
-                            stats={stats}
-                        />
+                        <WeaponsTableRow weapon={weapon} key={weapon.id} />
                     ))}
                 </tbody>
                 <tfoot>

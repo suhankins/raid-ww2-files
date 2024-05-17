@@ -4,7 +4,7 @@ import { type IWeapon } from '../../lib/IWeapon';
 import getKillsForGivenWeapons from './getKillsForGivenWeapons';
 
 export default function getKillsByWeaponCategory(
-    category: IWeapon['category'],
+    category: NonNullable<IWeapon['category']>,
     stats: ISteamStats
 ): number {
     switch (category) {

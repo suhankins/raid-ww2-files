@@ -1,12 +1,14 @@
+import { type ISteamStats } from '@/lib/ISteamStats';
 import {
     DefaultWeaponCategory,
     WeaponCategories,
 } from '@/lib/WeaponCategories';
 import { DefaultWeaponType, WeaponTypes } from '@/lib/WeaponTypes';
 import { WeaponsSortedByType } from '@/utils/WeaponsDB';
+import getWeaponStats from '@/utils/getKills/getWeaponStats';
 import { useEffect, useMemo, useState } from 'react';
 
-export default function useWeaponsWithTypesAndCategories() {
+export default function useWeaponsWithTypesAndCategories(stats: ISteamStats) {
     const [selectedType, setSelectedType] =
         useState<(typeof WeaponTypes)[number]>(DefaultWeaponType);
 
@@ -14,51 +16,57 @@ export default function useWeaponsWithTypesAndCategories() {
         (typeof WeaponCategories)[number]
     >(DefaultWeaponCategory);
 
-    const sortedWeapons = useMemo(
+    const weaponsWithStats = useMemo(
         () =>
-            WeaponsSortedByType.filter(
+            WeaponsSortedByType.map((weapon) => getWeaponStats(weapon, stats)),
+        [stats]
+    );
+
+    const weaponsWithCorrectTypes = useMemo(
+        () =>
+            weaponsWithStats.filter(
                 (weapon) =>
                     !weapon.hidden &&
                     (selectedType.id === DefaultWeaponType.id ||
                         selectedType.id === weapon.type)
             ),
-        [selectedType]
+        [selectedType, weaponsWithStats]
     );
 
-    const filteredCategories = useMemo(
+    const applicableCategories = useMemo(
         () =>
             WeaponCategories.filter(
                 (category) =>
                     category.id === DefaultWeaponCategory.id ||
-                    sortedWeapons.some(
+                    weaponsWithCorrectTypes.some(
                         (weapon) => weapon.category === category.id
                     )
             ),
-        [sortedWeapons]
+        [weaponsWithCorrectTypes]
     );
 
     useEffect(() => {
-        if (!filteredCategories.includes(selectedCategory)) {
+        if (!applicableCategories.includes(selectedCategory)) {
             setSelectedCategory(DefaultWeaponCategory);
         }
-    }, [filteredCategories, selectedCategory]);
+    }, [applicableCategories, selectedCategory]);
 
-    const categorizedWeapons = useMemo(
+    const weaponsWithCorrectCategories = useMemo(
         () =>
-            sortedWeapons.filter(
+            weaponsWithCorrectTypes.filter(
                 (weapon) =>
                     selectedCategory.id === DefaultWeaponCategory.id ||
                     weapon.category === selectedCategory.id
             ),
-        [selectedCategory, sortedWeapons]
+        [selectedCategory, weaponsWithCorrectTypes]
     );
 
     return {
-        weapons: categorizedWeapons,
+        weapons: weaponsWithCorrectCategories,
         selectedType,
         selectedCategory,
         setSelectedCategory,
         setSelectedType,
-        categories: filteredCategories,
+        categories: applicableCategories,
     };
 }

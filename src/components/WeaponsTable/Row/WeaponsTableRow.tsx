@@ -1,24 +1,30 @@
-import { type ISteamStats } from '@/lib/ISteamStats';
-import { type IWeapon } from '@/lib/IWeapon';
-import useWeaponStats from './useWeaponStats';
+import { IWeaponWithStats } from '@/lib/IWeaponWithStats';
+import toPercentage from '@/utils/toPercentage';
 
 export default function WeaponsTableRow({
     weapon,
-    stats,
 }: {
-    weapon: IWeapon;
-    stats: ISteamStats;
+    weapon: IWeaponWithStats;
 }) {
-    const { kills, categoryPercentage, typePercentage, totalPercentage } =
-        useWeaponStats(weapon, stats);
-
     return (
         <tr key={weapon.id}>
             <th scope="row">{weapon.name}</th>
-            <td>{kills ?? '-'}</td>
-            <td>{categoryPercentage}</td>
-            <td>{typePercentage}</td>
-            <td>{totalPercentage}</td>
+            <td>{weapon.kills ?? '-'}</td>
+            <td>
+                {weapon.categoryRatio === undefined
+                    ? '-'
+                    : toPercentage(weapon.categoryRatio)}
+            </td>
+            <td>
+                {weapon.typeRatio === undefined
+                    ? '-'
+                    : toPercentage(weapon.typeRatio)}
+            </td>
+            <td>
+                {weapon.totalRatio === undefined
+                    ? '-'
+                    : toPercentage(weapon.totalRatio)}
+            </td>
         </tr>
     );
 }
