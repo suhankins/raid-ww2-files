@@ -21,6 +21,7 @@ export type IRaid = {
      */
     parent?: string;
     accomplishments?: IAccomplishment[];
+    isOutlaw?: boolean;
 };
 
 export type IOperation = {

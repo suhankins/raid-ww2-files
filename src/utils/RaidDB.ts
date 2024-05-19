@@ -67,6 +67,7 @@ export const Raids: IRaid[] = [
         id: 'level_sto',
         name: 'Rogues Gallery',
         type: 'raid',
+        isOutlaw: true,
     },
     {
         id: 'level_hunters',
@@ -91,6 +92,7 @@ export const Raids: IRaid[] = [
         id: 'level_forest_gumpy',
         name: 'Forest Convoy',
         type: 'raid',
+        isOutlaw: true,
     },
     {
         id: 'level_spies_test',
@@ -111,6 +113,7 @@ export const Raids: IRaid[] = [
         id: 'level_fury_railway',
         name: 'Gold Diggers',
         type: 'raid',
+        isOutlaw: true,
     },
     {
         id: 'level_silo',
