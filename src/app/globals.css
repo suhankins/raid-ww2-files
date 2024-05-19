@@ -57,6 +57,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
+    color: var(--raid_red);
 }
 
 h3 {
