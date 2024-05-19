@@ -1,6 +1,7 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IWeapon } from '@/lib/IWeapon';
 import useTotalStats from './useTotalStats';
+import prettifyNumber from '@/utils/prettifyNumber';
 
 export default function WeaponsTableFooter({
     type,
@@ -22,7 +23,7 @@ export default function WeaponsTableFooter({
     return (
         <tr>
             <th scope="row">Totals</th>
-            <td>{kills}</td>
+            <td>{prettifyNumber(kills)}</td>
             <td>-</td>
             <td>{typePercentage}</td>
             <td>{totalPercentage}</td>

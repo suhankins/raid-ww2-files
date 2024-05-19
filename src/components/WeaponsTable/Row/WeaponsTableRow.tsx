@@ -1,4 +1,5 @@
 import { IWeaponWithStats } from '@/lib/IWeaponWithStats';
+import prettifyNumber from '@/utils/prettifyNumber';
 import toPercentage from '@/utils/toPercentage';
 
 export default function WeaponsTableRow({
@@ -9,7 +10,11 @@ export default function WeaponsTableRow({
     return (
         <tr key={weapon.id}>
             <th scope="row">{weapon.name}</th>
-            <td>{weapon.kills ?? '-'}</td>
+            <td>
+                {weapon.kills !== undefined
+                    ? prettifyNumber(weapon.kills)
+                    : '-'}
+            </td>
             <td>
                 {weapon.categoryRatio === undefined
                     ? '-'
