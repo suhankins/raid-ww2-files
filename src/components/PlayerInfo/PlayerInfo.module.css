@@ -1,7 +1,16 @@
 .profilePicture {
-    float: left;
     width: 36ch;
     margin-right: 2ch;
+}
+
+.container {
+    display: flex;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
 }
 
 .sidenote {
@@ -10,4 +19,8 @@
 
 .level {
     font-size: 1.5rem;
+}
+
+.info {
+    width: 100%;
 }

@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: x proximity;
+    scrollbar-color: var(--raid_white) transparent;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    gap: 1rem;
+    padding-right: 10px;
+}

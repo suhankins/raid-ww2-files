@@ -8,6 +8,7 @@ import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
 import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { redirect } from 'next/navigation';
 import ErrorCard from './ErrorCard';
+import HallOfFame from '@/components/HallOfFame/HallOfFame';
 
 export default async function Home({
     params: { steamid },
@@ -47,7 +48,9 @@ export default async function Home({
                         user={user}
                         stats={stats}
                         achievements={achievements}
-                    />
+                    >
+                        <HallOfFame stats={stats} />
+                    </PlayerInfo>
                 </section>
                 <section>
                     <LastSeenWith stats={stats} />

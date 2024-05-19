@@ -1,9 +1,9 @@
 const characters = [
-    { id: 'none', description: 'Raider could not be identified' },
-    { id: 'russian', description: 'Known as Kurgan' },
-    { id: 'german', description: 'Known as Wolfgang' },
-    { id: 'british', description: 'Known as Sterling' },
-    { id: 'american', description: 'Known as Rivet' },
+    { id: 'none', description: 'Unknown raider' },
+    { id: 'russian', description: 'Kurgan' },
+    { id: 'german', description: 'Wolfgang' },
+    { id: 'british', description: 'Sterling' },
+    { id: 'american', description: 'Rivet' },
 ];
 
 export default function getCharaterFromIndex(index: number) {
