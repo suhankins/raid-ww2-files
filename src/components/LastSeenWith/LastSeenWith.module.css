@@ -1,9 +1,19 @@
 .lastSeenWithGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 5px;
+}
+
+@media screen and (max-width: 570px) {
+    .lastSeenWithGrid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }
 
 .lastSeenWithGrid > * {
     width: 100%;
+}
+
+.header {
+    margin-bottom: 30px;
 }

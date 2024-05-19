@@ -10,7 +10,9 @@ import { getWeaponById } from '@/utils/WeaponsDB';
 export function LastSeenWith({ stats }: { stats: ISteamStats }) {
     return (
         <>
-            <h2>Raider was last seen with these weapons</h2>
+            <h2 className={styles.header}>
+                Raider was last seen with these weapons
+            </h2>
             <div className={styles.lastSeenWithGrid}>
                 <Weapon
                     stats={stats}

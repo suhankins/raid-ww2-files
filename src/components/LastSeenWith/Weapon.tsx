@@ -17,7 +17,12 @@ export function Weapon({
     const killCount = getWeaponKillCount(weapon, stats);
     return (
         <article className={styles.weaponCard}>
-            <img alt="" src={`/static/images/raid/weapons/${weapon.id}.png`} />
+            <div className={styles.imgContainer}>
+                <img
+                    alt=""
+                    src={`/static/images/raid/weapons/${weapon.id}.png`}
+                />
+            </div>
             <div className={styles.description}>
                 <h3>{weapon.name}</h3>
                 <p>Confirmed kills: {killCount ?? 'Unknown'}</p>
