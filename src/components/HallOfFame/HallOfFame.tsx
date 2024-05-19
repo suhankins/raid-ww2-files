@@ -2,7 +2,7 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import HallOfFameCard from './HallOfFameCard';
-import { HallOfFameCards } from '@/lib/HallOfFameCards';
+import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameCardsDB';
 import styles from './HallOfFame.module.css';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import { useMemo, useRef } from 'react';
@@ -10,7 +10,7 @@ import useAutoScroller from './useAutoScroller';
 
 const getWeightedValue = (
     value: number,
-    weight: (typeof HallOfFameCards)[number]['weight'],
+    weight: (typeof HallOfFameCardsDB)[number]['weight'],
     totalKills: number
 ) => (typeof weight === 'number' ? weight * value : weight(value, totalKills));
 
@@ -23,7 +23,7 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
     );
     const cards = useMemo(
         () =>
-            HallOfFameCards.toSorted(
+            HallOfFameCardsDB.toSorted(
                 (a, b) =>
                     getWeightedValue(a.getter(stats), a.weight, totalKills) -
                     getWeightedValue(b.getter(stats), b.weight, totalKills)

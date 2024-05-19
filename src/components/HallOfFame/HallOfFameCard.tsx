@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { HallOfFameCards } from '@/lib/HallOfFameCards';
+import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameCardsDB';
 import styles from './HallOfFameCard.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
 
@@ -7,17 +7,17 @@ export default function HallOfFameCard({
     stat,
     stats,
 }: {
-    stat: (typeof HallOfFameCards)[number];
+    stat: (typeof HallOfFameCardsDB)[number];
     stats: ISteamStats;
 }) {
     return (
         <article className={styles.banner}>
             <img
-                src="/static/images/raid/raids/clear_skies.png"
+                src={`/static/images/raid/hallOfFame/${stat.icon}.png`}
                 alt=""
                 title={stat.icon}
             />
-            <p>{stat.formatter(stat.getter(stats))}</p>
+            <p>{stat.render(stat.getter(stats))}</p>
         </article>
     );
 }

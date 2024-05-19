@@ -1,6 +1,6 @@
 .banner {
-    border-bottom: 10px solid var(--raid_dirty_white);
-    border-top: 10px solid var(--raid_dirty_white);
+    border-bottom: 10px solid var(--raid_white);
+    border-top: 10px solid var(--raid_white);
     background-color: var(--raid_light_red);
     width: 100%;
     padding: 5px;
