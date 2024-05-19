@@ -1,5 +1,3 @@
-import { getTypeIndex } from '@/lib/WeaponTypes';
-import { getCategoryIndex } from '@/lib/WeaponCategories';
 import { type IWeapon } from '../lib/IWeapon';
 
 export const Grenades: IWeapon[] = [
@@ -134,15 +132,6 @@ export const WeaponsDB: IWeapon[] = [
     ...Guns,
     ...Turrets,
 ];
-
-export const WeaponsSortedByType: IWeapon[] = WeaponsDB.sort((a, b) => {
-    const typeDifference = getTypeIndex(a.type) - getTypeIndex(b.type);
-    if (typeDifference === 0 && a.category && b.category) {
-        return getCategoryIndex(a.category) - getCategoryIndex(b.category);
-    } else {
-        return typeDifference;
-    }
-});
 
 export const getWeaponById = (weaponId: string) =>
     WeaponsDB.find((weapon) => weapon.id === weaponId);

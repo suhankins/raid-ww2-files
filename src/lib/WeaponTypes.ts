@@ -8,7 +8,3 @@ export const WeaponTypes = [
     { id: 'melee', name: 'Melee' },
     { id: 'turret', name: 'Turret' },
 ] as const;
-
-export function getTypeIndex(id: (typeof WeaponTypes)[number]['id']) {
-    return WeaponTypes.findIndex((type) => type.id === id);
-}

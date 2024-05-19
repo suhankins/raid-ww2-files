@@ -11,7 +11,3 @@ export const WeaponCategories = [
     { id: 'grenade', name: 'Grenade' },
     { id: 'mine', name: 'Mine' },
 ] as const;
-
-export function getCategoryIndex(id: (typeof WeaponCategories)[number]['id']) {
-    return WeaponCategories.findIndex((category) => category.id === id);
-}

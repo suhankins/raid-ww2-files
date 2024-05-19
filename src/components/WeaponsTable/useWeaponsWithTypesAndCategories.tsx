@@ -4,7 +4,7 @@ import {
     WeaponCategories,
 } from '@/lib/WeaponCategories';
 import { DefaultWeaponType, WeaponTypes } from '@/lib/WeaponTypes';
-import { WeaponsSortedByType } from '@/utils/WeaponsDB';
+import { WeaponsDB } from '@/utils/WeaponsDB';
 import getWeaponStats from '@/utils/getKills/getWeaponStats';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -17,8 +17,7 @@ export default function useWeaponsWithTypesAndCategories(stats: ISteamStats) {
     >(DefaultWeaponCategory);
 
     const weaponsWithStats = useMemo(
-        () =>
-            WeaponsSortedByType.map((weapon) => getWeaponStats(weapon, stats)),
+        () => WeaponsDB.map((weapon) => getWeaponStats(weapon, stats)),
         [stats]
     );
 
