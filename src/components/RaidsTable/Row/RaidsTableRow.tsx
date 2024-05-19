@@ -37,7 +37,7 @@ export default function RaidsTableRow({
             <td>
                 <JobAccomplishments job={job} achievements={achievements} />
             </td>
-            <td title={percentageOfTotal}>
+            <td>
                 <div
                     className={styles.bar}
                     style={{
