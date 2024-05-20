@@ -23,11 +23,17 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
     );
     const cards = useMemo(
         () =>
-            HallOfFameCardsDB.toSorted(
-                (a, b) =>
-                    getWeightedValue(a.getter(stats), a.weight, totalKills) -
-                    getWeightedValue(b.getter(stats), b.weight, totalKills)
-            ).toReversed(),
+            HallOfFameCardsDB.map((card) => ({
+                ...card,
+                value: card.getter(stats),
+            }))
+                .filter((card) => card.value > 0)
+                .toSorted(
+                    (a, b) =>
+                        getWeightedValue(a.value, a.weight, totalKills) -
+                        getWeightedValue(b.value, b.weight, totalKills)
+                )
+                .toReversed(),
         [stats, totalKills]
     );
     return (
