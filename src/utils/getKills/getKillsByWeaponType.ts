@@ -7,25 +7,25 @@ export default function getKillsByWeaponType(
 ): number {
     switch (type) {
         case 'melee':
-            return stats.ach_kill_enemies_with_melee;
+            return stats.ach_kill_enemies_with_melee ?? 0;
         case 'grenade':
             return (
-                stats.ach_kill_enemies_with_grenades +
-                stats.ach_kill_enemies_with_mines
+                (stats.ach_kill_enemies_with_grenades ?? 0) +
+                (stats.ach_kill_enemies_with_mines ?? 0)
             );
         case 'turret':
-            return stats.ach_kill_enemies_with_turret;
+            return stats.ach_kill_enemies_with_turret ?? 0;
         case 'secondary':
-            return stats.ach_kill_enemies_with_secondary_weap;
+            return stats.ach_kill_enemies_with_secondary_weap ?? 0;
         case 'all':
-            return stats.ach_kill_enemies;
+            return stats.ach_kill_enemies ?? 0;
         case 'primary':
             return (
-                stats.ach_kill_enemies -
-                stats.ach_kill_enemies_with_melee -
-                stats.ach_kill_enemies_with_grenades -
-                stats.ach_kill_enemies_with_turret -
-                stats.ach_kill_enemies_with_secondary_weap
+                getKillsByWeaponType('all', stats) -
+                getKillsByWeaponType('melee', stats) -
+                getKillsByWeaponType('grenade', stats) -
+                getKillsByWeaponType('turret', stats) -
+                getKillsByWeaponType('secondary', stats)
             );
     }
 }
