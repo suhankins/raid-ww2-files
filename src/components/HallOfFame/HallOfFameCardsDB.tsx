@@ -125,4 +125,10 @@ export const HallOfFameCardsDB = [
         ),
         weight: 5,
     },
+    {
+        icon: 'never_played',
+        getter: (stats: ISteamStats) => (stats.game_played === 1 ? 0 : 1),
+        render: () => <>Never seen on the battlefield</>,
+        weight: Infinity,
+    },
 ] as const;
