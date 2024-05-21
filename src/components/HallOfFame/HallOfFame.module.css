@@ -11,6 +11,6 @@
     scrollbar-color: var(--raid_white) transparent;
     padding-bottom: 10px;
     scrollbar-width: thin;
-    gap: 1ch;
+    gap: 1rem 1ch;
     padding-right: 10px;
 }
