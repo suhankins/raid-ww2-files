@@ -1,5 +1,5 @@
 .customTooltip {
     --rt-color-white: var(--raid_white);
     --rt-color-dark: var(--raid_black);
-    --rt-opacity: 1;
+    --rt-opacity: 0.9;
 }
