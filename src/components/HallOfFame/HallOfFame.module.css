@@ -5,7 +5,7 @@
     height: 200px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     scroll-snap-type: x proximity;
     scrollbar-color: var(--raid_white) transparent;
