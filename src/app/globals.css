@@ -128,3 +128,7 @@ table thead th {
         gap: 1rem;
     }
 }
+
+code {
+    white-space: pre; /*pre-serve*/
+}
