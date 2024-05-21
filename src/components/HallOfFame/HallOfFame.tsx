@@ -2,7 +2,7 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import HallOfFameBanner from './HallOfFameBanner';
-import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannerDB';
+import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannersDB';
 import styles from './HallOfFame.module.css';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import { useMemo, useRef } from 'react';

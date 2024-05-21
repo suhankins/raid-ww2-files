@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannerDB';
+import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannersDB';
 import styles from './HallOfFameBanner.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
 
