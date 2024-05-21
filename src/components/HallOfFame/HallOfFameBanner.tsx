@@ -16,7 +16,6 @@ export default function HallOfFameBanner({
                 loading="lazy"
                 src={`/static/images/raid/hallOfFame/${banner.icon}.png`}
                 alt=""
-                title={banner.icon}
             />
             <p>{banner.render(banner.getter(stats))}</p>
         </article>
