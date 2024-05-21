@@ -17,7 +17,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> nazis killed
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                nazis killed
             </>
         ),
         weight: 1,
@@ -28,7 +30,9 @@ export const HallOfFameBannersDB: Banner[] = [
             stats.ach_kill_enemies_with_headshot ?? 0,
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> heads blown
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                heads blown
             </>
         ),
         weight: 1.1,
@@ -38,7 +42,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => stats.ach_revive_teammates ?? 0,
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> teammates revived
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                teammates revived
             </>
         ),
         weight: 100,
@@ -50,7 +56,9 @@ export const HallOfFameBannersDB: Banner[] = [
             (stats.challenge_cards_start_operation_total_count ?? 0),
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> cards used
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                cards used
             </>
         ),
         weight: 110,
@@ -60,7 +68,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => stats.ach_dismember_enemies ?? 0,
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> limbs cut
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                limbs cut
             </>
         ),
         weight: 2.5,
@@ -70,7 +80,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => stats.ach_top_stats_award ?? 0,
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> &quot;Best of&quot; awards
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                &quot;Best of&quot; awards
             </>
         ),
         weight: 200,
@@ -82,7 +94,9 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
-                <b>{toPercentage(x)}</b> kills with secondary
+                <b>{toPercentage(x)}</b>
+                <br />
+                kills with secondary
             </>
         ),
         weight: (x: number, totalKills: number) => (totalKills / 20) * x * 100,
@@ -94,7 +108,9 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
-                <b>{toPercentage(x)}</b> kills with explosives
+                <b>{toPercentage(x)}</b>
+                <br />
+                kills with explosives
             </>
         ),
         weight: (x: number, totalKills: number) => (totalKills / 12) * x * 100,
@@ -106,7 +122,9 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
-                <b>{toPercentage(x)}</b> kills with melee
+                <b>{toPercentage(x)}</b>
+                <br />
+                kills with melee
             </>
         ),
         weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
@@ -118,7 +136,9 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
-                <b>{toPercentage(x)}</b> kills with mounted MG
+                <b>{toPercentage(x)}</b>
+                <br />
+                kills with mounted MG
             </>
         ),
         weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
@@ -128,7 +148,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => stats.ach_open_loot_crates ?? 0,
         render: (x: number) => (
             <>
-                <b>{prettifyNumber(x)}</b> loot crates open
+                <b>{prettifyNumber(x)}</b>
+                <br />
+                loot crates open
             </>
         ),
         weight: 5,
@@ -145,7 +167,9 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) => stats.ach_create_character ?? 0,
         render: (x: number) => (
             <>
-                <b>{x}</b> characters created
+                <b>{x}</b>
+                <br />
+                characters created
             </>
         ),
         weight: 100,
