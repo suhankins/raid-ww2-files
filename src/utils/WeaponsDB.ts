@@ -30,8 +30,8 @@ export const Grenades: IWeapon[] = [
 ];
 
 export const Melee: IWeapon[] = [
-    { id: 'weapon', name: 'Weapon butt', type: 'melee' },
-    { id: 'fists', name: 'Fists', type: 'melee', hidden: true },
+    { id: 'weapon', name: 'Weapon butt', type: 'melee', noIcon: true },
+    { id: 'fists', name: 'Fists', type: 'melee', hidden: true, noIcon: true },
     { id: 'm3_knife', name: 'M3 Combat Knife', type: 'melee' },
     {
         id: 'robbins_dudley_trench_push_dagger',

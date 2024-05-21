@@ -1,6 +1,8 @@
 import { IWeaponWithStats } from '@/lib/IWeaponWithStats';
 import prettifyNumber from '@/utils/prettifyNumber';
 import toPercentage from '@/utils/toPercentage';
+import WeaponImage from './WeaponImage';
+import { renderToString } from 'react-dom/server';
 
 export default function WeaponsTableRow({
     weapon,
@@ -9,7 +11,15 @@ export default function WeaponsTableRow({
 }) {
     return (
         <tr key={weapon.id}>
-            <th scope="row">{weapon.name}</th>
+            <th
+                data-tooltip-id={weapon.noIcon ? undefined : 'tooltip'}
+                data-tooltip-html={renderToString(
+                    <WeaponImage weapon={weapon} />
+                )}
+                scope="row"
+            >
+                {weapon.name}
+            </th>
             <td>
                 {weapon.kills !== undefined
                     ? prettifyNumber(weapon.kills)
