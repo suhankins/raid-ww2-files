@@ -1,0 +1,14 @@
+.achievementTooltip {
+    max-width: 200px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 5px;
+}
+
+.list li::marker {
+    content: '';
+}

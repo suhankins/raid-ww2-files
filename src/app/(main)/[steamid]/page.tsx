@@ -10,6 +10,8 @@ import { redirect } from 'next/navigation';
 import ErrorCard from './ErrorCard';
 import HallOfFame from '@/components/HallOfFame/HallOfFame';
 import Tooltip from '@/components/Tooltip/Tooltip';
+import AchievementsList from '@/components/AchievementsList/AchievementsList';
+import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
 
 export default async function Home({
     params: { steamid },
@@ -40,6 +42,7 @@ export default async function Home({
         const user = await getUserInfo(steamid);
         const stats = await getStats(steamid);
         const achievements = await getAchievements(steamid);
+        const achievementSchema = await getAchievementSchema();
 
         return (
             <>
@@ -62,6 +65,12 @@ export default async function Home({
                     </section>
                     <section>
                         <RaidsTable stats={stats} achievements={achievements} />
+                    </section>
+                    <section>
+                        <AchievementsList
+                            achievementSchema={achievementSchema}
+                            achievements={achievements}
+                        />
                     </section>
                 </div>
                 <Tooltip />
