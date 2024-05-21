@@ -132,3 +132,7 @@ table thead th {
 code {
     white-space: pre; /*pre-serve*/
 }
+
+.smaller {
+    font-size: 0.8em;
+}

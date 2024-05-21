@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
 import styles from './PlayerInfo.module.css';
-import { getLevel } from '@/utils/getLevel';
+import { Level } from '@/components/PlayerInfo/Level';
 import type { ISteamStats } from '@/lib/ISteamStats';
 import type { IAchievement } from '@/lib/IAchievement';
 import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
@@ -47,7 +47,9 @@ export function PlayerInfo({
                         <p>{character.nationality}</p>
                     </div>
                     <div className={styles.basicsCard}>
-                        <b>{getLevel(stats, achievements)}</b>
+                        <b>
+                            <Level stats={stats} achievements={achievements} />
+                        </b>
                         <p>Level</p>
                     </div>
                 </div>

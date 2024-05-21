@@ -3,9 +3,22 @@ import { ISteamStats } from '@/lib/ISteamStats';
 
 const possibleLevels = [40, 30, 20, 10, 5, 2];
 
-export function getLevel(stats: ISteamStats, achievements: IAchievement[]) {
+export function Level({
+    stats,
+    achievements,
+}: {
+    stats: ISteamStats;
+    achievements: IAchievement[];
+}) {
     if (stats.ach_reach_level_40_count >= 2) {
-        return `40 x${stats.ach_reach_level_40_count}`;
+        return (
+            <span>
+                40
+                <span className="smaller">
+                    ×{stats.ach_reach_level_40_count}
+                </span>
+            </span>
+        );
     }
     const highestAchievedLevel = possibleLevels.find((level) =>
         achievements.find(
@@ -14,5 +27,5 @@ export function getLevel(stats: ISteamStats, achievements: IAchievement[]) {
                 achievement.achieved
         )
     );
-    return `${highestAchievedLevel ?? 1}`;
+    return <span>{highestAchievedLevel ?? 1}</span>;
 }
