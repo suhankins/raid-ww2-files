@@ -7,9 +7,17 @@ import type { IAchievement } from '@/lib/IAchievement';
 export async function getAchievements(
     steamid: string | number
 ): Promise<IAchievement[]> {
+    const urlParams = new URLSearchParams();
+    urlParams.set('key', process.env.STEAM_WEB_API_KEY ?? '');
+    urlParams.set('appId', '414740');
+    urlParams.set('l', 'english');
+    urlParams.set('format', 'json');
+    urlParams.set('steamid', steamid.toString());
+
     // we use v0001 api because v0002 doesn't return unlocktime
     const response = await fetch(
-        `http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=414740&key=${process.env.STEAM_WEB_API_KEY}&steamid=${steamid}&l=en`,
+        'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001?' +
+            urlParams.toString(),
         { cache: 'no-store' }
     );
     if (!response.ok)

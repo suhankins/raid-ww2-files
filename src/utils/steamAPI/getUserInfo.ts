@@ -6,9 +6,15 @@ import type { IUserInfo } from '@/lib/IUserInfo';
  * @throws If profile is not public
  */
 export async function getUserInfo(steamid: string) {
+    const urlParams = new URLSearchParams();
+    urlParams.set('key', process.env.STEAM_WEB_API_KEY ?? '');
+    urlParams.set('l', 'english');
+    urlParams.set('format', 'json');
+    urlParams.set('steamids', steamid.toString());
+
     const response = await fetch(
-        `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_WEB_API_KEY}&steamids=${steamid}`,
-        { cache: 'no-store' }
+        `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002?` +
+            urlParams.toString()
     );
     if (!response.ok)
         throw new Error(
