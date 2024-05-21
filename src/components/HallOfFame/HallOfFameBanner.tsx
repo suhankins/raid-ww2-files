@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameCardsDB';
-import styles from './HallOfFameCard.module.css';
+import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameBannerDB';
+import styles from './HallOfFameBanner.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
 
 export default function HallOfFameCard({

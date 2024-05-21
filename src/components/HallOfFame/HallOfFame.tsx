@@ -1,8 +1,8 @@
 'use client';
 
 import { type ISteamStats } from '@/lib/ISteamStats';
-import HallOfFameCard from './HallOfFameCard';
-import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameCardsDB';
+import HallOfFameCard from './HallOfFameBanner';
+import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameBannerDB';
 import styles from './HallOfFame.module.css';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import { useMemo, useRef } from 'react';
