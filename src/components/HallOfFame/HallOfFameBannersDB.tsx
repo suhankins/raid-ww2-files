@@ -136,8 +136,18 @@ export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'never_played',
         getter: (stats: ISteamStats) => (stats.game_played === 1 ? 0 : 1),
-        render: () => <>Never seen on the battlefield</>,
+        render: () => 'Never seen on the battlefield',
         weight: Infinity,
         negative: true,
+    },
+    {
+        icon: 'character',
+        getter: (stats: ISteamStats) => stats.ach_create_character ?? 0,
+        render: (x: number) => (
+            <>
+                <b>{x}</b> characters created
+            </>
+        ),
+        weight: 100,
     },
 ] as const;
