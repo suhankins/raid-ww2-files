@@ -1,8 +1,8 @@
 'use client';
 
 import { type ISteamStats } from '@/lib/ISteamStats';
-import HallOfFameCard from './HallOfFameBanner';
-import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameBannerDB';
+import HallOfFameBanner from './HallOfFameBanner';
+import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannerDB';
 import styles from './HallOfFame.module.css';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import { useMemo, useRef } from 'react';
@@ -10,7 +10,7 @@ import useAutoScroller from './useAutoScroller';
 
 const getWeightedValue = (
     value: number,
-    weight: (typeof HallOfFameCardsDB)[number]['weight'],
+    weight: (typeof HallOfFameBannersDB)[number]['weight'],
     totalKills: number
 ) => (typeof weight === 'number' ? weight * value : weight(value, totalKills));
 
@@ -23,7 +23,7 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
     );
     const cards = useMemo(
         () =>
-            HallOfFameCardsDB.map((card) => ({
+            HallOfFameBannersDB.map((card) => ({
                 ...card,
                 value: card.getter(stats),
             }))
@@ -39,8 +39,12 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
     return (
         <>
             <div className={styles.container} ref={containerRef}>
-                {cards.map((stat, index) => (
-                    <HallOfFameCard stat={stat} stats={stats} key={index} />
+                {cards.map((banner, index) => (
+                    <HallOfFameBanner
+                        banner={banner}
+                        stats={stats}
+                        key={index}
+                    />
                 ))}
             </div>
         </>

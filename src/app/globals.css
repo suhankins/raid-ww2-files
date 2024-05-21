@@ -22,6 +22,7 @@
         brightness(102%) contrast(98%);
     --raid_light_gold: #d8b883;
     --raid_list_background: rgba(215, 215, 215, 0.1);
+    --banner_black: #0e0e0e;
 }
 
 html {

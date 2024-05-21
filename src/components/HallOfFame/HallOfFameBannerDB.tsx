@@ -3,7 +3,15 @@ import { ISteamStats } from '../../lib/ISteamStats';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 import toPercentage from '@/utils/toPercentage';
 
-export const HallOfFameCardsDB = [
+export type Banner = {
+    icon: string;
+    getter: (stats: ISteamStats) => number;
+    render: (x: number) => React.ReactNode;
+    weight: number | ((x: number, totalKills: number) => number);
+    negative?: boolean;
+};
+
+export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'kills',
         getter: (stats: ISteamStats) => getKillsByWeaponType('all', stats),
@@ -130,5 +138,6 @@ export const HallOfFameCardsDB = [
         getter: (stats: ISteamStats) => (stats.game_played === 1 ? 0 : 1),
         render: () => <>Never seen on the battlefield</>,
         weight: Infinity,
+        negative: true,
     },
 ] as const;

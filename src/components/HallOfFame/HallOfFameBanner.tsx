@@ -1,24 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import { HallOfFameCardsDB } from '@/components/HallOfFame/HallOfFameBannerDB';
+import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannerDB';
 import styles from './HallOfFameBanner.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
 
-export default function HallOfFameCard({
-    stat,
+export default function HallOfFameBanner({
+    banner,
     stats,
 }: {
-    stat: (typeof HallOfFameCardsDB)[number];
+    banner: (typeof HallOfFameBannersDB)[number];
     stats: ISteamStats;
 }) {
     return (
-        <article className={styles.banner}>
+        <article className={styles.banner} data-negative={banner.negative}>
             <img
                 loading="lazy"
-                src={`/static/images/raid/hallOfFame/${stat.icon}.png`}
+                src={`/static/images/raid/hallOfFame/${banner.icon}.png`}
                 alt=""
-                title={stat.icon}
+                title={banner.icon}
             />
-            <p>{stat.render(stat.getter(stats))}</p>
+            <p>{banner.render(banner.getter(stats))}</p>
         </article>
     );
 }

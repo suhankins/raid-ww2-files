@@ -26,3 +26,7 @@
 .banner b {
     font-size: 1.2em;
 }
+
+.banner[data-negative='true'] {
+    background-color: var(--banner_black);
+}
