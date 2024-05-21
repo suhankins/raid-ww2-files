@@ -38,7 +38,6 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
     );
     return (
         <>
-            <h3>Known for</h3>
             <div className={styles.container} ref={containerRef}>
                 {cards.map((stat, index) => (
                     <HallOfFameCard stat={stat} stats={stats} key={index} />
