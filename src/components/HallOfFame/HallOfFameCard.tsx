@@ -13,6 +13,7 @@ export default function HallOfFameCard({
     return (
         <article className={styles.banner}>
             <img
+                loading="lazy"
                 src={`/static/images/raid/hallOfFame/${stat.icon}.png`}
                 alt=""
                 title={stat.icon}

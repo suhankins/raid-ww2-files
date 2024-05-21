@@ -14,6 +14,7 @@ export default function JobAccomplishments({
 }) {
     return getJobAccomplishments(job, achievements).map((accomplishment) => (
         <img
+            loading="lazy"
             key={accomplishment.type}
             src={`/static/images/raid/accomplishments/${accomplishment.type}.png`}
             className={styles.accomplishment}

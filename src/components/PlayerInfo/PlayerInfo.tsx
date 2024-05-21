@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
 import styles from './PlayerInfo.module.css';
-import { getLevelString } from '@/utils/getLevelString';
+import { getLevel } from '@/utils/getLevel';
 import type { ISteamStats } from '@/lib/ISteamStats';
 import type { IAchievement } from '@/lib/IAchievement';
 import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
+import getAchievementsCompletedPercentage from '@/utils/getAchievementsCompletedPercentage';
 
 export function PlayerInfo({
     user,
@@ -21,19 +22,40 @@ export function PlayerInfo({
 
     return (
         <div className={styles.container}>
-            <img
-                className={styles.profilePicture}
-                alt=""
-                src={`/static/images/raid/characters/${character.id}.png`}
-            />
+            <div className={styles.pictureContainer}>
+                <img
+                    loading="lazy"
+                    className={styles.profilePicture}
+                    alt=""
+                    src={`/static/images/raid/characters/${character.id}.png`}
+                />
+            </div>
             <div className={styles.info}>
-                <h2>
-                    <a href={user.profileurl}>{user.personaname}</a>{' '}
-                </h2>
-                <h3 className={styles.sidenote}>
-                    {character.description} |{' '}
-                    {getLevelString(stats, achievements)}
-                </h3>
+                <div className={styles.basics}>
+                    <div className={styles.basicsCard}>
+                        <b>
+                            {getAchievementsCompletedPercentage(achievements)}
+                        </b>
+                        <p>Achievements completed</p>
+                    </div>
+                    <div className={styles.basicsCard}>
+                        <img
+                            loading="lazy"
+                            alt=""
+                            src={`/static/images/raid/nationality/${character.id}.png`}
+                        />
+                        <p>{character.nationality}</p>
+                    </div>
+                    <div className={styles.basicsCard}>
+                        <b>{getLevel(stats, achievements)}</b>
+                        <p>Level</p>
+                    </div>
+                </div>
+                <div className={styles.basicsCard + ' ' + styles.wide}>
+                    <b>{user.personaname}</b>
+                    <p>{character.name}</p>
+                </div>
+                <h3 className={styles.sidenote}></h3>
                 {children}
             </div>
         </div>

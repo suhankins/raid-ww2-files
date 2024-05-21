@@ -8,6 +8,7 @@ export default function JobIcon({ job }: { job: IJob }) {
 
     return (
         <img
+            loading="lazy"
             className={isOutlaw ? styles.outlaw : undefined}
             alt=""
             src={`/static/images/raid/raids/${id}.png`}

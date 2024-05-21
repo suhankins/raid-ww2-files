@@ -3,11 +3,15 @@
     margin-right: 2ch;
 }
 
+.pictureContainer {
+    text-align: center;
+}
+
 .container {
     display: flex;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .container {
         flex-direction: column;
     }
@@ -23,4 +27,29 @@
 
 .info {
     width: 100%;
+}
+
+.basics {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.basicsCard {
+    width: 12ch;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.wide {
+    width: 100%;
+}
+
+.basicsCard b {
+    font-size: 3rem;
+    color: var(--raid_red);
 }

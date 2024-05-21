@@ -41,9 +41,9 @@ export default async function Home({
         const achievements = await getAchievements(steamid);
 
         return (
-            <main>
-                <h1>Raider dossier</h1>
-                <section>
+            <>
+                <section className="limited-width-wider">
+                    <h1>Raider dossier</h1>
                     <PlayerInfo
                         user={user}
                         stats={stats}
@@ -52,16 +52,18 @@ export default async function Home({
                         <HallOfFame stats={stats} />
                     </PlayerInfo>
                 </section>
-                <section>
-                    <LastSeenWith stats={stats} />
-                </section>
-                <section>
-                    <WeaponsTable stats={stats} />
-                </section>
-                <section>
-                    <RaidsTable stats={stats} achievements={achievements} />
-                </section>
-            </main>
+                <div className="limited-width">
+                    <section>
+                        <LastSeenWith stats={stats} />
+                    </section>
+                    <section>
+                        <WeaponsTable stats={stats} />
+                    </section>
+                    <section>
+                        <RaidsTable stats={stats} achievements={achievements} />
+                    </section>
+                </div>
+            </>
         );
     } catch (e) {
         return <ErrorCard e={e} />;

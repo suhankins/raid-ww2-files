@@ -19,6 +19,7 @@ export function Weapon({
         <article className={styles.weaponCard}>
             <div className={styles.imgContainer}>
                 <img
+                    loading="lazy"
                     alt=""
                     src={`/static/images/raid/weapons/${weapon.id}.png`}
                 />
