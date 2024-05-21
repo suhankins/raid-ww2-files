@@ -9,7 +9,9 @@ export function getLevel(stats: ISteamStats, achievements: IAchievement[]) {
     }
     const highestAchievedLevel = possibleLevels.find((level) =>
         achievements.find(
-            (achievement) => achievement.apiname === `ach_reach_level_${level}`
+            (achievement) =>
+                achievement.apiname === `ach_reach_level_${level}` &&
+                achievement.achieved
         )
     );
     return `${highestAchievedLevel ?? 1}`;
