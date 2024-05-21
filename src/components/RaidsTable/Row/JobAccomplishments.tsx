@@ -14,12 +14,13 @@ export default function JobAccomplishments({
 }) {
     return getJobAccomplishments(job, achievements).map((accomplishment) => (
         <img
+            data-tooltip-id="tooltip"
+            data-tooltip-content={getAccomplishmentString(accomplishment)}
             loading="lazy"
             key={accomplishment.type}
             src={`/static/images/raid/accomplishments/${accomplishment.type}.png`}
             className={styles.accomplishment}
             data-completed={accomplishment.completed}
-            title={getAccomplishmentString(accomplishment)}
             alt={getAccomplishmentString(accomplishment)}
         />
     ));

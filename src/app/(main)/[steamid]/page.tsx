@@ -9,6 +9,7 @@ import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { redirect } from 'next/navigation';
 import ErrorCard from './ErrorCard';
 import HallOfFame from '@/components/HallOfFame/HallOfFame';
+import Tooltip from '@/components/Tooltip/Tooltip';
 
 export default async function Home({
     params: { steamid },
@@ -63,6 +64,7 @@ export default async function Home({
                         <RaidsTable stats={stats} achievements={achievements} />
                     </section>
                 </div>
+                <Tooltip />
             </>
         );
     } catch (e) {
