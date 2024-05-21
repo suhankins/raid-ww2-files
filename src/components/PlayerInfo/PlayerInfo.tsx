@@ -6,6 +6,8 @@ import type { ISteamStats } from '@/lib/ISteamStats';
 import type { IAchievement } from '@/lib/IAchievement';
 import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
 import getAchievementsCompletedPercentage from '@/utils/getAchievementsCompletedPercentage';
+import { getLatestAchievement } from '@/utils/getLatestAchievement';
+import { numberToIsoDate } from '@/utils/numberToIsoDate';
 
 export function PlayerInfo({
     user,
@@ -19,6 +21,7 @@ export function PlayerInfo({
     children: React.ReactNode;
 }) {
     const character = getCharaterFromIndex(stats.equipped_character ?? 0);
+    const lastAchievement = getLatestAchievement(achievements);
 
     return (
         <div className={styles.container}>
@@ -59,6 +62,13 @@ export function PlayerInfo({
                 </div>
                 <h3 className={styles.sidenote}></h3>
                 {children}
+                {lastAchievement.unlocktime !== 0 && (
+                    <p>
+                        Last notable reporting on{' '}
+                        {numberToIsoDate(lastAchievement.unlocktime)}, see note
+                        &quot;{lastAchievement.name}&quot; for details.
+                    </p>
+                )}
             </div>
         </div>
     );
