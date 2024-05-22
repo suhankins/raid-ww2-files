@@ -5,8 +5,11 @@
     padding: 10px;
     font-size: 1rem;
     color: var(--raid_white);
+    width: 100%;
+}
+
+.label {
     width: 50ch;
     max-width: 100%;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    display: inline-block;
 }
