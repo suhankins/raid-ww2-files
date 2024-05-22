@@ -58,7 +58,7 @@ export const HallOfFameBannersDB: Banner[] = [
             <>
                 <b>{prettifyNumber(x)}</b>
                 <br />
-                cards used
+                missions with cards played
             </>
         ),
         weight: 110,
