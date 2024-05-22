@@ -11,6 +11,11 @@ export async function getStats(steamid: string | number): Promise<ISteamStats> {
         { cache: 'no-store' }
     );
     if (!response.ok) {
+        if (response.status === 400) {
+            throw new Error(
+                `Can't get steam stats: server responded ${response.status} (${response.statusText}). Are you sure this player owns RAID: World War II?`
+            );
+        }
         throw new Error(
             `Can't get steam stats: server responded ${response.status} (${response.statusText})`
         );
