@@ -76,6 +76,7 @@ export async function getInventory(steamid: string | number) {
     }
     return data.assets
         .map((asset) => {
+            // Combining assets and descriptions
             const description = data.descriptions.find(
                 (description) => asset.classid === description.classid
             );
@@ -87,6 +88,7 @@ export async function getInventory(steamid: string | number) {
             };
         })
         .reduce(
+            // Removing dublicates, adding them to amount of existing cards
             (acc, item) => {
                 if (acc.length === 0) return [item];
                 const accItemIndex = acc.findIndex(
