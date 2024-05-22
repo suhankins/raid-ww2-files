@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/Button/Button';
+import Textbox from '@/components/Textbox/Textbox';
 import { useRouter } from 'next/navigation';
 import { type FormEvent } from 'react';
 
@@ -20,12 +21,14 @@ export default function MainLayout({
     };
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input
+            <form onSubmit={handleSubmit} className="limited-width">
+                <Textbox
                     type="text"
-                    placeholder="Steam ID or URL"
+                    placeholder="https://steamcommunity.com/id/wolfgang"
                     name="steamid"
-                />
+                >
+                    Enter Raider&apos;s Steam ID or their profile URL
+                </Textbox>
                 <Button type="submit">Search</Button>
             </form>
             {children}

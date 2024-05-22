@@ -1,0 +1,12 @@
+.raidInput {
+    background-color: var(--raid_list_background);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--raid_white);
+    width: 50ch;
+    max-width: 100%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

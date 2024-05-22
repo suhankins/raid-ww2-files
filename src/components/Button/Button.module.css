@@ -1,6 +1,6 @@
 .raidButton {
     min-width: 15ch;
-    padding: 10px 10px;
+    padding: 10px;
     font-size: 1rem;
     background-color: var(--raid_red);
     border: none;
