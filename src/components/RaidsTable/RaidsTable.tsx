@@ -36,7 +36,7 @@ export default function RaidsTable({
 
     return (
         <>
-            <h2>Reports of raider</h2>
+            <h2>Missions carried out</h2>
             <div className="controls">
                 <Stepper
                     id="raidStat"

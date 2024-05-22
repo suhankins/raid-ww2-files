@@ -22,7 +22,7 @@ export default function WeaponsTableFooter({
     );
     return (
         <tr>
-            <th scope="row">Totals</th>
+            <th scope="row">Total</th>
             <td>{prettifyNumber(kills ?? 0)}</td>
             <td>-</td>
             <td>{typePercentage}</td>

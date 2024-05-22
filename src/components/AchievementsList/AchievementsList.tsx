@@ -26,7 +26,7 @@ export default function AchievementsList({
     });
     return (
         <>
-            <h2>Raider&apos;s notable achievements</h2>
+            <h2>Notable achievements</h2>
             <ul className={styles.list}>
                 {combinedAchievements.map((achievement) => (
                     <li key={achievement.apiname}>

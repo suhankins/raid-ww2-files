@@ -6,5 +6,5 @@ export const DefaultJobStat = {
 export const JobStats = [
     DefaultJobStat,
     { id: 'starts', name: 'Starts' },
-    { id: 'time', name: 'Time' },
+    { id: 'time', name: 'Total time' },
 ] as const;
