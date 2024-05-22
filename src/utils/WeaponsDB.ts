@@ -123,7 +123,7 @@ export const Guns: IWeapon[] = [
 ];
 
 export const Turrets: IWeapon[] = [
-    { id: 'turret', name: 'Mounted Turret', type: 'turret' },
+    { id: 'turret', name: 'Mounted Turret', type: 'turret', noIcon: true },
 ];
 
 export const WeaponsDB: IWeapon[] = [
