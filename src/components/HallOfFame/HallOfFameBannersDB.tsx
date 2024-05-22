@@ -174,4 +174,28 @@ export const HallOfFameBannersDB: Banner[] = [
         ),
         weight: 100,
     },
+    {
+        icon: 'dogtag',
+        getter: (stats: ISteamStats) => stats.dogtags_collected ?? 0,
+        render: (x: number) => (
+            <>
+                <b>{x}</b>
+                <br />
+                dogtags collected
+            </>
+        ),
+        weight: 30,
+    },
+    {
+        icon: 'gold',
+        getter: (stats: ISteamStats) => stats.player_gold_amount ?? 0,
+        render: (x: number) => (
+            <>
+                <b>{x}</b>
+                <br />
+                gold bars in the Camp
+            </>
+        ),
+        weight: 20,
+    },
 ] as const;
