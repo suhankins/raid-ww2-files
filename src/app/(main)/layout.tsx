@@ -2,7 +2,7 @@
 
 import Button from '@/components/Button/Button';
 import { useRouter } from 'next/navigation';
-import { FormEvent, useRef } from 'react';
+import { type FormEvent } from 'react';
 
 export default function MainLayout({
     children,
@@ -10,14 +10,12 @@ export default function MainLayout({
     children: React.ReactNode;
 }) {
     const router = useRouter();
-    const inputRef = useRef<HTMLInputElement>(null);
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        if (inputRef.current) {
-            const value = inputRef.current.value;
-            if (value) {
-                router.push(`./${encodeURIComponent(value)}`);
-            }
+        const formData = new FormData(e.target as HTMLFormElement);
+        const steamid = formData.get('steamid');
+        if (steamid) {
+            router.push(`./${encodeURIComponent(steamid.toString())}`);
         }
     };
     return (
@@ -26,7 +24,7 @@ export default function MainLayout({
                 <input
                     type="text"
                     placeholder="Steam ID or URL"
-                    ref={inputRef}
+                    name="steamid"
                 />
                 <Button type="submit">Search</Button>
             </form>
