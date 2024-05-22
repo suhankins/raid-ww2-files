@@ -1,5 +1,6 @@
 'use client';
 
+import Button from '@/components/Button/Button';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useRef } from 'react';
 
@@ -27,7 +28,7 @@ export default function MainLayout({
                     placeholder="Steam ID or URL"
                     ref={inputRef}
                 />
-                <button type="submit">Submit</button>
+                <Button type="submit">Search</Button>
             </form>
             {children}
         </div>
