@@ -16,20 +16,16 @@ export default function Tabs({
     return (
         <div className={styles.tablist} data-inline={inline}>
             {options.map((option) => (
-                <label
+                <input
                     key={option.id}
                     className={styles.tab}
-                    data-selected={selectedOption.id === option.id}
-                >
-                    {option.name}
-                    <input
-                        name={name}
-                        type="radio"
-                        value={option.id}
-                        defaultChecked={selectedOption.id === option.id}
-                        onChange={() => onChange(option)}
-                    />
-                </label>
+                    name={name}
+                    type="radio"
+                    value={option.id}
+                    defaultChecked={selectedOption.id === option.id}
+                    onChange={() => onChange(option)}
+                    aria-label={option.name}
+                />
             ))}
         </div>
     );

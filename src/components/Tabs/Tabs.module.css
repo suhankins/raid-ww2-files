@@ -10,20 +10,25 @@
 .tab {
     display: flex;
     font-size: 1.2rem;
+    color: inherit;
+    font-family: inherit;
     border-bottom: 2px solid var(--raid_list_background);
     padding: 10px;
     width: 100%;
     justify-content: center;
     align-items: center;
     text-wrap: nowrap;
+    appearance: none;
+    margin: 0;
 }
 
-.tab input {
-    display: none;
+.tab::after {
+    content: attr(aria-label);
+    display: block;
 }
 
-.tab[data-selected='true'] {
-    border-bottom: 2px solid var(--raid_red);
+.tab:checked {
+    border-bottom-color: var(--raid_red);
 }
 
 .tablist[data-inline='true'] {
@@ -43,6 +48,6 @@
     border-right: 1px solid var(--raid_grey);
 }
 
-.tablist[data-inline='true'] .tab[data-selected='true'] {
+.tablist[data-inline='true'] .tab:checked {
     color: var(--raid_white);
 }
