@@ -15,12 +15,34 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    text-wrap: nowrap;
+}
+
+.tab input {
+    display: none;
 }
 
 .tab[data-selected='true'] {
     border-bottom: 2px solid var(--raid_red);
 }
 
-.tab input {
-    display: none;
+.tablist[data-inline='true'] {
+    width: auto;
+}
+
+.tablist[data-inline='true'] .tab {
+    border-bottom: none;
+    width: auto;
+    color: var(--raid_grey);
+    padding: 0 20px;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.tablist[data-inline='true'] .tab:not(:last-child) {
+    border-right: 1px solid var(--raid_grey);
+}
+
+.tablist[data-inline='true'] .tab[data-selected='true'] {
+    color: var(--raid_white);
 }

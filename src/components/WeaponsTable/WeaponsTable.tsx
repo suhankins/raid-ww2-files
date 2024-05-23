@@ -35,19 +35,17 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     setSelectedType(value as (typeof WeaponTypes)[number])
                 }
             />
-            <div className="controls">
-                <Stepper
-                    options={categories}
-                    selectedOption={selectedCategory}
-                    onChange={(value) =>
-                        setSelectedCategory(
-                            value as (typeof WeaponCategories)[number]
-                        )
-                    }
-                >
-                    Category
-                </Stepper>
-            </div>
+            <Tabs
+                name="Weapon category"
+                options={categories}
+                selectedOption={selectedCategory}
+                onChange={(value) =>
+                    setSelectedCategory(
+                        value as (typeof WeaponCategories)[number]
+                    )
+                }
+                inline
+            />
             <table className={styles.table}>
                 <thead>
                     <tr>

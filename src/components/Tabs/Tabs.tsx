@@ -5,14 +5,16 @@ export default function Tabs({
     selectedOption,
     onChange,
     name,
+    inline,
 }: {
     options: readonly { id: string; name: string }[];
     selectedOption: { id: string; name: string };
     onChange: (value: { id: string; name: string }) => void;
     name: string;
+    inline?: boolean;
 }) {
     return (
-        <div className={styles.tablist}>
+        <div className={styles.tablist} data-inline={inline}>
             {options.map((option) => (
                 <label
                     key={option.id}
