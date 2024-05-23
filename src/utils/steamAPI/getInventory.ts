@@ -50,6 +50,8 @@ type IDescription = {
     }[];
 };
 
+export type IInventoryItem = IAsset & IDescription;
+
 type IAPIReturnValue = {
     assets: IAsset[];
     descriptions: IDescription[];
@@ -106,6 +108,6 @@ export async function getInventory(steamid: string | number) {
                     });
                 }
             },
-            [] as (IAsset & IDescription)[]
+            [] as IInventoryItem[]
         );
 }
