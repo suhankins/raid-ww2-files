@@ -22,6 +22,10 @@
     margin: 0;
 }
 
+.tab:hover {
+    border-bottom-color: var(--raid_white);
+}
+
 .tab::after {
     content: attr(aria-label);
     display: block;
@@ -49,5 +53,9 @@
 }
 
 .tablist[data-inline='true'] .tab:checked {
+    color: var(--raid_white);
+}
+
+.tablist[data-inline='true'] .tab:hover {
     color: var(--raid_white);
 }
