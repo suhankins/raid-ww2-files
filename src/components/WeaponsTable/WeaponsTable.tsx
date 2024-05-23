@@ -10,6 +10,7 @@ import { WeaponTypes } from '@/lib/WeaponTypes';
 import { WeaponCategories } from '@/lib/WeaponCategories';
 import useSortWeapons from './useSortWeapons';
 import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
+import Tabs from '../Tabs/Tabs';
 
 export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {
@@ -26,19 +27,16 @@ export function WeaponsTable({ stats }: { stats: ISteamStats }) {
     return (
         <>
             <h2>Raider&apos;s arsenal</h2>
+            <Tabs
+                name="Weapon Slot"
+                options={WeaponTypes}
+                selectedOption={selectedType}
+                onChange={(value) =>
+                    setSelectedType(value as (typeof WeaponTypes)[number])
+                }
+            />
             <div className="controls">
                 <Stepper
-                    id="weaponType"
-                    options={WeaponTypes}
-                    selectedOption={selectedType}
-                    onChange={(value) =>
-                        setSelectedType(value as (typeof WeaponTypes)[number])
-                    }
-                >
-                    Slot
-                </Stepper>
-                <Stepper
-                    id="weaponCategory"
                     options={categories}
                     selectedOption={selectedCategory}
                     onChange={(value) =>

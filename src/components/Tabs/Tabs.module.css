@@ -1,0 +1,26 @@
+.tablist {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-color: var(--raid_white) transparent;
+    scrollbar-width: thin;
+}
+
+.tab {
+    display: flex;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--raid_list_background);
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab[data-selected='true'] {
+    border-bottom: 2px solid var(--raid_red);
+}
+
+.tab input {
+    display: none;
+}
