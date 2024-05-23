@@ -6,6 +6,7 @@
     font-size: 1rem;
     color: var(--raid_white);
     width: 100%;
+    font-family: inherit;
 }
 
 .label {

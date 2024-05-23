@@ -9,6 +9,7 @@
     position: relative;
     overflow: hidden;
     transition: scale 0.05s ease-in-out;
+    font-family: inherit;
 }
 
 .raidButton:hover {
