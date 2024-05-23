@@ -3,20 +3,20 @@
 import styles from './Stepper.module.css';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import useOnChangeAddIndexCallback from './useOnChangeCallback';
+import { useId } from 'react';
 
 export default function Stepper({
     options,
     selectedOption,
     onChange,
-    id,
     children,
 }: {
     options: readonly { id: string; name: string }[];
     selectedOption: { id: string; name: string };
     onChange: (value: { id: string; name: string }) => void;
-    id?: string;
     children: React.ReactNode;
 }) {
+    const inputId = useId();
     const clickLeft = useOnChangeAddIndexCallback(
         options,
         selectedOption,
@@ -31,7 +31,7 @@ export default function Stepper({
     );
 
     return (
-        <label className={styles.label} htmlFor={id}>
+        <label className={styles.label} htmlFor={inputId}>
             <span className={styles.labelText}>{children}</span>
             <div className={styles.stepperWrapper}>
                 <button
@@ -53,7 +53,7 @@ export default function Stepper({
                     }}
                     className={styles.stepper}
                     value={selectedOption.id}
-                    id={id}
+                    id={inputId}
                     disabled={options.length === 1}
                 >
                     {options.map((option) => (

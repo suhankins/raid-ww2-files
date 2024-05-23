@@ -39,7 +39,6 @@ export default function RaidsTable({
             <h2>Missions carried out</h2>
             <div className="controls">
                 <Stepper
-                    id="raidStat"
                     options={JobStats}
                     selectedOption={selectedStat}
                     onChange={(value) =>
