@@ -2,7 +2,7 @@
     border-left: 10px solid var(--raid_white);
     border-right: 10px solid var(--raid_white);
     background-color: var(--raid_light_red);
-    width: 11ch;
+    width: 100px;
     padding: 5px 5px 15px 5px;
     display: flex;
     flex: none;
@@ -10,17 +10,11 @@
     font-size: 1rem;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 95%, 0% 100%);
     flex-direction: column;
-    gap: 0.5em;
     text-align: center;
 }
 
-.banner img {
-    width: 100%;
-    height: auto;
-}
-
 .banner p {
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 0;
 }
 
