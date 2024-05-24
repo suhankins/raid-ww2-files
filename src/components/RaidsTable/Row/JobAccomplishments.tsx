@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import { IAchievement } from '@/lib/IAchievement';
 import { IJob } from '@/lib/IJob';
 import getAccomplishmentString from '@/utils/getAccomplishmentString';
 import getJobAccomplishments from '@/utils/getJobAccomplishments';
 import styles from '../RaidsTable.module.css';
+import Image from 'next/image';
 
 export default function JobAccomplishments({
     job,
@@ -13,7 +13,9 @@ export default function JobAccomplishments({
     achievements: IAchievement[];
 }) {
     return getJobAccomplishments(job, achievements).map((accomplishment) => (
-        <img
+        <Image
+            width={32}
+            height={32}
             data-tooltip-id="tooltip"
             data-tooltip-content={getAccomplishmentString(accomplishment)}
             loading="lazy"

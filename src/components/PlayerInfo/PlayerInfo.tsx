@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
 import styles from './PlayerInfo.module.css';
 import { Level } from '@/components/PlayerInfo/Level';
@@ -8,6 +7,7 @@ import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
 import getAchievementsCompletedPercentage from '@/utils/getAchievementsCompletedPercentage';
 import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
+import Image from 'next/image';
 
 export function PlayerInfo({
     user,
@@ -26,8 +26,9 @@ export function PlayerInfo({
     return (
         <div className={styles.container}>
             <div className={styles.pictureContainer}>
-                <img
-                    loading="lazy"
+                <Image
+                    width={335}
+                    height={460}
                     className={styles.profilePicture}
                     alt=""
                     src={`/static/images/raid/characters/${character.id}.png`}
@@ -42,8 +43,9 @@ export function PlayerInfo({
                         <p>Achievements completed</p>
                     </div>
                     <div className={styles.basicsCard}>
-                        <img
-                            loading="lazy"
+                        <Image
+                            width={96}
+                            height={64}
                             alt=""
                             src={`/static/images/raid/nationality/${character.id}.png`}
                         />

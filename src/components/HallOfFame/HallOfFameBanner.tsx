@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannersDB';
 import styles from './HallOfFameBanner.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
+import Image from 'next/image';
 
 export default function HallOfFameBanner({
     banner,
@@ -12,8 +12,9 @@ export default function HallOfFameBanner({
 }) {
     return (
         <article className={styles.banner} data-negative={banner.negative}>
-            <img
-                loading="lazy"
+            <Image
+                width={72}
+                height={72}
                 src={`/static/images/raid/hallOfFame/${banner.icon}.png`}
                 alt=""
             />
