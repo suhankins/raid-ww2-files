@@ -1,0 +1,11 @@
+.effectContainer {
+    max-width: 30ch;
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+    margin-bottom: 1rem;
+}
+
+.effectContainer svg {
+    flex-shrink: 0;
+}

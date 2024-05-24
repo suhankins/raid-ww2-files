@@ -1,0 +1,16 @@
+.typeIcon {
+    position: absolute;
+    top: var(--padding);
+    left: var(--padding);
+}
+
+.rarityIcon {
+    position: absolute;
+    top: var(--padding);
+    right: var(--padding);
+}
+
+.container {
+    position: relative;
+    width: min-content;
+}

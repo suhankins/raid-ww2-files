@@ -1,3 +1,5 @@
+import { CardsDB } from '../CardsDB';
+
 type IAsset = {
     appid: 414740;
     contextid: string;
@@ -17,11 +19,11 @@ type IDescription = {
     /**
      * https://community.akamai.steamstatic.com/economy/image/${icon_url}/96fx96f?allow_animated=1
      */
-    icon_url: string;
+    icon_url?: string;
     /**
      * https://community.akamai.steamstatic.com/economy/image/${icon_url_large}/330x192?allow_animated=1
      */
-    icon_url_large: string;
+    icon_url_large?: string;
     descriptions: [
         {
             type: 'html';
@@ -30,7 +32,7 @@ type IDescription = {
     ];
     name: string;
     name_color: string;
-    type: '';
+    type: string;
     market_name: string;
     tags: {
         category: 'cards';
@@ -62,7 +64,13 @@ type IAPIReturnValue = {
     success: number;
 };
 
-export async function getInventory(steamid: string | number) {
+export type IInventoryCard =
+    | IInventoryItem
+    | (IInventoryItem & (typeof CardsDB)[number]);
+
+export async function getInventory(
+    steamid: string | number
+): Promise<IInventoryCard[]> {
     const response = await fetch(
         `https://steamcommunity.com/inventory/${steamid}/414740/2`
     );
@@ -109,5 +117,15 @@ export async function getInventory(steamid: string | number) {
                 }
             },
             [] as IInventoryItem[]
-        );
+        )
+        .map((item) => {
+            // Yes, we really are just checking name
+            // I couldn't find anything better, this API doesn't return enough info.
+            const card = CardsDB.find((card) => card.name === item.name);
+            if (!card) return item;
+            return {
+                ...item,
+                ...card,
+            };
+        });
 }

@@ -12,6 +12,8 @@ import HallOfFame from '@/components/HallOfFame/HallOfFame';
 import Tooltip from '@/components/Tooltip/Tooltip';
 import AchievementsList from '@/components/AchievementsList/AchievementsList';
 import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
+import CardsList from '@/components/CardsList/CardsList';
+import { getInventory } from '@/utils/steamAPI/getInventory';
 
 export default async function Home({
     params: { steamid },
@@ -43,6 +45,7 @@ export default async function Home({
         const stats = await getStats(steamid);
         const achievements = await getAchievements(steamid);
         const achievementSchema = await getAchievementSchema();
+        const inventory = await getInventory(steamid).catch(() => []);
 
         return (
             <>
@@ -66,13 +69,16 @@ export default async function Home({
                     <section>
                         <RaidsTable stats={stats} achievements={achievements} />
                     </section>
-                    <section>
-                        <AchievementsList
-                            achievementSchema={achievementSchema}
-                            achievements={achievements}
-                        />
-                    </section>
                 </div>
+                <section className="limited-width-wider">
+                    <CardsList inventory={inventory} />
+                </section>
+                <section className="limited-width">
+                    <AchievementsList
+                        achievementSchema={achievementSchema}
+                        achievements={achievements}
+                    />
+                </section>
                 <Tooltip />
             </>
         );

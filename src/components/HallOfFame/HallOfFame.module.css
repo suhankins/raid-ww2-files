@@ -8,9 +8,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     scroll-snap-type: x proximity;
-    scrollbar-color: var(--raid_white) transparent;
     padding-bottom: 10px;
-    scrollbar-width: thin;
     gap: 1rem 1ch;
     padding-right: 10px;
 }
