@@ -2,34 +2,107 @@
 
 import { type IInventoryCard } from '@/utils/steamAPI/getInventory';
 import styles from './CardsList.module.css';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Card from './Card';
 import Effect from './Effect';
+import Tabs from '../Tabs/Tabs';
+import getCardType from './getCardType';
+
+const DEFAULT_RARITY = { id: 'all', name: 'All' };
+const RARITIES = [
+    DEFAULT_RARITY,
+    { id: 'common', name: 'Common' },
+    { id: 'uncommon', name: 'Uncommon' },
+    { id: 'rare', name: 'Rare' },
+    { id: 'halloween', name: 'Event' },
+] as const;
+
+const DEFAULT_TYPE = { id: 'all', name: 'All' };
+const TYPES = [
+    DEFAULT_TYPE,
+    { id: 'raid', name: 'Raid' },
+    { id: 'operation', name: 'Operation' },
+];
 
 export default function CardsList({
     inventory,
 }: {
     inventory: IInventoryCard[];
 }) {
-    const [selectedCard, setSelectedCard] = useState<number>(0);
-    const currentCard = inventory[selectedCard];
+    if (inventory.length === 0) {
+        return (
+            <>
+                <h2>Challenge and booster cards</h2>
+                <p>
+                    Our spies couldn't obtain any information about raider's
+                    cards!
+                </p>
+            </>
+        );
+    }
+    const [selectedRarity, setSelectedRarity] =
+        useState<(typeof RARITIES)[number]>(DEFAULT_RARITY);
+    const [selectedType, setSelectedType] =
+        useState<(typeof TYPES)[number]>(DEFAULT_TYPE);
+
+    const [selectedCard, setSelectedCard] = useState<string>(
+        inventory[0].classid
+    );
+    const currentCard =
+        inventory.find((card) => card.classid === selectedCard) || inventory[0];
+
+    const filteredCards = useMemo(
+        () =>
+            inventory
+                .filter(
+                    (card) =>
+                        selectedRarity === DEFAULT_RARITY ||
+                        ('rarity' in card && card.rarity === selectedRarity.id)
+                )
+                .filter(
+                    (card) =>
+                        selectedType === DEFAULT_TYPE ||
+                        getCardType(card) === selectedType.id
+                ),
+        [inventory, selectedRarity, selectedType]
+    );
+
     return (
         <>
             <h2>Challenge and booster cards</h2>
-            {inventory.length !== 0 ? (
-                <div className={styles.container}>
+            <div className={styles.container}>
+                <div className={styles.cardsListContainer}>
+                    <Tabs
+                        options={RARITIES}
+                        selectedOption={selectedRarity}
+                        onChange={(value) =>
+                            setSelectedRarity(
+                                value as (typeof RARITIES)[number]
+                            )
+                        }
+                        name="Rarity"
+                    />
+                    <Tabs
+                        options={TYPES}
+                        selectedOption={selectedType}
+                        onChange={(value) =>
+                            setSelectedType(value as (typeof TYPES)[number])
+                        }
+                        name="Type"
+                        inline
+                    />
                     <ul className={styles.cardsList}>
-                        {inventory.map((card, index) => (
+                        {filteredCards.map((card, index) => (
                             <li
                                 key={index}
                                 tabIndex={0}
                                 aria-label={card.name}
-                                aria-current={index === selectedCard}
-                                onClick={() => setSelectedCard(index)}
+                                aria-current={selectedCard === card.classid}
+                                onClick={() => setSelectedCard(card.classid)}
                                 onKeyDown={(e) => {
                                     if (e.key === ' ') {
                                         e.preventDefault();
-                                        setSelectedCard(index);
+                                        setSelectedCard(card.classid);
                                     }
                                 }}
                             >
@@ -37,42 +110,36 @@ export default function CardsList({
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.cardDetails} aria-live="polite">
-                        <Card
-                            card={currentCard}
-                            size={2.5}
-                            onIconHoverShowTooltip
-                        />
-                        <div>
-                            <h3>{currentCard.name}</h3>
-                            {'positiveEffect' in currentCard && (
-                                <Effect>{currentCard.positiveEffect}</Effect>
-                            )}
-                            {'negativeEffect' in currentCard && (
-                                <Effect negative>
-                                    {currentCard.negativeEffect}
-                                </Effect>
-                            )}
-                            {!(
-                                'positiveEffect' in currentCard ||
-                                'negativeEffect' in currentCard
-                            ) && (
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: currentCard.descriptions[0]
-                                            .value,
-                                    }}
-                                />
-                            )}
-                        </div>
+                </div>
+                <div className={styles.cardDetails} aria-live="polite">
+                    <Card
+                        card={currentCard}
+                        size={2.5}
+                        onIconHoverShowTooltip
+                    />
+                    <div>
+                        <h3>{currentCard.name}</h3>
+                        {'positiveEffect' in currentCard && (
+                            <Effect>{currentCard.positiveEffect}</Effect>
+                        )}
+                        {'negativeEffect' in currentCard && (
+                            <Effect negative>
+                                {currentCard.negativeEffect}
+                            </Effect>
+                        )}
+                        {!(
+                            'positiveEffect' in currentCard ||
+                            'negativeEffect' in currentCard
+                        ) && (
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: currentCard.descriptions[0].value,
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
-            ) : (
-                <p>
-                    Our spies couldn't obtain any information about raider's
-                    cards!
-                </p>
-            )}
+            </div>
         </>
     );
 }

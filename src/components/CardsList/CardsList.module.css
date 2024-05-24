@@ -58,9 +58,14 @@
     flex-direction: column;
 }
 
+.cardsListContainer {
+    width: 100%;
+}
+
 @media (max-width: 690px) {
     .cardDetails {
         flex-direction: row;
+        justify-content: center;
     }
 
     .container {
