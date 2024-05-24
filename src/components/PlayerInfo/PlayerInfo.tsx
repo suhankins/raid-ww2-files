@@ -29,9 +29,9 @@ export function PlayerInfo({
                 <Image
                     width={335}
                     height={460}
-                    className={styles.profilePicture}
                     alt=""
                     src={`/static/images/raid/characters/${character.id}.png`}
+                    priority
                 />
             </div>
             <div className={styles.info}>

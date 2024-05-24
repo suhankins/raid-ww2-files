@@ -1,14 +1,10 @@
-.profilePicture {
-    width: 36ch;
-    margin-right: 2ch;
-}
-
 .pictureContainer {
     text-align: center;
 }
 
 .container {
     display: flex;
+    gap: 3ch;
 }
 
 @media screen and (max-width: 700px) {
