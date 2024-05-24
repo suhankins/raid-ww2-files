@@ -32,7 +32,7 @@ export default function Card({
                 data-tooltip-content={capitalize(getCardType(card))}
                 data-tooltip-id={onIconHoverShowTooltip ? 'tooltip' : undefined}
             />
-            {'rarity' in card && (
+            {'rarity' in card && card.rarity && (
                 <Image
                     className={styles.rarityIcon}
                     width={iconSize * size}
