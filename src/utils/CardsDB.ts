@@ -8,7 +8,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_common_on_the_scrounge_hud',
         bonusXp: 300,
-        defId: 20001,
         category: 'challenge',
     },
     {
@@ -20,7 +19,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_common_no_backups_hud',
         bonusXp: 250,
-        defId: 20002,
         category: 'challenge',
     },
     {
@@ -32,7 +30,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_common_this_is_gonna_hurt_hud',
         bonusXp: 230,
-        defId: 20003,
         category: 'challenge',
     },
     {
@@ -44,7 +41,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_common_not_in_the_face_hud',
         bonusXp: 250,
-        defId: 20004,
         category: 'challenge',
     },
     {
@@ -56,7 +52,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_common_loaded_for_bear_hud',
         bonusXp: 250,
-        defId: 20005,
         category: 'challenge',
     },
     {
@@ -69,7 +64,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_uncommon_total_carnage_hud',
         bonusXpMultiplier: 1,
-        defId: 20006,
         category: 'challenge',
     },
     {
@@ -83,7 +77,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_uncommon_switch_hitter_hud',
         bonusXpMultiplier: 1,
-        defId: 20007,
         category: 'challenge',
     },
     {
@@ -95,7 +88,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_uncommon_gunslingers_hud',
         bonusXpMultiplier: 1,
-        defId: 20008,
         category: 'challenge',
     },
     {
@@ -107,7 +99,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_uncommon_fresh_troops_hud',
         bonusXpMultiplier: 1,
-        defId: 20009,
         category: 'challenge',
     },
     {
@@ -119,7 +110,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_uncommon_dont_you_die_on_me_hud',
         bonusXpMultiplier: 1,
-        defId: 20010,
         category: 'challenge',
     },
     {
@@ -132,7 +122,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_rare_no_second_chances_hud',
         bonusXpMultiplier: 1,
-        defId: 20011,
         category: 'challenge',
     },
     {
@@ -145,7 +134,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_rare_a_perfect_score_hud',
         bonusXpMultiplier: 2,
-        defId: 20012,
         category: 'challenge',
     },
     {
@@ -157,7 +145,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_rare_helmet_shortage_hud',
         bonusXpMultiplier: 2,
-        defId: 20013,
         category: 'challenge',
     },
     {
@@ -169,7 +156,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_rare_hemorrhaging_hud',
         bonusXpMultiplier: 2,
-        defId: 20014,
         category: 'challenge',
     },
     {
@@ -181,7 +167,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_raid_rare_crab_people_hud',
         bonusXpMultiplier: 2,
-        defId: 20015,
         category: 'challenge',
     },
     {
@@ -195,7 +180,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_special_raid_slasher_movie_hud',
         bonusXpMultiplier: 2,
-        defId: 20016,
         category: 'challenge',
     },
     {
@@ -207,7 +191,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_special_raid_pumpkin_pie_hud',
         bonusXpMultiplier: 2,
-        defId: 20017,
         category: 'challenge',
     },
     {
@@ -220,7 +203,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_special_raid_season_of_resurrection_hud',
         bonusXpMultiplier: 2,
-        defId: 20018,
         category: 'challenge',
     },
     {
@@ -232,7 +214,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_common_limited_supplies_hud',
         bonusXp: 300,
-        defId: 30001,
         category: 'challenge',
     },
     {
@@ -244,7 +225,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_common_take_the_canonoli_hud',
         bonusXp: 350,
-        defId: 30002,
         category: 'challenge',
     },
     {
@@ -256,7 +236,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_common_everyones_a_tough_guy_hud',
         bonusXp: 500,
-        defId: 30003,
         category: 'challenge',
     },
     {
@@ -268,7 +247,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_common_nichtsplosions_hud',
         bonusXp: 400,
-        defId: 30004,
         category: 'challenge',
     },
     {
@@ -280,7 +258,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_common_war_weary_hud',
         bonusXp: 400,
-        defId: 30005,
         category: 'challenge',
     },
     {
@@ -292,7 +269,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_uncommon_special_for_a_reason_hud',
         bonusXpMultiplier: 1,
-        defId: 30006,
         category: 'challenge',
     },
     {
@@ -304,7 +280,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_uncommon_dont_blink_hud',
         bonusXpMultiplier: 1,
-        defId: 30007,
         category: 'challenge',
     },
     {
@@ -316,7 +291,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_uncommon_bad_coffee_hud',
         bonusXpMultiplier: 1,
-        defId: 30008,
         category: 'challenge',
     },
     {
@@ -328,7 +302,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_uncommon_playing_for_keeps_hud',
         bonusXpMultiplier: 1,
-        defId: 30009,
         category: 'challenge',
     },
     {
@@ -340,7 +313,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_uncommon_silent_shout_hud',
         bonusXpMultiplier: 1,
-        defId: 30010,
         category: 'challenge',
     },
     {
@@ -352,7 +324,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_rare_blow_me_hud',
         bonusXpMultiplier: 1,
-        defId: 30011,
         category: 'challenge',
     },
     {
@@ -365,7 +336,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_rare_you_only_live_once_hud',
         bonusXpMultiplier: 2,
-        defId: 30012,
         category: 'challenge',
     },
     {
@@ -378,7 +348,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_rare_short_controlled_bursts_hud',
         bonusXpMultiplier: 2,
-        defId: 30013,
         category: 'challenge',
     },
     {
@@ -390,7 +359,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_rare_elite_opponents_hud',
         bonusXpMultiplier: 2,
-        defId: 30014,
         category: 'challenge',
     },
     {
@@ -402,7 +370,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_operation_rare_headaches_for_all_hud',
         bonusXpMultiplier: 2,
-        defId: 30015,
         category: 'challenge',
     },
     {
@@ -413,7 +380,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_booster_raid_common_walk_it_of_hud',
         bonusXp: 0,
-        defId: 40002,
         category: 'booster',
     },
     {
@@ -424,7 +390,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_booster_raid_uncommon_in_fine_feather_hud',
         bonusXp: 0,
-        defId: 40004,
         category: 'booster',
     },
     {
@@ -435,7 +400,6 @@ export const CardsDB = [
         type: 'raid',
         texture: 'cc_booster_raid_rare_precision_shooting_hud',
         bonusXp: 0,
-        defId: 40005,
         category: 'booster',
     },
     {
@@ -446,7 +410,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_booster_operation_common_recycle_for_victory_hud',
         bonusXp: 0,
-        defId: 50001,
         category: 'booster',
     },
     {
@@ -457,7 +420,6 @@ export const CardsDB = [
         type: 'operation',
         texture: 'cc_booster_operation_uncommon_will_not_go_quietly_hud',
         bonusXp: 0,
-        defId: 50003,
         category: 'booster',
     },
     {
@@ -469,6 +431,43 @@ export const CardsDB = [
         texture: 'cc_booster_operation_rare_on_top_form_hud',
         bonusXp: 0,
         defId: 50006,
+        category: 'booster',
+    },
+    // These are unfinished cards
+    {
+        id: 'ra_dooms_day',
+        name: 'Card Name 1',
+        positiveEffect: 'Positive effect',
+        negativeEffect: 'Malus effect',
+        type: 'raid',
+        texture: 'cc_debug_card_hud',
+        category: 'challenge',
+    },
+    {
+        id: 'ra_roulette',
+        name: 'Card Name 2',
+        positiveEffect: 'Positive effect',
+        negativeEffect: 'Malus effect',
+        type: 'raid',
+        texture: 'cc_debug_card_hud',
+        category: 'challenge',
+    },
+    {
+        id: 'ra_holiday_rush',
+        name: 'Card Name 3',
+        positiveEffect: 'Positive effect',
+        negativeEffect: 'Malus effect',
+        type: 'raid',
+        texture: 'cc_debug_card_hud',
+        category: 'challenge',
+    },
+    {
+        id: 'free_crowbar',
+        name: 'Card Name 4',
+        positiveEffect: 'Positive effect',
+        negativeEffect: 'Malus effect',
+        type: 'raid',
+        texture: 'cc_debug_card_hud',
         category: 'booster',
     },
 ];
