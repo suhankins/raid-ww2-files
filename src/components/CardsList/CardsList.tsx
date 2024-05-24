@@ -33,7 +33,7 @@ export default function CardsList({
                                     }
                                 }}
                             >
-                                <Card card={card} />
+                                <Card card={card} count={card.amount} />
                             </li>
                         ))}
                     </ul>

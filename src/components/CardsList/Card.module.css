@@ -14,3 +14,13 @@
     position: relative;
     width: min-content;
 }
+
+.count {
+    position: absolute;
+    bottom: 20%;
+    left: -2px;
+    background-color: var(--raid_black);
+    text-align: right;
+    padding: 0px 1ch 2px 0.5ch;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+}

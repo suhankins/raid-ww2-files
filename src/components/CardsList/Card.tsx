@@ -9,10 +9,12 @@ export default function Card({
     card,
     size = 1,
     onIconHoverShowTooltip,
+    count,
 }: {
     card: IInventoryCard;
     size?: number;
     onIconHoverShowTooltip?: boolean;
+    count?: string;
 }) {
     const iconSize = 12;
 
@@ -49,6 +51,11 @@ export default function Card({
                 src={getSrcForCard(card)}
                 alt={card.name}
             />
+            {count && count !== '1' && (
+                <div className={styles.count} aria-label="Cards in possesion">
+                    {count}
+                </div>
+            )}
         </div>
     );
 }
