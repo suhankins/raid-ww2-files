@@ -7,7 +7,12 @@
     flex-wrap: wrap;
     padding: 0;
     gap: 5px;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+.list li::after {
+    content: '';
+    flex: auto;
 }
 
 .list li::marker {

@@ -5,10 +5,15 @@
     height: 200px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     scroll-snap-type: x proximity;
     padding-bottom: 10px;
     gap: 1rem 1ch;
     padding-right: 10px;
+}
+
+.container > *::after {
+    content: '';
+    flex: auto;
 }
