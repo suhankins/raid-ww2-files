@@ -3,6 +3,7 @@ import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IWeapon } from '@/lib/IWeapon';
 import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
 import styles from './Weapon.module.css';
+import prettifyNumber from '@/utils/prettifyNumber';
 
 export function Weapon({
     stats,
@@ -26,7 +27,10 @@ export function Weapon({
             </div>
             <div className={styles.description}>
                 <h3>{weapon.name}</h3>
-                <p>Confirmed kills: {killCount ?? 'Unknown'}</p>
+                <p>
+                    Confirmed kills:{' '}
+                    {killCount ? prettifyNumber(killCount) : 'Unknown'}
+                </p>
             </div>
         </article>
     );
