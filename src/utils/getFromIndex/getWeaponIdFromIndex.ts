@@ -1,6 +1,6 @@
-import { Guns } from '../WeaponsDB';
+import { GUNS } from '../WeaponsDB';
 
-const weaponList = Guns.map((weapon) => weapon.id);
+const weaponList = GUNS.map((weapon) => weapon.id);
 
 /**
  * Gets the weapon id from the index. Used for primary and secondary weapons.

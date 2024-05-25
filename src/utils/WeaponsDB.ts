@@ -1,6 +1,6 @@
 import { type IWeapon } from '../lib/IWeapon';
 
-export const Grenades: IWeapon[] = [
+export const GRENADES: IWeapon[] = [
     {
         id: 'm24',
         name: 'M24 Stielhandgranate',
@@ -29,7 +29,7 @@ export const Grenades: IWeapon[] = [
     { id: 'decoy_coin', name: 'Decoy Coin', type: 'grenade' },
 ];
 
-export const Melee: IWeapon[] = [
+export const MELEE: IWeapon[] = [
     { id: 'weapon', name: 'Weapon butt', type: 'melee', noIcon: true },
     { id: 'fists', name: 'Fists', type: 'melee', hidden: true, noIcon: true },
     { id: 'm3_knife', name: 'M3 Combat Knife', type: 'melee' },
@@ -54,7 +54,7 @@ export const Melee: IWeapon[] = [
     { id: 'lc14b', name: 'Bloody Machete', type: 'melee' },
 ];
 
-export const Guns: IWeapon[] = [
+export const GUNS: IWeapon[] = [
     { id: 'm1911', name: 'Colt M1911', type: 'secondary', category: 'pistol' },
     {
         id: 'webley',
@@ -120,18 +120,18 @@ export const Guns: IWeapon[] = [
         type: 'secondary',
         category: 'shotgun',
     },
-];
+] as const;
 
-export const Turrets: IWeapon[] = [
+export const TURRETS: IWeapon[] = [
     { id: 'turret', name: 'Mounted Turret', type: 'turret', noIcon: true },
-];
+] as const;
 
-export const WeaponsDB: IWeapon[] = [
-    ...Grenades,
-    ...Melee,
-    ...Guns,
-    ...Turrets,
+export const WEAPONS_DB: IWeapon[] = [
+    ...GRENADES,
+    ...MELEE,
+    ...GUNS,
+    ...TURRETS,
 ];
 
 export const getWeaponById = (weaponId: string) =>
-    WeaponsDB.find((weapon) => weapon.id === weaponId);
+    WEAPONS_DB.find((weapon) => weapon.id === weaponId);

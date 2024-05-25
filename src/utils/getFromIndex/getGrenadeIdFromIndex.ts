@@ -1,6 +1,6 @@
-import { Grenades } from '../WeaponsDB';
+import { GRENADES } from '../WeaponsDB';
 
-const grenadeList = Grenades.map((weapon) => weapon.id);
+const grenadeList = GRENADES.map((weapon) => weapon.id);
 
 /**
  * Gets the grenade id from the index.

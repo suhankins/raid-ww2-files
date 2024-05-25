@@ -1,6 +1,6 @@
-import { Melee } from '../WeaponsDB';
+import { MELEE } from '../WeaponsDB';
 
-const meleeList = Melee.map((weapon) => weapon.id);
+const meleeList = MELEE.map((weapon) => weapon.id);
 
 /**
  * Gets the melee id from the index.

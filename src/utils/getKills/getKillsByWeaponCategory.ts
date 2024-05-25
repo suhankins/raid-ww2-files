@@ -1,5 +1,5 @@
 import type { ISteamStats } from '@/lib/ISteamStats';
-import { WeaponsDB } from '../WeaponsDB';
+import { WEAPONS_DB } from '../WeaponsDB';
 import { type IWeapon } from '../../lib/IWeapon';
 import getKillsForGivenWeapons from './getKillsForGivenWeapons';
 
@@ -14,7 +14,7 @@ export default function getKillsByWeaponCategory(
             return stats.ach_kill_enemies_with_grenades;
         default:
             return getKillsForGivenWeapons(
-                WeaponsDB.filter((weapon) => weapon.category === category),
+                WEAPONS_DB.filter((weapon) => weapon.category === category),
                 stats
             );
     }
