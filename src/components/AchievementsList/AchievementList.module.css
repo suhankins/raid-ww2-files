@@ -3,16 +3,11 @@
 }
 
 .list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 64px);
     padding: 0;
     gap: 5px;
     justify-content: space-between;
-}
-
-.list li::after {
-    content: '';
-    flex: auto;
 }
 
 .list li::marker {
