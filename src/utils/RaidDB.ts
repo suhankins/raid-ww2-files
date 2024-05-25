@@ -1,6 +1,10 @@
-import { type IRaid, type IJob, IOperation } from '@/lib/IJob';
+import {
+    type IRaid,
+    type IJob,
+    IOperation,
+} from '@/components/RaidsTable/IJob';
 
-export const Raids: IRaid[] = [
+export const RAIDS: IRaid[] = [
     {
         id: 'level_train_yard',
         name: 'Amber Train',
@@ -131,9 +135,9 @@ export const Raids: IRaid[] = [
             { type: 'veryHard', achievementName: "Kelly - Kelly's Heroes" },
         ],
     },
-];
+] as const;
 
-export const Operations: IOperation[] = [
+export const OPERATIONS: IOperation[] = [
     {
         id: 'clear_skies',
         name: 'Clear Skies',
@@ -227,11 +231,11 @@ export const Operations: IOperation[] = [
             { type: 'noBleedout', achievementName: 'ach_burn_no_bleedout' },
         ],
     },
-];
+] as const;
 
-export const Jobs: IJob[] = [...Raids, ...Operations];
+export const JOBS: IJob[] = [...RAIDS, ...OPERATIONS] as const;
 
-export const RaidsAndDays: IRaid[] = [
-    ...Raids,
-    ...Operations.flatMap((operation) => operation.parts),
-];
+export const RAIDS_AND_DAYS_ONLY: IRaid[] = [
+    ...RAIDS,
+    ...OPERATIONS.flatMap((operation) => operation.parts),
+] as const;

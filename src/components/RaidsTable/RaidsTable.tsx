@@ -2,15 +2,25 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './RaidsTable.module.css';
-import { Jobs, RaidsAndDays } from '@/utils/RaidDB';
-import getJobStat from '@/utils/getJobStat';
+import { JOBS, RAIDS_AND_DAYS_ONLY } from '@/utils/RaidDB';
+import getJobStat from '@/components/RaidsTable/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '../Stepper/Stepper';
 import { type IAchievement } from '@/lib/IAchievement';
 import Checkbox from '../Checkbox/Checkbox';
 import RaidsTableRow from './Row/RaidsTableRow';
 import useTotalAndHighestStat from './useTotalAndHighestStat';
-import { DefaultJobStat, JobStats } from '@/lib/JobStats';
+
+export const DEFAULT_JOB_STAT = {
+    id: 'completions',
+    name: 'Completions',
+} as const;
+
+export const JOB_STATS = [
+    DEFAULT_JOB_STAT,
+    { id: 'starts', name: 'Starts' },
+    { id: 'time', name: 'Total time' },
+] as const;
 
 export default function RaidsTable({
     stats,
@@ -20,11 +30,11 @@ export default function RaidsTable({
     achievements: IAchievement[];
 }) {
     const [selectedStat, setSelectedStat] =
-        useState<(typeof JobStats)[number]>(DefaultJobStat);
+        useState<(typeof JOB_STATS)[number]>(DEFAULT_JOB_STAT);
     const [operationDaysSeparate, setOperationDaysSeparate] = useState(false);
 
     const listOfJobs = useMemo(
-        () => (operationDaysSeparate ? RaidsAndDays : Jobs),
+        () => (operationDaysSeparate ? RAIDS_AND_DAYS_ONLY : JOBS),
         [operationDaysSeparate]
     );
 
@@ -39,10 +49,10 @@ export default function RaidsTable({
             <h2>Missions carried out</h2>
             <div className="controls">
                 <Stepper
-                    options={JobStats}
+                    options={JOB_STATS}
                     selectedOption={selectedStat}
                     onChange={(value) =>
-                        setSelectedStat(value as (typeof JobStats)[number])
+                        setSelectedStat(value as (typeof JOB_STATS)[number])
                     }
                 >
                     Sort by

@@ -1,5 +1,5 @@
 import { IAchievement } from '@/lib/IAchievement';
-import { IJob } from '@/lib/IJob';
+import { IJob } from '@/components/RaidsTable/IJob';
 import getAccomplishmentString from '@/utils/getAccomplishmentString';
 import getJobAccomplishments from '@/utils/getJobAccomplishments';
 import styles from '../RaidsTable.module.css';

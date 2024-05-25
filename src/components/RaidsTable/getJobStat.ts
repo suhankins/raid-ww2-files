@@ -1,10 +1,10 @@
-import { type IRaid, type IJob } from '@/lib/IJob';
+import { type JOB_STATS } from '@/components/RaidsTable/RaidsTable';
+import { type IRaid, type IJob } from '@/components/RaidsTable/IJob';
 import { type ISteamStats } from '@/lib/ISteamStats';
-import { type JobStats } from '@/lib/JobStats';
 
 export default function getJobStat(
     job: IJob,
-    stat: (typeof JobStats)[number],
+    stat: (typeof JOB_STATS)[number],
     stats: ISteamStats
 ) {
     const getter = statGetters[stat.id];
@@ -15,7 +15,7 @@ export default function getJobStat(
 }
 
 const statGetters: {
-    [stat in (typeof JobStats)[number]['id']]: (
+    [stat in (typeof JOB_STATS)[number]['id']]: (
         raid: IRaid,
         stats: ISteamStats
     ) => number;

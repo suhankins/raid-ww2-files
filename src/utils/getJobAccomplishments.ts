@@ -1,5 +1,5 @@
-import { IAccomplishmentType, IJob } from '@/lib/IJob';
-import { Operations } from './RaidDB';
+import { IAccomplishmentType, IJob } from '@/components/RaidsTable/IJob';
+import { OPERATIONS } from './RaidDB';
 import { IAchievement } from '@/lib/IAchievement';
 
 export default function getJobAccomplishments(
@@ -11,7 +11,7 @@ export default function getJobAccomplishments(
 }[] {
     if (!job.accomplishments) {
         if ('parent' in job && job.parent) {
-            const operation = Operations.find(
+            const operation = OPERATIONS.find(
                 (operation) => operation.id === job.parent
             );
             if (operation) {

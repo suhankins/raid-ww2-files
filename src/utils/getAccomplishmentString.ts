@@ -1,4 +1,4 @@
-import { IAccomplishmentType } from '@/lib/IJob';
+import { IAccomplishmentType } from '@/components/RaidsTable/IJob';
 
 const names = {
     noBleedout:
