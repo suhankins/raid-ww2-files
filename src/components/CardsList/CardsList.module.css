@@ -5,13 +5,13 @@
 }
 
 .cardsList {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 125px);
     margin: 0;
     padding: 0;
     max-height: 600px;
     overflow-y: auto;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .cardsList li {
@@ -19,11 +19,6 @@
     justify-content: center;
     padding: 10px;
     position: relative;
-}
-
-.cardsList li::after {
-    content: '';
-    flex: auto;
 }
 
 .cardsList li[aria-current='true']:before {
