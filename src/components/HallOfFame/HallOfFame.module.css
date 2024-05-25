@@ -3,17 +3,12 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 200px;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
     justify-content: space-between;
     flex-wrap: wrap;
     scroll-snap-type: x proximity;
     padding-bottom: 10px;
     gap: 1rem 1ch;
     padding-right: 10px;
-}
-
-.container > *::after {
-    content: '';
-    flex: auto;
 }
