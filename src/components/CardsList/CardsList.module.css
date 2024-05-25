@@ -11,6 +11,7 @@
     padding: 0;
     max-height: 600px;
     overflow-y: auto;
+    justify-content: space-evenly;
 }
 
 .cardsList li {
