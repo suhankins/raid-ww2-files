@@ -41,7 +41,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .table td:nth-child(2),
     .table th:nth-child(2) {
         width: auto;
