@@ -1,6 +1,7 @@
 .container {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 280px;
     gap: 1ch;
 }
 
@@ -57,7 +58,10 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
-    margin-top: 60px;
+    max-width: 100%;
+}
+
+.cardDetails label {
 }
 
 .cardsListContainer {
@@ -66,23 +70,29 @@
 
 @media (max-width: 690px) {
     .cardDetails {
-        margin-top: 0px;
+        flex-direction: column-reverse;
+        align-items: center;
+        order: -1;
+    }
+
+    .cardContainer {
+        display: flex;
         flex-direction: row;
-        justify-content: center;
+        gap: 10px;
     }
 
     .container {
-        flex-direction: column-reverse;
+        grid-template-columns: 100%;
     }
 
     .cardsList {
         max-height: 300px;
+        order: 1;
     }
 }
 
 @media (max-width: 500px) {
-    .cardDetails {
+    .cardContainer {
         flex-direction: column;
-        align-items: center;
     }
 }

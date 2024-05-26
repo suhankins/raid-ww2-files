@@ -2,14 +2,15 @@
 
 import { type IInventoryCard } from '@/utils/steamAPI/getInventory';
 import styles from './CardsList.module.css';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import Card from './Card';
 import Effect from './Effect';
 import Tabs from '../Tabs/Tabs';
-import getCardType from './getCardType';
+import Textbox from '../Textbox/Textbox';
+import useFilteredCards from './useFilteredCards';
 
-const DEFAULT_RARITY = { id: 'all', name: 'All' };
-const RARITIES = [
+export const DEFAULT_RARITY = { id: 'all', name: 'All' };
+export const RARITIES = [
     DEFAULT_RARITY,
     { id: 'common', name: 'Common' },
     { id: 'uncommon', name: 'Uncommon' },
@@ -17,8 +18,8 @@ const RARITIES = [
     { id: 'halloween', name: 'Event' },
 ] as const;
 
-const DEFAULT_TYPE = { id: 'all', name: 'All' };
-const TYPES = [
+export const DEFAULT_TYPE = { id: 'all', name: 'All' };
+export const TYPES = [
     DEFAULT_TYPE,
     { id: 'raid', name: 'Raid' },
     { id: 'operation', name: 'Operation' },
@@ -44,28 +45,20 @@ export default function CardsList({
         useState<(typeof RARITIES)[number]>(DEFAULT_RARITY);
     const [selectedType, setSelectedType] =
         useState<(typeof TYPES)[number]>(DEFAULT_TYPE);
+    const [search, setSearch] = useState('');
+
+    const filteredCards = useFilteredCards(
+        inventory,
+        selectedRarity,
+        selectedType,
+        search
+    );
 
     const [selectedCard, setSelectedCard] = useState<string>(
         inventory[0].classid
     );
     const currentCard =
         inventory.find((card) => card.classid === selectedCard) || inventory[0];
-
-    const filteredCards = useMemo(
-        () =>
-            inventory
-                .filter(
-                    (card) =>
-                        selectedRarity === DEFAULT_RARITY ||
-                        ('rarity' in card && card.rarity === selectedRarity.id)
-                )
-                .filter(
-                    (card) =>
-                        selectedType === DEFAULT_TYPE ||
-                        getCardType(card) === selectedType.id
-                ),
-        [inventory, selectedRarity, selectedType]
-    );
 
     return (
         <>
@@ -112,31 +105,42 @@ export default function CardsList({
                     </ul>
                 </div>
                 <div className={styles.cardDetails} aria-live="polite">
-                    <Card
-                        card={currentCard}
-                        size={2.5}
-                        onIconHoverShowTooltip
-                    />
-                    <div>
-                        <h3>{currentCard.name}</h3>
-                        {'positiveEffect' in currentCard && (
-                            <Effect>{currentCard.positiveEffect}</Effect>
-                        )}
-                        {'negativeEffect' in currentCard && (
-                            <Effect negative>
-                                {currentCard.negativeEffect}
-                            </Effect>
-                        )}
-                        {!(
-                            'positiveEffect' in currentCard ||
-                            'negativeEffect' in currentCard
-                        ) && (
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: currentCard.descriptions[0].value,
-                                }}
-                            />
-                        )}
+                    <Textbox
+                        value={search}
+                        onChange={(e) =>
+                            setSearch((e.target as HTMLInputElement).value)
+                        }
+                    >
+                        Search
+                    </Textbox>
+                    <div className={styles.cardContainer}>
+                        <Card
+                            card={currentCard}
+                            size={2.5}
+                            onIconHoverShowTooltip
+                        />
+                        <div>
+                            <h3>{currentCard.name}</h3>
+                            {'positiveEffect' in currentCard && (
+                                <Effect>{currentCard.positiveEffect}</Effect>
+                            )}
+                            {'negativeEffect' in currentCard && (
+                                <Effect negative>
+                                    {currentCard.negativeEffect}
+                                </Effect>
+                            )}
+                            {!(
+                                'positiveEffect' in currentCard ||
+                                'negativeEffect' in currentCard
+                            ) && (
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: currentCard.descriptions[0]
+                                            .value,
+                                    }}
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
