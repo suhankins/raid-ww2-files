@@ -49,37 +49,42 @@ export default async function Home({
 
         return (
             <>
-                <section className="limited-width-wider">
-                    <h1>Raider dossier</h1>
-                    <PlayerInfo
-                        user={user}
-                        stats={stats}
-                        achievements={achievements}
-                    >
-                        <HallOfFame stats={stats} />
-                    </PlayerInfo>
-                </section>
-                <div className="limited-width">
-                    <section>
-                        <LastSeenWith stats={stats} />
+                <div className="animate-in">
+                    <section className="limited-width-wider">
+                        <h1>Raider dossier</h1>
+                        <PlayerInfo
+                            user={user}
+                            stats={stats}
+                            achievements={achievements}
+                        >
+                            <HallOfFame stats={stats} />
+                        </PlayerInfo>
                     </section>
-                    <section>
-                        <WeaponsTable stats={stats} />
+                    <div className="limited-width">
+                        <section>
+                            <LastSeenWith stats={stats} />
+                        </section>
+                        <section>
+                            <WeaponsTable stats={stats} />
+                        </section>
+                        <section>
+                            <RaidsTable
+                                stats={stats}
+                                achievements={achievements}
+                            />
+                        </section>
+                    </div>
+                    <section className="limited-width-wider">
+                        <CardsList inventory={inventory} />
                     </section>
-                    <section>
-                        <RaidsTable stats={stats} achievements={achievements} />
+                    <section className="limited-width">
+                        <AchievementsList
+                            achievementSchema={achievementSchema}
+                            achievements={achievements}
+                        />
                     </section>
+                    <Tooltip />
                 </div>
-                <section className="limited-width-wider">
-                    <CardsList inventory={inventory} />
-                </section>
-                <section className="limited-width">
-                    <AchievementsList
-                        achievementSchema={achievementSchema}
-                        achievements={achievements}
-                    />
-                </section>
-                <Tooltip />
             </>
         );
     } catch (e) {

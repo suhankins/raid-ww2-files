@@ -1,0 +1,62 @@
+@keyframes rotation {
+    0%,
+    30% {
+        rotate: 0deg;
+    }
+    80%,
+    100% {
+        rotate: 60deg;
+    }
+}
+
+@keyframes goUp {
+    0%,
+    10% {
+        opacity: 1;
+        translate: 0 0px;
+    }
+    80%,
+    100% {
+        opacity: 0;
+        translate: 0 -200px;
+    }
+}
+
+@keyframes appearOutOfNowhere {
+    0%,
+    70% {
+        opacity: 0;
+        fill: var(--raid_dirty_white);
+    }
+    90%,
+    100% {
+        opacity: 1;
+    }
+}
+
+.loadingIndicator {
+    fill: var(--raid_dirty_white);
+    stroke: none;
+}
+
+.drumContainer {
+    animation: rotation 2s ease-out 0s infinite normal both;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.drum {
+    fill: none;
+    stroke: var(--raid_dirty_white);
+    stroke-width: 10;
+}
+
+.topBullet {
+    animation: goUp 2s ease-out 0s infinite normal both;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.topRightBullet {
+    animation: appearOutOfNowhere 2s linear 0s infinite normal both;
+}
