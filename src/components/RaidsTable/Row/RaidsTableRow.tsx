@@ -43,6 +43,7 @@ export default function RaidsTableRow({
                     style={{
                         width: percentageOfMax,
                     }}
+                    title={`${jobStat}`}
                 >
                     {formatJobStat(jobStat, percentageOfTotal)}
                 </div>
