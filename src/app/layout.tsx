@@ -2,7 +2,7 @@ import AnimatedBackground from '@/components/AnimatedBackground/AnimatedBackgrou
 import './globals.css';
 
 export const metadata = {
-    title: 'RAID: World War II Stats',
+    title: 'RAID: World War II Files',
     description: 'View your RAID: World War II stats',
 };
 
