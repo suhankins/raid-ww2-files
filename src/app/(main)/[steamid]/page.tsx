@@ -48,44 +48,39 @@ export default async function Home({
         const inventory = await getInventory(steamid).catch(() => []);
 
         return (
-            <>
-                <div className="animate-in">
-                    <section className="limited-width-wider">
-                        <h1>Raider dossier</h1>
-                        <PlayerInfo
-                            user={user}
-                            stats={stats}
-                            achievements={achievements}
-                        >
-                            <HallOfFame stats={stats} />
-                        </PlayerInfo>
+            <main className="animate-in">
+                <section className="limited-width-wider">
+                    <h1>Raider dossier</h1>
+                    <PlayerInfo
+                        user={user}
+                        stats={stats}
+                        achievements={achievements}
+                    >
+                        <HallOfFame stats={stats} />
+                    </PlayerInfo>
+                </section>
+                <div className="limited-width">
+                    <section>
+                        <LastSeenWith stats={stats} />
                     </section>
-                    <div className="limited-width">
-                        <section>
-                            <LastSeenWith stats={stats} />
-                        </section>
-                        <section>
-                            <WeaponsTable stats={stats} />
-                        </section>
-                        <section>
-                            <RaidsTable
-                                stats={stats}
-                                achievements={achievements}
-                            />
-                        </section>
-                    </div>
-                    <section className="limited-width-wider">
-                        <CardsList inventory={inventory} />
+                    <section>
+                        <WeaponsTable stats={stats} />
                     </section>
-                    <section className="limited-width">
-                        <AchievementsList
-                            achievementSchema={achievementSchema}
-                            achievements={achievements}
-                        />
+                    <section>
+                        <RaidsTable stats={stats} achievements={achievements} />
                     </section>
-                    <Tooltip />
                 </div>
-            </>
+                <section className="limited-width-wider">
+                    <CardsList inventory={inventory} />
+                </section>
+                <section className="limited-width">
+                    <AchievementsList
+                        achievementSchema={achievementSchema}
+                        achievements={achievements}
+                    />
+                </section>
+                <Tooltip />
+            </main>
         );
     } catch (e) {
         return <ErrorCard e={e} />;

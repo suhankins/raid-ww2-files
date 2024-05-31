@@ -46,6 +46,13 @@ body {
     font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scrollbar-color: var(--raid_white) transparent;
     scrollbar-width: thin;
+    min-height: 100lvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 h1,
