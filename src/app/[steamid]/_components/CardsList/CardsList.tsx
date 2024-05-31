@@ -49,18 +49,6 @@ export default function CardsList({
     const currentCard =
         inventory.find((card) => card.classid === selectedCard) || inventory[0];
 
-    if (inventory.length === 0) {
-        return (
-            <>
-                <h2>Challenge and booster cards</h2>
-                <p>
-                    Our spies couldn&apos;t obtain any information about
-                    raider&apos;s cards!
-                </p>
-            </>
-        );
-    }
-
     return (
         <>
             <h2>Challenge and booster cards</h2>

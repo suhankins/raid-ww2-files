@@ -53,10 +53,7 @@ export default async function Home({
                 getStats(steamid),
                 getAchievements(steamid),
                 getAchievementSchema(),
-                getInventory(steamid).catch((e) => {
-                    console.error(e);
-                    return [];
-                }),
+                getInventory(steamid).catch((e) => e as Error),
             ]);
 
         return (
@@ -83,7 +80,21 @@ export default async function Home({
                     </section>
                 </div>
                 <section className="limited-width-wider">
-                    <CardsList inventory={inventory} />
+                    {inventory instanceof Error ? (
+                        <>
+                            <h2>Challenge and booster cards</h2>
+                            <p>
+                                Our spies couldn&apos;t obtain any information
+                                about raider&apos;s cards!
+                            </p>
+                            <details>
+                                <summary>Technical details</summary>
+                                <code>{inventory.message}</code>
+                            </details>
+                        </>
+                    ) : (
+                        <CardsList inventory={inventory} />
+                    )}
                 </section>
                 <section className="limited-width">
                     <AchievementsList
