@@ -53,7 +53,10 @@ export default async function Home({
                 getStats(steamid),
                 getAchievements(steamid),
                 getAchievementSchema(),
-                getInventory(steamid).catch(() => []),
+                getInventory(steamid).catch((e) => {
+                    console.error(e);
+                    return [];
+                }),
             ]);
 
         return (

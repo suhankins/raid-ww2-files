@@ -72,12 +72,18 @@ export async function getInventory(
     steamid: string | number
 ): Promise<IInventoryCard[]> {
     const response = await fetch(
-        `https://steamcommunity.com/inventory/${steamid}/414740/2`
+        `https://steamcommunity.com/inventory/${steamid}/414740/2`,
+        {
+            headers: {
+                Cookie: `steamLoginSecure=${process.env.STEAM_WEB_API_KEY ?? ''}`,
+            },
+        }
     );
-    if (!response.ok)
+    if (!response.ok) {
         throw new Error(
             `Can't get Steam inventory: server response ${response.status} (${response.statusText})`
         );
+    }
     const data = (await response.json()) as IAPIReturnValue;
     if (!data || data.success !== 1 || !data.assets || !data.descriptions) {
         throw new Error(
