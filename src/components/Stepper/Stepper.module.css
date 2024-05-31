@@ -30,7 +30,7 @@
 }
 
 .chevron:disabled {
-    color: var(--raid_grey);
+    color: var(--raid_dark_grey);
 }
 
 .chevron svg {
