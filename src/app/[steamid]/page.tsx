@@ -19,8 +19,6 @@ import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
 import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
 import { getInventory } from '@/utils/steamAPI/getInventory';
 
-export const runtime = 'edge';
-
 export default async function Home({
     params: { steamid },
 }: {
