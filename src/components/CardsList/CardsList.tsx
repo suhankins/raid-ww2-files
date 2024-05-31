@@ -30,17 +30,6 @@ export default function CardsList({
 }: {
     inventory: IInventoryCard[];
 }) {
-    if (inventory.length === 0) {
-        return (
-            <>
-                <h2>Challenge and booster cards</h2>
-                <p>
-                    Our spies couldn't obtain any information about raider's
-                    cards!
-                </p>
-            </>
-        );
-    }
     const [selectedRarity, setSelectedRarity] =
         useState<(typeof RARITIES)[number]>(DEFAULT_RARITY);
     const [selectedType, setSelectedType] =
@@ -55,10 +44,22 @@ export default function CardsList({
     );
 
     const [selectedCard, setSelectedCard] = useState<string>(
-        inventory[0].classid
+        inventory[0]?.classid
     );
     const currentCard =
         inventory.find((card) => card.classid === selectedCard) || inventory[0];
+
+    if (inventory.length === 0) {
+        return (
+            <>
+                <h2>Challenge and booster cards</h2>
+                <p>
+                    Our spies couldn&apos;t obtain any information about
+                    raider&apos;s cards!
+                </p>
+            </>
+        );
+    }
 
     return (
         <>

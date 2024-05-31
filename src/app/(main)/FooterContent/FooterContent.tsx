@@ -6,8 +6,8 @@ export default function FooterContent() {
             <p>
                 This website is not affiliated with Starbreeze, Lion Game Lion,
                 or Valve. This website does not collect any data on users and
-                doesn't use cookies. All data presented is collected by Valve
-                via Steam.
+                doesn&apos;t use cookies. All data presented is collected by
+                Valve via Steam.
             </p>
             <p>
                 By Punished Bernadetta. Contribute on{' '}
