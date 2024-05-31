@@ -3,14 +3,13 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './WeaponsTable.module.css';
 import WeaponsTableRow from './Row/WeaponsTableRow';
-import Stepper from '../Stepper/Stepper';
 import WeaponsTableFooter from './Footer/WeaponsTableFooter';
 import useWeaponsWithTypesAndCategories from './useWeaponsWithTypesAndCategories';
 import { WeaponTypes } from '@/lib/WeaponTypes';
 import { WeaponCategories } from '@/lib/WeaponCategories';
 import useSortWeapons from './useSortWeapons';
 import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
-import Tabs from '../Tabs/Tabs';
+import Tabs from '@/components/Tabs/Tabs';
 
 export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {

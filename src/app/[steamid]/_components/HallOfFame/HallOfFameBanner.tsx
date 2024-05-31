@@ -1,4 +1,4 @@
-import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannersDB';
+import { HallOfFameBannersDB } from './HallOfFameBannersDB';
 import styles from './HallOfFameBanner.module.css';
 import { ISteamStats } from '@/lib/ISteamStats';
 import Image from 'next/image';

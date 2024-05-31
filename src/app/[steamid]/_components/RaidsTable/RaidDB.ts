@@ -1,8 +1,4 @@
-import {
-    type IRaid,
-    type IJob,
-    IOperation,
-} from '@/components/RaidsTable/IJob';
+import { type IRaid, type IJob, type IOperation } from './IJob';
 
 export const RAIDS: IRaid[] = [
     {

@@ -1,4 +1,4 @@
-import LoadingIndicator from '@/components/LoadingIndicator/LoadingIndicator';
+import LoadingIndicator from './_components/LoadingIndicator/LoadingIndicator';
 import styles from './loading.module.css';
 
 export default function Loading() {

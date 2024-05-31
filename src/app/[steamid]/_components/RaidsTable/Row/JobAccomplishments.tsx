@@ -1,7 +1,7 @@
-import { IAchievement } from '@/lib/IAchievement';
-import { IJob } from '@/components/RaidsTable/IJob';
-import getAccomplishmentString from '@/utils/getAccomplishmentString';
-import getJobAccomplishments from '@/utils/getJobAccomplishments';
+import { type IAchievement } from '@/lib/IAchievement';
+import { type IJob } from '../IJob';
+import getAccomplishmentString from './getAccomplishmentString';
+import getJobAccomplishments from './getJobAccomplishments';
 import styles from '../RaidsTable.module.css';
 import Image from 'next/image';
 

@@ -5,8 +5,8 @@ import styles from './CardsList.module.css';
 import { useState } from 'react';
 import Card from './Card';
 import Effect from './Effect';
-import Tabs from '../Tabs/Tabs';
-import Textbox from '../Textbox/Textbox';
+import Tabs from '@/components/Tabs/Tabs';
+import Textbox from '@/components/Textbox/Textbox';
 import useFilteredCards from './useFilteredCards';
 
 export const DEFAULT_RARITY = { id: 'all', name: 'All' };

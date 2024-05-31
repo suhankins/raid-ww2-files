@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { IJob } from '@/components/RaidsTable/IJob';
+import { IJob } from '../IJob';
 import styles from './JobIcon.module.css';
 
 export default function JobIcon({ job }: { job: IJob }) {

@@ -2,12 +2,12 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './RaidsTable.module.css';
-import { JOBS, RAIDS_AND_DAYS_ONLY } from '@/utils/RaidDB';
-import getJobStat from '@/components/RaidsTable/getJobStat';
+import { JOBS, RAIDS_AND_DAYS_ONLY } from './RaidDB';
+import getJobStat from '../RaidsTable/getJobStat';
 import { useMemo, useState } from 'react';
-import Stepper from '../Stepper/Stepper';
+import Stepper from '@/components/Stepper/Stepper';
 import { type IAchievement } from '@/lib/IAchievement';
-import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from '@/components/Checkbox/Checkbox';
 import RaidsTableRow from './Row/RaidsTableRow';
 import useTotalAndHighestStat from './useTotalAndHighestStat';
 

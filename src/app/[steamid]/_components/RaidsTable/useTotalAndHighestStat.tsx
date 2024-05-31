@@ -1,6 +1,6 @@
-import { type IJob } from '@/components/RaidsTable/IJob';
+import { type IJob } from './IJob';
 import { type ISteamStats } from '@/lib/ISteamStats';
-import getJobStat from '@/components/RaidsTable/getJobStat';
+import getJobStat from './getJobStat';
 import { useMemo } from 'react';
 import { type JOB_STATS } from './RaidsTable';
 

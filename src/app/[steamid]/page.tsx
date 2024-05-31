@@ -1,15 +1,15 @@
 import { redirect } from 'next/navigation';
-import Tooltip from '@/components/Tooltip/Tooltip';
+import Tooltip from './_components/Tooltip/Tooltip';
 import ErrorCard from './ErrorCard';
 
 // Player stats components
-import LastSeenWith from '@/components/LastSeenWith/LastSeenWith';
-import PlayerInfo from '@/components/PlayerInfo/PlayerInfo';
-import RaidsTable from '@/components/RaidsTable/RaidsTable';
-import WeaponsTable from '@/components/WeaponsTable/WeaponsTable';
-import HallOfFame from '@/components/HallOfFame/HallOfFame';
-import AchievementsList from '@/components/AchievementsList/AchievementsList';
-import CardsList from '@/components/CardsList/CardsList';
+import LastSeenWith from './_components/LastSeenWith/LastSeenWith';
+import PlayerInfo from './_components/PlayerInfo/PlayerInfo';
+import RaidsTable from './_components/RaidsTable/RaidsTable';
+import WeaponsTable from './_components/WeaponsTable/WeaponsTable';
+import HallOfFame from './_components/HallOfFame/HallOfFame';
+import AchievementsList from './_components/AchievementsList/AchievementsList';
+import CardsList from './_components/CardsList/CardsList';
 
 // Steam API calls
 import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';

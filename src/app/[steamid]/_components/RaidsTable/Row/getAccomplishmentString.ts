@@ -1,5 +1,3 @@
-import { IAccomplishmentType } from '@/components/RaidsTable/IJob';
-
 const names = {
     noBleedout:
         'Finish with at least 2 players without anyone going into bleedout',
@@ -10,7 +8,7 @@ const names = {
 };
 
 export default function getAccomplishmentString(accomplishment: {
-    type: IAccomplishmentType;
+    type: keyof typeof names;
     completed: boolean;
 }) {
     return `${names[accomplishment.type]}: ${accomplishment.completed ? 'Completed' : 'Not completed'}`;

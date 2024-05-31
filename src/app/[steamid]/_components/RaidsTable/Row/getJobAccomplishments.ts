@@ -1,5 +1,5 @@
-import { IAccomplishmentType, IJob } from '@/components/RaidsTable/IJob';
-import { OPERATIONS } from './RaidDB';
+import { IAccomplishmentType, IJob } from '../IJob';
+import { OPERATIONS } from '@/app/[steamid]/_components/RaidsTable/RaidDB';
 import { IAchievement } from '@/lib/IAchievement';
 
 export default function getJobAccomplishments(

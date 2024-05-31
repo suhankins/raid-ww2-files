@@ -1,10 +1,10 @@
 import type { IUserInfo } from '@/lib/IUserInfo';
 import styles from './PlayerInfo.module.css';
-import { Level } from '@/components/PlayerInfo/Level';
+import { Level } from './Level';
 import type { ISteamStats } from '@/lib/ISteamStats';
 import type { IAchievement } from '@/lib/IAchievement';
 import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
-import getAchievementsCompletedPercentage from '@/utils/getAchievementsCompletedPercentage';
+import getAchievementsCompletedPercentage from './getAchievementsCompletedPercentage';
 import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
 import Image from 'next/image';

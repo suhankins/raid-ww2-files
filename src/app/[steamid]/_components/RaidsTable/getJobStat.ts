@@ -1,5 +1,5 @@
-import { type JOB_STATS } from '@/components/RaidsTable/RaidsTable';
-import { type IRaid, type IJob } from '@/components/RaidsTable/IJob';
+import { type JOB_STATS } from './RaidsTable';
+import { type IRaid, type IJob } from './IJob';
 import { type ISteamStats } from '@/lib/ISteamStats';
 
 export default function getJobStat(

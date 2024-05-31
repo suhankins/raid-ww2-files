@@ -1,5 +1,7 @@
-import AnimatedBackground from '@/components/AnimatedBackground/AnimatedBackground';
+import AnimatedBackground from '@/app/_components/AnimatedBackground/AnimatedBackground';
 import './globals.css';
+import SteamIDInputForm from './_components/SteamIDInputForm/SteamIDInputForm';
+import FooterContent from './_components/FooterContent/FooterContent';
 
 export const metadata = {
     title: 'RAID: World War II Files',
@@ -15,7 +17,13 @@ export default function RootLayout({
         <html lang="en">
             <body>
                 <AnimatedBackground />
-                {children}
+                <header>
+                    <SteamIDInputForm />
+                </header>
+                <main>{children}</main>
+                <footer>
+                    <FooterContent />
+                </footer>
             </body>
         </html>
     );

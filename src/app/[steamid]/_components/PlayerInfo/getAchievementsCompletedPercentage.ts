@@ -1,5 +1,5 @@
 import { type IAchievement } from '@/lib/IAchievement';
-import toPercentage from './toPercentage';
+import toPercentage from '@/utils/toPercentage';
 
 export default function getAchievementsCompletedPercentage(
     achievements: IAchievement[]

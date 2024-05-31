@@ -1,6 +1,6 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
 import HallOfFameBanner from './HallOfFameBanner';
-import { HallOfFameBannersDB } from '@/components/HallOfFame/HallOfFameBannersDB';
+import { HallOfFameBannersDB } from './HallOfFameBannersDB';
 import styles from './HallOfFame.module.css';
 import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
 

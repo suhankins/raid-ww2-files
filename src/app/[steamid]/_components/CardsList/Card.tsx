@@ -3,7 +3,7 @@ import getCardType from './getCardType';
 import Image from 'next/image';
 import styles from './Card.module.css';
 import getSrcForCard from './getSrcForCard';
-import capitalize from '../../utils/capitalize';
+import capitalize from '@/utils/capitalize';
 
 export default function Card({
     card,

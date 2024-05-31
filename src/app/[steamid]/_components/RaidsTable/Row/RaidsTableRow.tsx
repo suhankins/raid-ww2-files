@@ -1,9 +1,9 @@
-import formatJobStat from '@/components/RaidsTable/Row/formatJobStat';
-import getJobStat from '@/components/RaidsTable/getJobStat';
+import formatJobStat from './formatJobStat';
+import getJobStat from '../getJobStat';
 import toPercentage from '@/utils/toPercentage';
 import JobAccomplishments from './JobAccomplishments';
 import JobIcon from './JobIcon';
-import { type IJob } from '@/components/RaidsTable/IJob';
+import { type IJob } from '../IJob';
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IAchievement } from '@/lib/IAchievement';
 import styles from '../RaidsTable.module.css';
