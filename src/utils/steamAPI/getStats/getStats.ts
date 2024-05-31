@@ -7,8 +7,7 @@ import { steamStatsArrayToObject } from './statsArrayToObject';
  */
 export async function getStats(steamid: string | number): Promise<ISteamStats> {
     const response = await fetch(
-        `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=414740&key=${process.env.STEAM_WEB_API_KEY}&steamid=${steamid}&format=json`,
-        { cache: 'no-store' }
+        `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=414740&key=${process.env.STEAM_WEB_API_KEY}&steamid=${steamid}&format=json`
     );
     if (!response.ok) {
         if (response.status === 400) {

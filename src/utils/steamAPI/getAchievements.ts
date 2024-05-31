@@ -17,8 +17,7 @@ export async function getAchievements(
     // we use v0001 api because v0002 doesn't return unlocktime
     const response = await fetch(
         'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001?' +
-            urlParams.toString(),
-        { cache: 'no-store' }
+            urlParams.toString()
     );
     if (!response.ok)
         throw new Error(
