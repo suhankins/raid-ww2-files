@@ -41,11 +41,14 @@ export default async function Home({
         return <ErrorCard e={resolvedId} />;
     }
     try {
-        const user = await getUserInfo(steamid);
-        const stats = await getStats(steamid);
-        const achievements = await getAchievements(steamid);
-        const achievementSchema = await getAchievementSchema();
-        const inventory = await getInventory(steamid).catch(() => []);
+        const [user, stats, achievements, achievementSchema, inventory] =
+            await Promise.all([
+                getUserInfo(steamid),
+                getStats(steamid),
+                getAchievements(steamid),
+                getAchievementSchema(),
+                getInventory(steamid).catch(() => []),
+            ]);
 
         return (
             <main className="animate-in">
