@@ -1,7 +1,7 @@
-export const DefaultWeaponCategory = { id: 'all', name: 'All' } as const;
+export const DEFAULT_WEAPON_CATEGORY = { id: 'all', name: 'All' } as const;
 
-export const WeaponCategories = [
-    DefaultWeaponCategory,
+export const WEAPON_CATEGORIES = [
+    DEFAULT_WEAPON_CATEGORY,
     { id: 'assault_rifle', name: 'Assault Rifle' },
     { id: 'smg', name: 'Sub-machine Gun' },
     { id: 'lmg', name: 'Machine Gun' },

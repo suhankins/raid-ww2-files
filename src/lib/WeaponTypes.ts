@@ -1,7 +1,7 @@
-export const DefaultWeaponType = { id: 'all', name: 'All' } as const;
+export const DEFAULT_WEAPON_TYPE = { id: 'all', name: 'All' } as const;
 
-export const WeaponTypes = [
-    DefaultWeaponType,
+export const WEAPON_TYPES = [
+    DEFAULT_WEAPON_TYPE,
     { id: 'primary', name: 'Primary' },
     { id: 'secondary', name: 'Secondary' },
     { id: 'grenade', name: 'Equipment' },

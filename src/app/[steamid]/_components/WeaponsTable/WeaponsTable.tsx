@@ -5,8 +5,8 @@ import styles from './WeaponsTable.module.css';
 import WeaponsTableRow from './Row/WeaponsTableRow';
 import WeaponsTableFooter from './Footer/WeaponsTableFooter';
 import useWeaponsWithTypesAndCategories from './useWeaponsWithTypesAndCategories';
-import { WeaponTypes } from '@/lib/WeaponTypes';
-import { WeaponCategories } from '@/lib/WeaponCategories';
+import { WEAPON_TYPES } from '@/lib/WeaponTypes';
+import { WEAPON_CATEGORIES } from '@/lib/WeaponCategories';
 import useSortWeapons from './useSortWeapons';
 import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
 import Tabs from '@/components/Tabs/Tabs';
@@ -28,10 +28,10 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
             <h2>Raider&apos;s arsenal</h2>
             <Tabs
                 name="Weapon Slot"
-                options={WeaponTypes}
+                options={WEAPON_TYPES}
                 selectedOption={selectedType}
                 onChange={(value) =>
-                    setSelectedType(value as (typeof WeaponTypes)[number])
+                    setSelectedType(value as (typeof WEAPON_TYPES)[number])
                 }
             />
             <Tabs
@@ -40,7 +40,7 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 selectedOption={selectedCategory}
                 onChange={(value) =>
                     setSelectedCategory(
-                        value as (typeof WeaponCategories)[number]
+                        value as (typeof WEAPON_CATEGORIES)[number]
                     )
                 }
                 inline

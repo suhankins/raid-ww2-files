@@ -3,8 +3,8 @@ import { IWeapon } from '@/lib/IWeapon';
 import getKillsByWeaponType from './getKillsByWeaponType';
 import getKillsByWeaponCategory from './getKillsByWeaponCategory';
 import getKillsForGivenWeapons from './getKillsForGivenWeapons';
-import { DefaultWeaponCategory } from '@/lib/WeaponCategories';
-import { DefaultWeaponType } from '@/lib/WeaponTypes';
+import { DEFAULT_WEAPON_CATEGORY } from '@/lib/WeaponCategories';
+import { DEFAULT_WEAPON_TYPE } from '@/lib/WeaponTypes';
 
 export default function getKillsByTypeAndCategory(
     type: IWeapon['type'],
@@ -12,10 +12,10 @@ export default function getKillsByTypeAndCategory(
     weapons: IWeapon[],
     stats: ISteamStats
 ) {
-    if (category === DefaultWeaponCategory.id) {
+    if (category === DEFAULT_WEAPON_CATEGORY.id) {
         return getKillsByWeaponType(type, stats);
     }
-    if (type === DefaultWeaponType.id) {
+    if (type === DEFAULT_WEAPON_TYPE.id) {
         getKillsByWeaponCategory(category, stats);
     }
     return getKillsForGivenWeapons(weapons, stats);
