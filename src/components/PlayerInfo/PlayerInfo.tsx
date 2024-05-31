@@ -9,7 +9,7 @@ import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
 import Image from 'next/image';
 
-export function PlayerInfo({
+export default function PlayerInfo({
     user,
     stats,
     achievements,

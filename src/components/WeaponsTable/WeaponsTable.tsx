@@ -12,7 +12,7 @@ import useSortWeapons from './useSortWeapons';
 import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
 import Tabs from '../Tabs/Tabs';
 
-export function WeaponsTable({ stats }: { stats: ISteamStats }) {
+export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {
         selectedType,
         setSelectedType,

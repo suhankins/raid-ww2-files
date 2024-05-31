@@ -7,7 +7,7 @@ import styles from './LastSeenWith.module.css';
 import { Weapon } from './Weapon';
 import { getWeaponById } from '@/utils/WeaponsDB';
 
-export function LastSeenWith({ stats }: { stats: ISteamStats }) {
+export default function LastSeenWith({ stats }: { stats: ISteamStats }) {
     return (
         <>
             <h2 className={styles.header}>

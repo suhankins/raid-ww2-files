@@ -1,19 +1,25 @@
-import { LastSeenWith } from '@/components/LastSeenWith/LastSeenWith';
-import { PlayerInfo } from '@/components/PlayerInfo/PlayerInfo';
+import { redirect } from 'next/navigation';
+import Tooltip from '@/components/Tooltip/Tooltip';
+import ErrorCard from './ErrorCard';
+
+// Player stats components
+import LastSeenWith from '@/components/LastSeenWith/LastSeenWith';
+import PlayerInfo from '@/components/PlayerInfo/PlayerInfo';
 import RaidsTable from '@/components/RaidsTable/RaidsTable';
-import { WeaponsTable } from '@/components/WeaponsTable/WeaponsTable';
+import WeaponsTable from '@/components/WeaponsTable/WeaponsTable';
+import HallOfFame from '@/components/HallOfFame/HallOfFame';
+import AchievementsList from '@/components/AchievementsList/AchievementsList';
+import CardsList from '@/components/CardsList/CardsList';
+
+// Steam API calls
+import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { getAchievements } from '@/utils/steamAPI/getAchievements';
 import { getStats } from '@/utils/steamAPI/getStats/getStats';
 import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
-import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
-import { redirect } from 'next/navigation';
-import ErrorCard from './ErrorCard';
-import HallOfFame from '@/components/HallOfFame/HallOfFame';
-import Tooltip from '@/components/Tooltip/Tooltip';
-import AchievementsList from '@/components/AchievementsList/AchievementsList';
 import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
-import CardsList from '@/components/CardsList/CardsList';
 import { getInventory } from '@/utils/steamAPI/getInventory';
+
+export const runtime = 'edge';
 
 export default async function Home({
     params: { steamid },
