@@ -14,9 +14,10 @@ export default function Tabs({
     inline?: boolean;
 }) {
     return (
-        <div className={styles.tablist} data-inline={inline}>
+        <div className={styles.tablist} data-inline={inline} role="tablist">
             {options.map((option) => (
                 <input
+                    role="tab"
                     key={option.id}
                     className={styles.tab}
                     name={name}
