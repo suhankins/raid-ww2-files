@@ -12,7 +12,9 @@ export default function MainLayout({
                 <SteamIDInputForm />
             </header>
             <main>{children}</main>
-            <FooterContent />
+            <footer>
+                <FooterContent />
+            </footer>
         </>
     );
 }
