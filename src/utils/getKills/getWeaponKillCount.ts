@@ -13,8 +13,12 @@ export function getWeaponKillCount(
             return stats[`melee_kills_${weapon.id}`];
         case 'grenade':
             return stats[`grenade_kills_${weapon.id}`];
-        case 'turret':
-            return stats.ach_kill_enemies_with_turret;
+        case 'other':
+            if (weapon.id === 'turret') {
+                return stats.ach_kill_enemies_with_turret;
+            } else if (weapon.id === 'vehicle') {
+                return stats.ach_run_over_enemies_with_jeep;
+            }
         case 'all':
             return stats.ach_kill_enemies;
     }

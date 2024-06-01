@@ -1,5 +1,5 @@
-import { ISteamStats } from '@/lib/ISteamStats';
-import { IWeapon } from '@/lib/IWeapon';
+import { type ISteamStats } from '@/lib/ISteamStats';
+import { type IWeapon } from '@/lib/IWeapon';
 import getKillsByWeaponType from './getKillsByWeaponType';
 import getKillsByWeaponCategory from './getKillsByWeaponCategory';
 import getKillsForGivenWeapons from './getKillsForGivenWeapons';

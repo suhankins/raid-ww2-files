@@ -122,16 +122,12 @@ export const GUNS: IWeapon[] = [
     },
 ] as const;
 
-export const TURRETS: IWeapon[] = [
-    { id: 'turret', name: 'Mounted Turret', type: 'turret', noIcon: true },
+export const OTHER: IWeapon[] = [
+    { id: 'turret', name: 'Turrets', type: 'other', noIcon: true },
+    { id: 'vehicle', name: 'Vehicles', type: 'other', noIcon: true },
 ] as const;
 
-export const WEAPONS_DB: IWeapon[] = [
-    ...GRENADES,
-    ...MELEE,
-    ...GUNS,
-    ...TURRETS,
-];
+export const WEAPONS_DB: IWeapon[] = [...GRENADES, ...MELEE, ...GUNS, ...OTHER];
 
 export const getWeaponById = (weaponId: string) =>
     WEAPONS_DB.find((weapon) => weapon.id === weaponId);

@@ -6,5 +6,5 @@ export const WEAPON_TYPES = [
     { id: 'secondary', name: 'Secondary' },
     { id: 'grenade', name: 'Equipment' },
     { id: 'melee', name: 'Melee' },
-    { id: 'turret', name: 'Turret' },
+    { id: 'other', name: 'Other' },
 ] as const;
