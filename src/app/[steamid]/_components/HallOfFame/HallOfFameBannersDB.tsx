@@ -132,7 +132,7 @@ export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'turret',
         getter: (stats: ISteamStats) =>
-            getKillsByWeaponType('turret', stats) /
+            (stats.ach_kill_enemies_with_turret ?? 0) /
             getKillsByWeaponType('all', stats),
         render: (x: number) => (
             <>
