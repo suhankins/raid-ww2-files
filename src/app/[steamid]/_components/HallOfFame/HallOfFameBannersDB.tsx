@@ -198,4 +198,16 @@ export const HallOfFameBannersDB: Banner[] = [
         ),
         weight: 20,
     },
+    {
+        icon: 'coin',
+        getter: (stats: ISteamStats) => stats.grenade_kills_decoy_coin ?? 0,
+        render: (x: number) => (
+            <>
+                <b>{x}</b>
+                <br />
+                kills with a coin
+            </>
+        ),
+        weight: Infinity,
+    },
 ] as const;
