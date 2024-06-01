@@ -99,7 +99,7 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 for some weapons only started being collected fairly recently.
                 That is to say our spies were keeping track that raider killed
                 certain amount of soldiers with some weapon type, but did not
-                yet know a name of specific weapon used.
+                yet know the name of a specific weapon used.
             </p>
         </>
     );
