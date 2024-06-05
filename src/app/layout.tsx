@@ -21,6 +21,7 @@ export default function RootLayout({
                     type="image/x-icon"
                     href="/static/favicon.ico"
                 />
+                <meta name="theme-color" content="#de4a3e" />
             </head>
             <body>
                 <AnimatedBackground />
