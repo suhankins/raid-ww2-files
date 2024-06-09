@@ -2,7 +2,8 @@ import { type IAchievementSchema } from '@/lib/IAchievementSchema';
 
 /**
  * Gets steam achievements schema for given steamid.
- * @throws If can't get steam stats
+ * It's needed because getAchievements doesn't contain icons.
+ * @throws If can't get schema
  */
 export async function getAchievementSchema(): Promise<IAchievementSchema[]> {
     const urlParams = new URLSearchParams();
@@ -15,19 +16,21 @@ export async function getAchievementSchema(): Promise<IAchievementSchema[]> {
         'http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0002?' +
             urlParams.toString()
     );
-    if (!response.ok)
+    if (!response.ok) {
         throw new Error(
             `Can't get Steam achievements schema: server response ${response.status} (${response.statusText})`
         );
+    }
     const data = await response.json();
     if (
         !data ||
         !data.game ||
         !data.game.availableGameStats ||
         !data.game.availableGameStats.achievements
-    )
+    ) {
         throw new Error(
             "Can't get Steam achievements schema: no achievement schema available!"
         );
+    }
     return data.game.availableGameStats.achievements;
 }
