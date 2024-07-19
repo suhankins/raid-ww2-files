@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { IUserInfo } from '@/lib/IUserInfo';
 import styles from './PlayerInfo.module.css';
 import { Level } from './Level';
@@ -43,9 +44,7 @@ export default function PlayerInfo({
                         <p>Achievements completed</p>
                     </div>
                     <div className={styles.basicsCard}>
-                        <Image
-                            width={96}
-                            height={64}
+                        <img
                             alt=""
                             src={`/static/images/raid/nationality/${character.id}.png`}
                         />
