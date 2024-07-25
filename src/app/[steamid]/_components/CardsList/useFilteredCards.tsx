@@ -33,7 +33,10 @@ export default function useFilteredCards(
     );
 
     const filteredBySearch = useMemo(
-        () => fileteredByType.filter((card) => card.name.includes(search)),
+        () =>
+            fileteredByType.filter((card) =>
+                card.name.toLowerCase().includes(search.toLowerCase())
+            ),
         [fileteredByType, search]
     );
 
