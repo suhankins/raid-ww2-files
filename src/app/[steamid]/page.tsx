@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import Tooltip from './_components/Tooltip/Tooltip';
 import ErrorCard from './ErrorCard';
+import resolveSteamId from './_utils/resolveSteamId';
 
 // Player stats components
 import LastSeenWith from './_components/LastSeenWith/LastSeenWith';
@@ -12,7 +13,6 @@ import AchievementsList from './_components/AchievementsList/AchievementsList';
 import CardsList from './_components/CardsList/CardsList';
 
 // Steam API calls
-import { resolveVanityUrl } from '@/utils/steamAPI/resolveVanityUrl';
 import { getAchievements } from '@/utils/steamAPI/getAchievements';
 import { getStats } from '@/utils/steamAPI/getStats/getStats';
 import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
@@ -24,26 +24,19 @@ export default async function Home({
 }: {
     params: { steamid: string };
 }) {
-    if (!steamid.match(/^[0-9]+$/)) {
-        // Instead of SteamID we were probably given a vanity URL
-        const givenUrl = decodeURIComponent(steamid);
-        const vanityUrl = givenUrl.match(
-            /(?<=https:\/\/steamcommunity\.com\/id\/)(\w+)/gim
-        );
-        let vanityToResolve;
-        if (vanityUrl) {
-            vanityToResolve = vanityUrl[0];
-        } else {
-            vanityToResolve = steamid;
-        }
-        const resolvedId = await resolveVanityUrl(vanityToResolve).catch(
-            (e) => e
-        );
-        if (!(resolvedId instanceof Error)) {
-            redirect(`/${resolvedId}`);
-        }
+    const resolvedId = await resolveSteamId(decodeURIComponent(steamid)).catch(
+        (e) => e as Error
+    );
+    if (resolvedId instanceof Error) {
         return <ErrorCard e={resolvedId} />;
     }
+
+    if (resolvedId !== steamid) {
+        redirect(`/${resolvedId}`);
+    }
+
+    steamid = resolvedId;
+
     try {
         const [user, stats, achievements, achievementSchema, inventory] =
             await Promise.all([

@@ -17,7 +17,7 @@ export async function resolveVanityUrl(vanityurl: string): Promise<string> {
     }
     const data = (await response.json()).response;
     if (!data || data.success !== 1) {
-        throw new Error("Steam couldn't resolve vanity URL");
+        throw new Error(`Steam couldn't resolve vanity URL "${vanityurl}"`);
     }
     return data.steamid;
 }
