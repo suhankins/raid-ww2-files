@@ -1,42 +1,28 @@
 export default function EffectIcon({ negative }: { negative?: boolean }) {
     return (
         <svg
-            style={{
-                color: negative ? '#de4a3e' : '#70b35b',
-                fill: 'none',
-                stroke: 'currentcolor',
-            }}
             xmlns="http://www.w3.org/2000/svg"
             width="3.5rem"
             height="3.5rem"
             version="1.1"
-            viewBox="0 0 1467.85 1467.85"
+            style={{
+                color: negative ? '#de4a3e' : '#70b35b',
+                fill: 'none',
+                stroke: 'currentcolor',
+                strokeWidth: 6,
+            }}
+            viewBox="0 0 69.34 69.34"
         >
-            <circle
+            <g
                 style={{
-                    strokeWidth: 129.51,
+                    transformOrigin: '50% 50%',
+                    rotate: negative ? '180deg' : undefined,
                 }}
-                cx="733.92"
-                cy="733.92"
-                r="669.16"
-            />
-            <line
-                style={{
-                    strokeWidth: 172.69,
-                    display: negative ? 'none' : undefined,
-                }}
-                x1="733.92"
-                y1="1067.16"
-                x2="733.92"
-                y2="400.68"
-            />
-            <line
-                style={{ strokeWidth: 172.69 }}
-                x1="400.68"
-                y1="733.92"
-                x2="1067.16"
-                y2="733.92"
-            />
+            >
+                <circle cx="34.67" cy="34.67" r="31.35" />
+                <polyline points="49.85,35.27 34.55,19.97 19.25,35.27 " />
+                <polyline points="49.85,48.81 34.55,33.51 19.25,48.81 " />
+            </g>
         </svg>
     );
 }
