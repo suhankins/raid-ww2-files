@@ -48,7 +48,8 @@ export const CardsDB = [
     },
     {
         id: 'ra_holiday_rush',
-        name: 'Card Name 3',
+        name: 'Gift Rush',
+        synonyms: ['Card Name 3'],
         positiveEffect: 'Carry weight penalties are instead positives.',
         negativeEffect: 'Enemies melee damage to players is increased by 400%.',
         rarity: 'uncommon',
@@ -194,7 +195,8 @@ export const CardsDB = [
     },
     {
         id: 'ra_roulette',
-        name: 'Card Name 2',
+        name: "Feelin' Lucky",
+        synonyms: ['Card Name 2'],
         negativeEffect:
             'When in bleedout the player must win a game of russian roulette.',
         rarity: 'rare',
@@ -227,7 +229,8 @@ export const CardsDB = [
     },
     {
         id: 'free_crowbar',
-        name: 'Card Name 4',
+        name: 'Raise The Bar',
+        synonyms: ['Card Name 4'],
         positiveEffect:
             'All crates are metal lockers and start with a crowbar.',
         rarity: 'common',
@@ -237,7 +240,8 @@ export const CardsDB = [
     },
     {
         id: 'ra_dooms_day',
-        name: 'Card Name 1',
+        name: 'Doomsday',
+        synonyms: ['Card Name 1'],
         positiveEffect: 'Player movement speed is increased by 50%.',
         negativeEffect:
             'Players can only hipfire weapons and can no longer sprint.',

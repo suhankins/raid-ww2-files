@@ -34,8 +34,13 @@ export default function useFilteredCards(
 
     const filteredBySearch = useMemo(
         () =>
-            fileteredByType.filter((card) =>
-                card.name.toLowerCase().includes(search.toLowerCase())
+            fileteredByType.filter(
+                (card) =>
+                    card.name.toLowerCase().includes(search.toLowerCase()) ||
+                    ('synonyms' in card &&
+                        card.synonyms?.find((synonym) =>
+                            synonym.toLowerCase().includes(search.toLowerCase())
+                        ))
             ),
         [fileteredByType, search]
     );

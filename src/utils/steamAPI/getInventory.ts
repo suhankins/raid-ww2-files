@@ -127,7 +127,11 @@ export async function getInventory(
         .map((item) => {
             // Yes, we really are just checking name
             // I couldn't find anything better, this API doesn't return enough info.
-            const card = CardsDB.find((card) => card.name === item.name);
+            const card = CardsDB.find(
+                (card) =>
+                    card.name === item.name ||
+                    (card.synonyms && card.synonyms.includes(item.name))
+            );
             if (!card) return item;
             return {
                 ...item,
