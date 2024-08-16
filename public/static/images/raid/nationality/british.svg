@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="400px" height="267px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 142.25 94.83"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:#072369}
+    .fil2 {fill:#AF1D2F}
+    .fil0 {fill:#E5E5E5}
+   ]]>
+  </style>
+ </defs>
+ <rect class="fil0" width="142.25" height="94.83"/>
+ <path class="fil1" d="M8.72 0l124.81 0 -62.41 36.03 -62.4 -36.03zm133.53 17.74l0 59.35 -51.4 -29.67 51.4 -29.68zm-8.72 77.09l-124.81 0 62.41 -36.02 62.4 36.02zm-133.53 -17.74l0 -59.35 51.4 29.68 -51.4 29.67z"/>
+ <polygon class="fil2" points="50.71,51.23 139.44,0 142.25,0 142.25,6.4 62.64,52.37 "/>
+ <polygon class="fil2" points="82.92,46.2 142.25,80.46 142.25,88.48 76.14,50.31 "/>
+ <polygon class="fil2" points="0,88.53 63.42,51.92 70.81,55.67 2.98,94.83 0,94.83 "/>
+ <polygon class="fil2" points="0,6.35 70.86,47.27 66.26,52.63 0,14.37 "/>
+ <polygon class="fil0" points="0,63.46 0,31.37 55.08,31.37 55.08,0 87.17,0 87.17,31.37 142.25,31.37 142.25,63.46 87.17,63.46 87.17,94.83 55.08,94.83 55.08,63.46 "/>
+ <polygon class="fil2" points="61.26,0 80.99,0 80.99,37.55 142.25,37.55 142.25,57.28 80.99,57.28 80.99,94.83 61.26,94.83 61.26,57.28 0,57.28 0,37.55 61.26,37.55 "/>
+</svg>

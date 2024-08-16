@@ -46,7 +46,9 @@ export default function PlayerInfo({
                     <div className={styles.basicsCard}>
                         <img
                             alt=""
-                            src={`/static/images/raid/nationality/${character.id}.png`}
+                            src={`/static/images/raid/nationality/${character.id}.svg`}
+                            width={96}
+                            height={64}
                         />
                         <p>{character.nationality}</p>
                     </div>
