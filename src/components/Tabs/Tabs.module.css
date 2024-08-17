@@ -28,6 +28,7 @@
 
 .tab::after {
     content: attr(aria-label);
+    white-space: nowrap;
     display: block;
 }
 
