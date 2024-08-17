@@ -17,12 +17,12 @@ export default function HallOfFame({ stats }: { stats: ISteamStats }) {
         value: card.getter(stats),
     }))
         .filter((card) => card.value > 0)
-        .toSorted(
+        .sort(
             (a, b) =>
                 getWeightedValue(a.value, a.weight, totalKills) -
                 getWeightedValue(b.value, b.weight, totalKills)
         )
-        .toReversed();
+        .reverse();
 
     return (
         <>

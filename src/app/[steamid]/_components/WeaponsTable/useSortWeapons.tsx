@@ -10,7 +10,7 @@ export default function useSortWeapons(weapons: IWeaponWithStats[]) {
     const [sortOrder, setSortOrder] = useState<ISortOrder>('descending');
 
     return {
-        weapons: weapons.toSorted(
+        weapons: [...weapons].sort(
             (a, b) =>
                 (sortBy === 'name'
                     ? a[sortBy].localeCompare(b[sortBy], 'en')
