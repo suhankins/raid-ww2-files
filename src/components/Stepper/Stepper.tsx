@@ -39,6 +39,7 @@ export default function Stepper({
                     onClick={clickLeft}
                     disabled={options.indexOf(selectedOption) === 0}
                     type="button"
+                    aria-label="previous option"
                 >
                     <ChevronLeftIcon />
                 </button>
@@ -69,6 +70,7 @@ export default function Stepper({
                         options.indexOf(selectedOption) === options.length - 1
                     }
                     type="button"
+                    aria-label="next option"
                 >
                     <ChevronRightIcon />
                 </button>
