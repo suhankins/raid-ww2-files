@@ -2,7 +2,7 @@
 
 import { type IInventoryCard } from '@/utils/steamAPI/getInventory';
 import styles from './CardsList.module.css';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import Card from './Card';
 import Effect from './Effect';
 import Tabs from '@/components/Tabs/Tabs';
@@ -49,6 +49,9 @@ export default function CardsList({
     const currentCard =
         inventory.find((card) => card.classid === selectedCard) || inventory[0];
 
+    const cardTypeTabsId = useId();
+    const listId = useId();
+
     if (inventory.length === 0) {
         return (
             <>
@@ -75,6 +78,7 @@ export default function CardsList({
                             )
                         }
                         name="Rarity"
+                        htmlFor={cardTypeTabsId}
                     />
                     <Tabs
                         options={TYPES}
@@ -84,8 +88,10 @@ export default function CardsList({
                         }
                         name="Type"
                         inline
+                        id={cardTypeTabsId}
+                        htmlFor={listId}
                     />
-                    <ul className={styles.cardsList}>
+                    <ul className={styles.cardsList} id={listId}>
                         {filteredCards.map((card, index) => (
                             <li
                                 key={index}

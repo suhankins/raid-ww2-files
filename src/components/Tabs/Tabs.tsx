@@ -6,15 +6,25 @@ export default function Tabs({
     onChange,
     name,
     inline,
+    id,
+    htmlFor,
 }: {
     options: readonly { id: string; name: string }[];
     selectedOption: { id: string; name: string };
     onChange: (value: { id: string; name: string }) => void;
     name: string;
     inline?: boolean;
+    id?: string;
+    htmlFor?: string;
 }) {
     return (
-        <div className={styles.tablist} data-inline={inline} role="tablist">
+        <div
+            className={styles.tablist}
+            data-inline={inline}
+            role="tablist"
+            id={id}
+            html-for={htmlFor}
+        >
             {options.map((option) => (
                 <input
                     role="tab"

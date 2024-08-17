@@ -10,6 +10,7 @@ import { WEAPON_CATEGORIES } from '@/lib/WeaponCategories';
 import useSortWeapons from './useSortWeapons';
 import WeaponsTableHeaderCell from './Header/WeaponsTableHeaderCell';
 import Tabs from '@/components/Tabs/Tabs';
+import { useId } from 'react';
 
 export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
     const {
@@ -23,6 +24,9 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
 
     const { weapons, sortValuesAndSetters } = useSortWeapons(unsortedWeapons);
 
+    const weaponCategoryTabsId = useId();
+    const tableId = useId();
+
     return (
         <>
             <h2>Raider&apos;s arsenal</h2>
@@ -33,6 +37,7 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                 onChange={(value) =>
                     setSelectedType(value as (typeof WEAPON_TYPES)[number])
                 }
+                htmlFor={weaponCategoryTabsId}
             />
             <Tabs
                 name="Weapon category"
@@ -44,8 +49,10 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     )
                 }
                 inline
+                id={weaponCategoryTabsId}
+                htmlFor={tableId}
             />
-            <table className={styles.table}>
+            <table className={styles.table} id={tableId}>
                 <thead>
                     <tr>
                         <WeaponsTableHeaderCell
