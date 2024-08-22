@@ -11,42 +11,46 @@ export type Banner = {
     negative?: boolean;
 };
 
+const getNumberRenderer = (children: React.ReactNode) => {
+    const percentageRendererComponent = (x: number) => (
+        <>
+            <b>{prettifyNumber(x)}</b>
+            <br />
+            {children}
+        </>
+    );
+    return percentageRendererComponent;
+};
+
+const getPercentageRenderer = (children: React.ReactNode) => {
+    const percentageRendererComponent = (x: number) => (
+        <>
+            <b>{toPercentage(x)}</b>
+            <br />
+            {children}
+        </>
+    );
+    return percentageRendererComponent;
+};
+
 export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'kills',
         getter: (stats: ISteamStats) => getKillsByWeaponType('all', stats),
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                nazis killed
-            </>
-        ),
+        render: getNumberRenderer('nazis killed'),
         weight: 1,
     },
     {
         icon: 'headshots',
         getter: (stats: ISteamStats) =>
             stats.ach_kill_enemies_with_headshot ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                heads blown
-            </>
-        ),
+        render: getNumberRenderer('heads blown'),
         weight: 1.1,
     },
     {
         icon: 'revives',
         getter: (stats: ISteamStats) => stats.ach_revive_teammates ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                teammates revived
-            </>
-        ),
+        render: getNumberRenderer('teammates revived'),
         weight: 100,
     },
     {
@@ -54,37 +58,19 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) =>
             (stats.challenge_cards_start_raid_total_count ?? 0) +
             (stats.challenge_cards_start_operation_total_count ?? 0),
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                missions with cards played
-            </>
-        ),
+        render: getNumberRenderer('missions with cards played'),
         weight: 110,
     },
     {
         icon: 'dismember',
         getter: (stats: ISteamStats) => stats.ach_dismember_enemies ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                limbs cut
-            </>
-        ),
+        render: getNumberRenderer('limbs cut'),
         weight: 2.5,
     },
     {
         icon: 'best',
         getter: (stats: ISteamStats) => stats.ach_top_stats_award ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                &quot;Best of&quot; awards
-            </>
-        ),
+        render: getNumberRenderer(<>&quot;Best of&quot; awards</>),
         weight: 200,
     },
     {
@@ -92,13 +78,7 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) =>
             getKillsByWeaponType('secondary', stats) /
             getKillsByWeaponType('all', stats),
-        render: (x: number) => (
-            <>
-                <b>{toPercentage(x)}</b>
-                <br />
-                kills with secondary
-            </>
-        ),
+        render: getPercentageRenderer('kills with secondary'),
         weight: (x: number, totalKills: number) => (totalKills / 20) * x * 100,
     },
     {
@@ -106,13 +86,7 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) =>
             getKillsByWeaponType('grenade', stats) /
             getKillsByWeaponType('all', stats),
-        render: (x: number) => (
-            <>
-                <b>{toPercentage(x)}</b>
-                <br />
-                kills with explosives
-            </>
-        ),
+        render: getPercentageRenderer('kills with explosives'),
         weight: (x: number, totalKills: number) => (totalKills / 12) * x * 100,
     },
     {
@@ -120,13 +94,7 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) =>
             getKillsByWeaponType('melee', stats) /
             getKillsByWeaponType('all', stats),
-        render: (x: number) => (
-            <>
-                <b>{toPercentage(x)}</b>
-                <br />
-                kills with melee
-            </>
-        ),
+        render: getPercentageRenderer('kills with melee'),
         weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
     },
     {
@@ -134,25 +102,13 @@ export const HallOfFameBannersDB: Banner[] = [
         getter: (stats: ISteamStats) =>
             (stats.ach_kill_enemies_with_turret ?? 0) /
             getKillsByWeaponType('all', stats),
-        render: (x: number) => (
-            <>
-                <b>{toPercentage(x)}</b>
-                <br />
-                kills with mounted MG
-            </>
-        ),
+        render: getPercentageRenderer('kills with mounted MG'),
         weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
     },
     {
         icon: 'box',
         getter: (stats: ISteamStats) => stats.ach_open_loot_crates ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{prettifyNumber(x)}</b>
-                <br />
-                loot crates open
-            </>
-        ),
+        render: getNumberRenderer('loot crates open'),
         weight: 5,
     },
     {
@@ -165,49 +121,25 @@ export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'character',
         getter: (stats: ISteamStats) => stats.ach_create_character ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{x}</b>
-                <br />
-                characters created
-            </>
-        ),
+        render: getNumberRenderer('characters created'),
         weight: 100,
     },
     {
         icon: 'dogtag',
         getter: (stats: ISteamStats) => stats.dogtags_collected ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{x}</b>
-                <br />
-                dogtags collected
-            </>
-        ),
+        render: getNumberRenderer('dogtags collected'),
         weight: 30,
     },
     {
         icon: 'gold',
         getter: (stats: ISteamStats) => stats.player_gold_amount ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{x}</b>
-                <br />
-                gold bars in the Camp
-            </>
-        ),
+        render: getNumberRenderer('gold bars in the Camp'),
         weight: 20,
     },
     {
         icon: 'coin',
         getter: (stats: ISteamStats) => stats.grenade_kills_decoy_coin ?? 0,
-        render: (x: number) => (
-            <>
-                <b>{x}</b>
-                <br />
-                kills with a coin
-            </>
-        ),
+        render: getNumberRenderer('kills with a coin'),
         weight: Infinity,
     },
 ] as const;
