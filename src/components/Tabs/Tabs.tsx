@@ -23,7 +23,6 @@ export default function Tabs({
             data-inline={inline}
             role="tablist"
             id={id}
-            html-for={htmlFor}
         >
             {options.map((option) => (
                 <input
@@ -36,6 +35,7 @@ export default function Tabs({
                     defaultChecked={selectedOption.id === option.id}
                     onChange={() => onChange(option)}
                     aria-label={option.name}
+                    aria-controls={htmlFor}
                 />
             ))}
         </div>
