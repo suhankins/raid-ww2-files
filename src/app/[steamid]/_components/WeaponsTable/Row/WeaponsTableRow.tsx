@@ -1,4 +1,4 @@
-import { IWeaponWithStats } from '@/lib/IWeaponWithStats';
+import { type IWeaponWithStats } from '@/lib/IWeaponWithStats';
 import prettifyNumber from '@/utils/prettifyNumber';
 import toPercentage from '@/utils/toPercentage';
 import WeaponImage from './WeaponImage';

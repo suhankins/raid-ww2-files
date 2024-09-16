@@ -101,13 +101,6 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                     />
                 </tfoot>
             </table>
-            <p>
-                NOTE: Some numbers may not add up here due to the fact that data
-                for some weapons only started being collected fairly recently.
-                That is to say our spies were keeping track that raider killed
-                certain amount of soldiers with some weapon type, but did not
-                yet know the name of a specific weapon used.
-            </p>
         </>
     );
 }
