@@ -16,7 +16,7 @@
 }
 
 .bar {
-    color: var(--red_white);
+    color: var(--raid_white);
     background-color: var(--raid_dark_red);
     height: 32px;
     display: flex;
