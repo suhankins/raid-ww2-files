@@ -47,11 +47,6 @@ export default function RaidsTable({
     return (
         <>
             <h2>Missions carried out</h2>
-            <p>
-                NOTE: Data provided here is VERY inaccurate due to issues
-                outside of our control. Take everything listed here with a grain
-                of salt.
-            </p>
             <div className="controls">
                 <Stepper
                     options={JOB_STATS}
