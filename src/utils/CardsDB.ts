@@ -483,4 +483,15 @@ export const CardsDB = [
         texture: 'cc_operation_uncommon_special_for_a_reason_hud',
         bonusXpMultiplier: 1.3,
     },
+    {
+        id: 'ra_mag_roulette',
+        name: 'Mag Roulette',
+        positiveEffect: 'Player reload speed increased by 30%',
+        negativeEffect:
+            'Reloading weapons leaves them with random amount of bullets.',
+        rarity: 'halloween',
+        category: 'challenge',
+        type: 'raid',
+        texture: 'cc_debug_card_hud',
+    },
 ];
