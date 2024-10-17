@@ -33,6 +33,13 @@ const getPercentageRenderer = (children: React.ReactNode) => {
     return percentageRendererComponent;
 };
 
+/**
+ * @param importanceThreshold how many percents should it be before it's shown above kills
+ */
+const getPercentageWeight =
+    (importanceThreshold: number) => (fraction: number, totalKills: number) =>
+        (totalKills / importanceThreshold) * fraction * 100;
+
 export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'kills',
@@ -79,7 +86,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('secondary', stats) /
             getKillsByWeaponType('all', stats),
         render: getPercentageRenderer('kills with secondary'),
-        weight: (x: number, totalKills: number) => (totalKills / 20) * x * 100,
+        weight: getPercentageWeight(20),
     },
     {
         icon: 'grenade',
@@ -87,7 +94,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('grenade', stats) /
             getKillsByWeaponType('all', stats),
         render: getPercentageRenderer('kills with explosives'),
-        weight: (x: number, totalKills: number) => (totalKills / 12) * x * 100,
+        weight: getPercentageWeight(12),
     },
     {
         icon: 'melee',
@@ -95,7 +102,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('melee', stats) /
             getKillsByWeaponType('all', stats),
         render: getPercentageRenderer('kills with melee'),
-        weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
+        weight: getPercentageWeight(10),
     },
     {
         icon: 'turret',
@@ -103,7 +110,7 @@ export const HallOfFameBannersDB: Banner[] = [
             (stats.ach_kill_enemies_with_turret ?? 0) /
             getKillsByWeaponType('all', stats),
         render: getPercentageRenderer('kills with mounted MG'),
-        weight: (x: number, totalKills: number) => (totalKills / 10) * x * 100,
+        weight: getPercentageWeight(10),
     },
     {
         icon: 'box',
