@@ -1,5 +1,7 @@
 import { type IWeapon } from '../../lib/IWeapon';
 import type { ISteamStats } from '@/lib/ISteamStats';
+import getKillsForGivenWeapons from './getKillsForGivenWeapons';
+import { getWeaponById } from '../WeaponsDB';
 
 export default function getKillsByWeaponType(
     type: IWeapon['type'],
@@ -11,7 +13,8 @@ export default function getKillsByWeaponType(
         case 'grenade':
             return (
                 (stats.ach_kill_enemies_with_grenades ?? 0) +
-                (stats.ach_kill_enemies_with_mines ?? 0)
+                (stats.ach_kill_enemies_with_mines ?? 0) +
+                getKillsForGivenWeapons([getWeaponById('decoy_coin')!], stats)
             );
         case 'other':
             return (
