@@ -5,7 +5,8 @@ import getKillsForGivenWeapons from './getKillsForGivenWeapons';
 
 export default function getKillsByWeaponCategory(
     category: NonNullable<IWeapon['category']>,
-    stats: ISteamStats
+    stats: ISteamStats,
+    weapons: IWeapon[]
 ): number {
     switch (category) {
         case 'mine':
@@ -14,7 +15,8 @@ export default function getKillsByWeaponCategory(
             return stats.ach_kill_enemies_with_grenades;
         default:
             return getKillsForGivenWeapons(
-                WEAPONS_DB.filter((weapon) => weapon.category === category),
+                weapons ??
+                    WEAPONS_DB.filter((weapon) => weapon.category === category),
                 stats
             );
     }
