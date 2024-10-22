@@ -6,7 +6,7 @@ import getKillsForGivenWeapons from './getKillsForGivenWeapons';
 export default function getKillsByWeaponCategory(
     category: NonNullable<IWeapon['category']>,
     stats: ISteamStats,
-    weapons: IWeapon[]
+    weapons?: IWeapon[]
 ): number {
     switch (category) {
         case 'mine':
