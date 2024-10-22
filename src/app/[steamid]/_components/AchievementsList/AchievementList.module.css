@@ -13,3 +13,7 @@
 .list li::marker {
     content: '';
 }
+.list li img {
+    width: 64px;
+    height: 64px;
+}
