@@ -14,7 +14,10 @@ export default function getKillsByWeaponType(
             return (
                 (stats.ach_kill_enemies_with_grenades ?? 0) +
                 (stats.ach_kill_enemies_with_mines ?? 0) +
-                getKillsForGivenWeapons([getWeaponById('decoy_coin')!], stats)
+                getKillsForGivenWeapons(
+                    [getWeaponById('decoy_coin')!, getWeaponById('gold_bar')!],
+                    stats
+                )
             );
         case 'other':
             return (
