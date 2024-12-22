@@ -11,7 +11,17 @@ export default function getJobStat(
     if (job.type === 'raid') {
         return getter(job, stats);
     }
-    return job.parts.reduce((starts, raid) => starts + getter(raid, stats), 0);
+    switch (stat.id) {
+        case 'starts':
+            return getter(job.parts[0], stats);
+        case 'completions':
+            return getter(job.parts.at(-1)!, stats);
+        default:
+            return job.parts.reduce(
+                (acc, raid) => acc + getter(raid, stats),
+                0
+            );
+    }
 }
 
 const statGetters: {
