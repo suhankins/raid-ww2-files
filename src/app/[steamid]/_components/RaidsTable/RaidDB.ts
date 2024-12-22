@@ -62,22 +62,43 @@ export const RAIDS: IRaid[] = [
         id: 'level_tnd',
         name: 'Tiger Trap',
         type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_tank_depot_hardest' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_tank_depot',
+            },
+        ],
     },
     {
         id: 'level_sto',
-        name: 'Rogues Gallery',
+        name: "Rogue's Gallery",
         type: 'raid',
         isOutlaw: true,
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_gallery_hardest' },
+        ],
     },
     {
         id: 'level_hunters',
         name: 'Hunters',
         type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_hunters_hardest' },
+            { type: 'dogtags', achievementName: 'ach_bring_them_home_hunters' },
+        ],
     },
     {
         id: 'level_convoy',
         name: 'Last Orders',
         type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_sommelier_hardest' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_sommelier',
+            },
+        ],
     },
     {
         id: 'level_gold_rush',
@@ -93,16 +114,33 @@ export const RAIDS: IRaid[] = [
         name: 'Forest Convoy',
         type: 'raid',
         isOutlaw: true,
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_forest_convoy_hardest' },
+        ],
     },
     {
         id: 'level_spies_test',
         name: 'Extraction',
         type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_airfield_hardest' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_airfield',
+            },
+        ],
     },
     {
         id: 'level_bunker_test',
         name: 'Bunker Busters',
         type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_bunkers_hardest' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_bunkers',
+            },
+        ],
     },
     {
         id: 'level_tutorial',
@@ -114,6 +152,9 @@ export const RAIDS: IRaid[] = [
         name: 'Gold Diggers',
         type: 'raid',
         isOutlaw: true,
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_fury_railway_hardest' },
+        ],
     },
     {
         id: 'level_silo',
@@ -121,6 +162,10 @@ export const RAIDS: IRaid[] = [
         type: 'raid',
         accomplishments: [
             { type: 'veryHard', achievementName: 'That will suffice' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_silo',
+            },
         ],
     },
     {
@@ -129,6 +174,10 @@ export const RAIDS: IRaid[] = [
         type: 'raid',
         accomplishments: [
             { type: 'veryHard', achievementName: "Kelly - Kelly's Heroes" },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_kelly',
+            },
         ],
     },
 ] as const;
