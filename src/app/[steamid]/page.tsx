@@ -20,10 +20,12 @@ import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
 import { getInventory } from '@/utils/steamAPI/getInventory';
 
 export default async function Home({
-    params: { steamid },
+    params,
 }: {
-    params: { steamid: string };
+    params: Promise<{ steamid: string }>;
 }) {
+    let { steamid } = await params;
+
     const resolvedId = await resolveSteamId(decodeURIComponent(steamid)).catch(
         (e) => e as Error
     );
