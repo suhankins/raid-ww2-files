@@ -32,7 +32,15 @@ export default async function Home({
     if (steamid === '_') {
         const querySteamId = (await searchParams).steamid;
         if (typeof querySteamId !== 'string') {
-            return <ErrorCard e={new Error('No SteamID provided!')} />;
+            return (
+                <ErrorCard
+                    e={
+                        new Error('No SteamID provided!', {
+                            cause: `type of querySteamId: ${typeof querySteamId}`,
+                        })
+                    }
+                />
+            );
         }
         steamid = querySteamId;
     }

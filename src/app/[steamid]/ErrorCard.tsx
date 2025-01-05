@@ -12,7 +12,10 @@ export default function ErrorCard({ e }: { e: unknown }) {
                 {e instanceof Error && (
                     <details>
                         <summary>Technical information</summary>
-                        <code>{e.stack}</code>
+                        <code>
+                            {typeof e.cause === 'string' && `Cause: ${e.cause}`}
+                            {e.stack}
+                        </code>
                     </details>
                 )}
             </div>
