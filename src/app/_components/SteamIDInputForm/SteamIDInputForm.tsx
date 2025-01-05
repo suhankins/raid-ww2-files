@@ -21,7 +21,7 @@ export default function SteamIDInputForm() {
             onSubmit={handleSubmit}
             className={'limited-width ' + styles.form}
             role="search"
-            action="_"
+            action="q"
         >
             <Textbox
                 type="search"

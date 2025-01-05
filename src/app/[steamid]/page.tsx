@@ -21,37 +21,19 @@ import { getInventory } from '@/utils/steamAPI/getInventory';
 
 export default async function Home({
     params,
-    searchParams,
 }: {
     params: Promise<{ steamid: string }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
     let { steamid } = await params;
 
-    console.log(steamid);
-    if (steamid === '_') {
-        const querySteamId = (await searchParams).steamid;
-        if (typeof querySteamId !== 'string') {
-            return (
-                <ErrorCard
-                    e={
-                        new Error('No SteamID provided!', {
-                            cause: `type of querySteamId: ${typeof querySteamId}`,
-                        })
-                    }
-                />
-            );
-        }
-        steamid = querySteamId;
-    }
-
+    // We can't just assume that numbers are SteamID because vanity URLs can be just numbers
+    // i.e. https://steamcommunity.com/id/12345
     const resolvedId = await resolveSteamId(decodeURIComponent(steamid)).catch(
         (e) => e as Error
     );
     if (resolvedId instanceof Error) {
         return <ErrorCard e={resolvedId} />;
     }
-
     if (resolvedId !== steamid) {
         redirect(`/${resolvedId}`);
     }
