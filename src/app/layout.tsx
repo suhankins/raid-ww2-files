@@ -22,6 +22,7 @@ export default function RootLayout({
                     href="/static/favicon.ico"
                 />
                 <meta name="theme-color" content="#de4a3e" />
+                <meta name="color-scheme" content="light dark" />
             </head>
             <body>
                 <AnimatedBackground />
