@@ -72,7 +72,7 @@ export const CardsDB = [
     {
         id: 'ra_helmet_shortage',
         name: 'Helmet Shortage',
-        positiveEffect: 'Headshots are instant kill.',
+        positiveEffect: 'Headshots deal 300% more damage.',
         negativeEffect: 'Player Health is reduced by 50%',
         rarity: 'rare',
         category: 'challenge',
@@ -340,7 +340,7 @@ export const CardsDB = [
     {
         id: 'ra_pumpkin_pie',
         name: 'Pumpkin pie',
-        positiveEffect: 'Headshot damage increased by 100%',
+        positiveEffect: 'Headshot damage increased by 300%',
         negativeEffect: 'Attacking is possible only while in air',
         titleInTexture: true,
         rarity: 'halloween',
