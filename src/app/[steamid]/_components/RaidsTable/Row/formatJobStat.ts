@@ -3,7 +3,6 @@ import { type JOB_STATS } from '../RaidsTable';
 
 const MINUTE = 60;
 const HOUR = MINUTE * 60;
-const PRECISION = 1;
 
 function formatAbsoluteNumber(number: number) {
     return number.toFixed(1);
@@ -22,6 +21,9 @@ export default function formatJobStat(
         case 'starts':
             return `${prettifyNumber(value)} ${formatMultipleString('time', value)}`;
         case 'time':
+            if (value === 0) {
+                return 'Unknown';
+            }
             if (value < MINUTE) {
                 return `${value} ${formatMultipleString('second', value)}`;
             }
