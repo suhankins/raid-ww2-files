@@ -1,4 +1,8 @@
-import { type IRaid, type IJob, type IOperation } from './IJob';
+import {
+    type IRaid,
+    type IJob,
+    type IOperation,
+} from '../app/[steamid]/_components/RaidsTable/IJob';
 
 export const RAIDS: IRaid[] = [
     {
@@ -177,6 +181,18 @@ export const RAIDS: IRaid[] = [
             {
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_kelly',
+            },
+        ],
+    },
+    {
+        id: 'level_forest_bunker',
+        name: 'Full Stop',
+        type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_forest_bunker_hardest' },
+            {
+                type: 'dogtags',
+                achievementName: 'ach_bring_them_home_forest_bunker',
             },
         ],
     },

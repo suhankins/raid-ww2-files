@@ -2,7 +2,7 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './RaidsTable.module.css';
-import { JOBS, RAIDS_AND_DAYS_ONLY } from './RaidDB';
+import { JOBS, RAIDS_AND_DAYS_ONLY } from '../../../../utils/RaidDB';
 import getJobStat from '../RaidsTable/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '@/components/Stepper/Stepper';
