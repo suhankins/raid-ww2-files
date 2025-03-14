@@ -1,3 +1,6 @@
+/**
+ * @example numberToIsoDate(1741940061) // "2025/03/14"
+ */
 export function numberToIsoDate(timestamp: number) {
     const date = new Date(timestamp * 1000);
     const year = date.getFullYear();

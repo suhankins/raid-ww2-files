@@ -2,14 +2,15 @@ export type IAccomplishmentType =
     | 'veryHard'
     | 'veryHardNoBleedout'
     | 'dogtags'
-    | 'noBleedout';
+    | 'noBleedout'
+    | 'completion';
 
 /**
  * Object containing type and name of achievement
  */
 export type IAccomplishment = {
     type: IAccomplishmentType;
-    achievementName: string;
+    achievementName: string | string[];
 };
 
 export type IRaid = {

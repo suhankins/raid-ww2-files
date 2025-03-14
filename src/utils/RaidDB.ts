@@ -15,6 +15,17 @@ export const RAIDS: IRaid[] = [
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_trainyard',
             },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Railyard - The shelter',
+                    'Railyard - The room raider',
+                    'Railyard - No Glory',
+                    'Railyard - Premature dynamite-ation',
+                    'Railyard - Cranetastic',
+                    'Railyard - AA anonymous',
+                ],
+            },
         ],
     },
     {
@@ -30,6 +41,16 @@ export const RAIDS: IRaid[] = [
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_radiodefence',
             },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Radio defence - You are safe with us',
+                    'Radio defence - Cutting crew',
+                    'Radio defence - No blitzkrieg for you',
+                    "Radio defence - Oh, I didn't see you there",
+                    'Radio defence - Hands off',
+                ],
+            },
         ],
     },
     {
@@ -42,6 +63,13 @@ export const RAIDS: IRaid[] = [
                 achievementName: "Flaktower - Ain't no tower high enough",
             },
             { type: 'dogtags', achievementName: 'ach_bring_them_home_flak' },
+            {
+                type: 'completion',
+                achievementName: [
+                    "Flaktower - They'll neven see it coming",
+                    'Flaktower - Ninja RAID',
+                ],
+            },
         ],
     },
     {
@@ -51,6 +79,13 @@ export const RAIDS: IRaid[] = [
         accomplishments: [
             { type: 'veryHard', achievementName: 'Bridge that gap' },
             { type: 'dogtags', achievementName: 'ach_bring_them_home_bridge' },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Bridge - Walk it off',
+                    'Bridge - Rush minute',
+                ],
+            },
         ],
     },
     {
@@ -60,6 +95,13 @@ export const RAIDS: IRaid[] = [
         accomplishments: [
             { type: 'veryHard', achievementName: 'Sweep and clear' },
             { type: 'dogtags', achievementName: 'ach_bring_them_home_castle' },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Castle - Swooping Eagle',
+                    'Castle - 100 Nazi Scalps',
+                ],
+            },
         ],
     },
     {
@@ -81,6 +123,7 @@ export const RAIDS: IRaid[] = [
         isOutlaw: true,
         accomplishments: [
             { type: 'veryHard', achievementName: 'ach_gallery_hardest' },
+            { type: 'completion', achievementName: ['ach_gallery_stealth'] },
         ],
     },
     {
@@ -90,6 +133,10 @@ export const RAIDS: IRaid[] = [
         accomplishments: [
             { type: 'veryHard', achievementName: 'ach_hunters_hardest' },
             { type: 'dogtags', achievementName: 'ach_bring_them_home_hunters' },
+            {
+                type: 'completion',
+                achievementName: ['ach_hunters_stealth'],
+            },
         ],
     },
     {
@@ -102,6 +149,10 @@ export const RAIDS: IRaid[] = [
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_sommelier',
             },
+            {
+                type: 'completion',
+                achievementName: ['ach_sommelier_stealth_flawless'],
+            },
         ],
     },
     {
@@ -111,6 +162,15 @@ export const RAIDS: IRaid[] = [
         accomplishments: [
             { type: 'veryHard', achievementName: 'That will do' },
             { type: 'dogtags', achievementName: 'ach_bring_them_home_bank' },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Treasury - Take from them, everything, EVERYTHING',
+                    'Treasury - Got a plane to catch',
+                    'Treasury - Bumpy ride',
+                    'Easy there cowboy',
+                ],
+            },
         ],
     },
     {
@@ -158,6 +218,10 @@ export const RAIDS: IRaid[] = [
         isOutlaw: true,
         accomplishments: [
             { type: 'veryHard', achievementName: 'ach_fury_railway_hardest' },
+            {
+                type: 'completion',
+                achievementName: ['ach_fury_railway_customs'],
+            },
         ],
     },
     {
@@ -169,6 +233,13 @@ export const RAIDS: IRaid[] = [
             {
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_silo',
+            },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Visit all side-rooms',
+                    'The seven wooden barrels',
+                ],
             },
         ],
     },
@@ -182,6 +253,14 @@ export const RAIDS: IRaid[] = [
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_kelly',
             },
+            {
+                type: 'completion',
+                achievementName: [
+                    'Kelly - Clean Haus',
+                    'Kelly - Safe Guard',
+                    'ach_kelly_stealth',
+                ],
+            },
         ],
     },
     {
@@ -193,6 +272,16 @@ export const RAIDS: IRaid[] = [
             {
                 type: 'dogtags',
                 achievementName: 'ach_bring_them_home_forest_bunker',
+            },
+            {
+                type: 'completion',
+                achievementName: [
+                    'ach_fb_overkill',
+                    'ach_fb_outsmart_bullets',
+                    'ach_fb_smrt',
+                    'ach_fb_ilija_roleplay',
+                    'ach_fb_secret_secret',
+                ],
             },
         ],
     },
@@ -209,40 +298,131 @@ export const OPERATIONS: IOperation[] = [
                 name: 'Clear Skies 1: Communication Breakdown',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                ],
             },
             {
                 id: 'jobs_clear_skies_part_2',
                 name: 'Clear Skies 2: Enigmatic',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                ],
             },
             {
                 id: 'jobs_clear_skies_part_3',
                 name: 'Clear Skies 3: Burning Man',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                ],
             },
             {
                 id: 'jobs_clear_skies_part_4',
                 name: 'Clear Skies 4: London Calling',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                ],
             },
             {
                 id: 'jobs_clear_skies_part_5',
                 name: 'Clear Skies 5: Rolling Stock',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                ],
             },
             {
                 id: 'jobs_clear_skies_part_6',
                 name: 'Clear Skies 6: Blinding Heimdall',
                 type: 'raid',
                 parent: 'clear_skies',
+                accomplishments: [
+                    {
+                        type: 'veryHard',
+                        achievementName: 'ach_clear_skies_hardest',
+                    },
+                    {
+                        type: 'veryHardNoBleedout',
+                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
+                    },
+                    {
+                        type: 'noBleedout',
+                        achievementName: 'ach_clear_skies_no_bleedout',
+                    },
+                    {
+                        type: 'completion',
+                        achievementName: ['Flaktower - A Leap of Faith'],
+                    },
+                ],
             },
         ],
         accomplishments: [
-            { type: 'veryHard', achievementName: 'ach_clear_skies_hardest' },
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
             {
                 type: 'veryHardNoBleedout',
                 achievementName: 'ach_clear_skies_hardest_no_bleedout',
@@ -250,6 +430,10 @@ export const OPERATIONS: IOperation[] = [
             {
                 type: 'noBleedout',
                 achievementName: 'ach_clear_skies_no_bleedout',
+            },
+            {
+                type: 'completion',
+                achievementName: ['Flaktower - A Leap of Faith'],
             },
         ],
     },
