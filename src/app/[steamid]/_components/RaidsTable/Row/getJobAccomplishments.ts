@@ -22,29 +22,6 @@ export default function getJobAccomplishments(
         }
         return [];
     }
-    console.log(
-        job.accomplishments.map((accomplishment) => ({
-            type: accomplishment.type,
-            completed: Array.isArray(accomplishment.achievementName)
-                ? accomplishment.achievementName.every((achievement) =>
-                      checkAchievementStatus(achievements, achievement)
-                  )
-                : checkAchievementStatus(
-                      achievements,
-                      accomplishment.achievementName
-                  ),
-            progress: Array.isArray(accomplishment.achievementName)
-                ? `${accomplishment.achievementName.reduce(
-                      (count, achievement) =>
-                          count +
-                          (checkAchievementStatus(achievements, achievement)
-                              ? 1
-                              : 0),
-                      0
-                  )}/${accomplishment.achievementName.length}`
-                : undefined,
-        }))
-    );
     return job.accomplishments.map((accomplishment) => ({
         type: accomplishment.type,
         completed: Array.isArray(accomplishment.achievementName)
