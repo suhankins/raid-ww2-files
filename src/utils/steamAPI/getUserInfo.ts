@@ -1,4 +1,7 @@
 import type { IUserInfo } from '@/lib/IUserInfo';
+import { formatErrorMessage } from '../formatErrorMessage';
+
+const PREFIX = "Can't get Steam user info";
 
 /**
  * Gets user info for given steamid.
@@ -16,18 +19,21 @@ export async function getUserInfo(steamid: string) {
         `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002?` +
             urlParams.toString()
     );
-    if (!response.ok)
-        throw new Error(
-            `Can't get Steam user info: server responded ${response.status} (${response.statusText})`
-        );
+
+    if (!response.ok) {
+        throw new Error(formatErrorMessage(PREFIX, response));
+    }
+
     const data = (await response.json()).response.players[0] as
         | IUserInfo
         | undefined;
+
     if (!data) {
-        throw new Error("Can't get Steam user info: user doesn't exist");
+        throw new Error(formatErrorMessage(PREFIX, "user doesn't exist"));
     }
     if (data.communityvisibilitystate !== 3) {
-        throw new Error("Can't get Steam user info: profile is not public");
+        throw new Error(formatErrorMessage(PREFIX, 'profile is not public'));
     }
+
     return data;
 }

@@ -1,4 +1,7 @@
 import { type IAchievementSchema } from '@/lib/IAchievementSchema';
+import { formatErrorMessage } from '../formatErrorMessage';
+
+const PREFIX = "Can't get Steam achievements schema";
 
 /**
  * Gets steam achievements schema for given steamid.
@@ -17,9 +20,7 @@ export async function getAchievementSchema(): Promise<IAchievementSchema[]> {
             urlParams.toString()
     );
     if (!response.ok) {
-        throw new Error(
-            `Can't get Steam achievements schema: server response ${response.status} (${response.statusText})`
-        );
+        throw new Error(formatErrorMessage(PREFIX, response));
     }
     const data = await response.json();
     if (
@@ -29,7 +30,7 @@ export async function getAchievementSchema(): Promise<IAchievementSchema[]> {
         !data.game.availableGameStats.achievements
     ) {
         throw new Error(
-            "Can't get Steam achievements schema: no achievement schema available!"
+            formatErrorMessage(PREFIX, 'no achievement schema available')
         );
     }
     return data.game.availableGameStats.achievements;

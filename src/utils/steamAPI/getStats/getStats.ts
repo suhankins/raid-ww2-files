@@ -1,5 +1,8 @@
 import type { ISteamStats } from '@/lib/ISteamStats';
 import { steamStatsArrayToObject } from './statsArrayToObject';
+import { formatErrorMessage } from '@/utils/formatErrorMessage';
+
+const PREFIX = "Can't get steam stats";
 
 /**
  * Gets steam stats for given steamid.
@@ -11,14 +14,7 @@ export async function getStats(steamid: string | number): Promise<ISteamStats> {
         { cache: 'no-cache' }
     );
     if (!response.ok) {
-        if (response.status === 400) {
-            throw new Error(
-                `Can't get steam stats: server responded ${response.status} (${response.statusText}). Are you sure this player owns RAID: World War II?`
-            );
-        }
-        throw new Error(
-            `Can't get steam stats: server responded ${response.status} (${response.statusText})`
-        );
+        throw new Error(formatErrorMessage(PREFIX, response));
     }
     const data = await response.json();
     return steamStatsArrayToObject(data.playerstats.stats);

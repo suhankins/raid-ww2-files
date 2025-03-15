@@ -1,4 +1,5 @@
 import { CardsDB } from '../CardsDB';
+import { formatErrorMessage } from '../formatErrorMessage';
 
 type IAsset = {
     appid: 414740;
@@ -68,6 +69,8 @@ export type IInventoryCard =
     | IInventoryItem
     | (IInventoryItem & (typeof CardsDB)[number]);
 
+const PREFIX = "Can't get Steam inventory";
+
 export async function getInventory(
     steamid: string | number
 ): Promise<IInventoryCard[]> {
@@ -80,14 +83,12 @@ export async function getInventory(
         }
     );
     if (!response.ok) {
-        throw new Error(
-            `Can't get Steam inventory: server response ${response.status} (${response.statusText})`
-        );
+        throw new Error(formatErrorMessage(PREFIX, response));
     }
     const data = (await response.json()) as IAPIReturnValue;
     if (!data || data.success !== 1 || !data.assets || !data.descriptions) {
         throw new Error(
-            `Can't get Steam inventory: some items are missing from response`
+            formatErrorMessage(PREFIX, 'some items are missing from response')
         );
     }
     return data.assets
@@ -97,14 +98,19 @@ export async function getInventory(
                 (description) => asset.classid === description.classid
             );
             if (!description)
-                throw new Error("Couldn't find description for an item");
+                throw new Error(
+                    formatErrorMessage(
+                        PREFIX,
+                        "couldn't find description for an item"
+                    )
+                );
             return {
                 ...asset,
                 ...description,
             };
         })
         .reduce(
-            // Removing dublicates, adding them to amount of existing cards
+            // Removing duplicates, adding them to amount of existing cards
             (acc, item) => {
                 if (acc.length === 0) return [item];
                 const accItemIndex = acc.findIndex(

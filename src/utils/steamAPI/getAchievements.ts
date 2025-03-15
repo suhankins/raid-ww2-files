@@ -1,4 +1,7 @@
 import type { IAchievement } from '@/lib/IAchievement';
+import { formatErrorMessage } from '../formatErrorMessage';
+
+const PREFIX = "Can't get Steam achievements";
 
 /**
  * Gets steam achievements for given steamid.
@@ -20,14 +23,16 @@ export async function getAchievements(
             urlParams.toString(),
         { cache: 'no-cache' }
     );
-    if (!response.ok)
-        throw new Error(
-            `Can't get Steam achievements: server response ${response.status} (${response.statusText})`
-        );
+    if (!response.ok) {
+        throw new Error(formatErrorMessage(PREFIX, response));
+    }
     const data = await response.json();
     if (!data.playerstats || !data.playerstats.achievements)
         throw new Error(
-            "Can't get Steam achievements: achievements are missing in raider data!"
+            formatErrorMessage(
+                PREFIX,
+                'achievements are missing in raider data'
+            )
         );
     return data.playerstats.achievements;
 }
