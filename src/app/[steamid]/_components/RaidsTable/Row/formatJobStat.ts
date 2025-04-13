@@ -1,16 +1,10 @@
 import prettifyNumber from '@/utils/prettifyNumber';
 import { type JOB_STATS } from '../RaidsTable';
+import formatAbsoluteNumber from '@/utils/formatAbsoluteNumber';
+import formatPluralString from '@/utils/formatPluralString';
 
 const MINUTE = 60;
 const HOUR = MINUTE * 60;
-
-function formatAbsoluteNumber(number: number) {
-    return number.toFixed(1);
-}
-
-function formatMultipleString(string: string, number: number) {
-    return `${string}${formatAbsoluteNumber(number) !== '1.0' ? 's' : ''}`;
-}
 
 export default function formatJobStat(
     selectedStat: (typeof JOB_STATS)[number],
@@ -19,19 +13,19 @@ export default function formatJobStat(
     switch (selectedStat.id) {
         case 'completions':
         case 'starts':
-            return `${prettifyNumber(value)} ${formatMultipleString('time', value)}`;
+            return `${prettifyNumber(value)} ${formatPluralString('time', value)}`;
         case 'time':
             if (value === 0) {
                 return 'Unknown';
             }
             if (value < MINUTE) {
-                return `${value} ${formatMultipleString('second', value)}`;
+                return `${value} ${formatPluralString('second', value)}`;
             }
             if (value < HOUR) {
                 const minutes = value / MINUTE;
-                return `${formatAbsoluteNumber(minutes)} ${formatMultipleString('minute', minutes)}`;
+                return `${formatAbsoluteNumber(minutes)} ${formatPluralString('minute', minutes)}`;
             }
             const hours = value / HOUR;
-            return `${formatAbsoluteNumber(hours)} ${formatMultipleString('hour', hours)}`;
+            return `${formatAbsoluteNumber(hours)} ${formatPluralString('hour', hours)}`;
     }
 }
