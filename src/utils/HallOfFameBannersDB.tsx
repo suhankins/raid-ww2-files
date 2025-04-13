@@ -149,4 +149,11 @@ export const HallOfFameBannersDB: Banner[] = [
         render: getNumberRenderer('kills with a coin'),
         weight: 1_000,
     },
+    {
+        icon: 'bounty',
+        getter: (stats: ISteamStats) =>
+            stats.bounty_cards_complete_mission_grand_total ?? 0,
+        render: getNumberRenderer('bounties collected'),
+        weight: 1_000,
+    },
 ] as const;
