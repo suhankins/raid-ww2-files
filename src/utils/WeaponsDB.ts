@@ -28,6 +28,13 @@ export const GRENADES: IWeapon[] = [
     { id: 'betty', name: 'Spring Mine', type: 'grenade', category: 'mine' },
     { id: 'decoy_coin', name: 'Decoy Coin', type: 'grenade' },
     { id: 'gold_bar', name: 'Lead Bar', type: 'grenade' },
+    {
+        id: 'anti_tank',
+        name: 'Anti-tank Grenade',
+        type: 'grenade',
+        hidden: true,
+    },
+    { id: 'thermite', name: 'Thermite', type: 'grenade', hidden: true },
 ];
 
 export const MELEE: IWeapon[] = [
