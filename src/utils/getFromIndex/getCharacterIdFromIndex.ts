@@ -6,6 +6,6 @@ const characters = [
     { id: 'american', name: 'Rivet', nationality: 'American' },
 ];
 
-export default function getCharaterFromIndex(index: number) {
+export default function getCharacterFromIndex(index: number) {
     return characters[index];
 }

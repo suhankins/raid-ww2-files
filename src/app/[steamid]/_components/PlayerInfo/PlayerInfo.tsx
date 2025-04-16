@@ -4,7 +4,7 @@ import styles from './PlayerInfo.module.css';
 import { Level } from './Level';
 import type { ISteamStats } from '@/lib/ISteamStats';
 import type { IAchievement } from '@/lib/IAchievement';
-import getCharaterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
+import getCharacterFromIndex from '@/utils/getFromIndex/getCharacterIdFromIndex';
 import getAchievementsCompletedPercentage from './getAchievementsCompletedPercentage';
 import { getLatestAchievement } from '@/utils/getLatestAchievement';
 import { numberToIsoDate } from '@/utils/numberToIsoDate';
@@ -21,7 +21,7 @@ export default function PlayerInfo({
     achievements: IAchievement[];
     children: React.ReactNode;
 }) {
-    const character = getCharaterFromIndex(stats.equipped_character ?? 0);
+    const character = getCharacterFromIndex(stats.equipped_character ?? 0);
     const lastAchievement = getLatestAchievement(achievements);
 
     return (
