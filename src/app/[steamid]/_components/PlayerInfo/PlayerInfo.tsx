@@ -63,7 +63,6 @@ export default function PlayerInfo({
                     <b>{user.personaname}</b>
                     <p>{character.name}</p>
                 </div>
-                <h3 className={styles.sidenote}></h3>
                 {children}
                 {lastAchievement.unlocktime !== 0 && (
                     <p>
