@@ -37,7 +37,13 @@ type Props = {
 };
 
 async function readImage(url: string) {
-    const image = await readFile(join(process.cwd(), url));
+    const image = await readFile(
+        join(
+            process.cwd(),
+            process.env.NODE_ENV !== 'production' ? '/public/' : '',
+            url
+        )
+    );
     const src = Uint8Array.from(image).buffer;
     return src;
 }
@@ -80,8 +86,6 @@ export default async function Image({ params }: Props) {
 
     const resolvedId = await resolveSteamId(decodeURIComponent(steamid));
 
-    console.log(resolvedId);
-
     const [user, stats, achievements] = await Promise.all([
         getUserInfo(resolvedId),
         getStats(resolvedId),
@@ -98,19 +102,17 @@ export default async function Image({ params }: Props) {
         bannerSrc,
         cards,
     ] = await Promise.all([
-        readImage(`/public/static/images/raid/characters/${character.id}.png`),
-        readImage(
-            `/public/static/images/nationality/${character.nationality}.png`
-        ),
-        readImage('/public/static/images/raid/background.jpg'),
-        readImage('/public/static/images/banner.png'),
+        readImage(`/static/images/raid/characters/${character.id}.png`),
+        readImage(`/static/images/nationality/${character.nationality}.png`),
+        readImage('/static/images/raid/background.jpg'),
+        readImage('/static/images/banner.png'),
         Promise.all(
             getHallOfFameCards(stats)
                 .slice(0, 5)
                 .map(async (banner) => ({
                     ...banner,
                     icon: await readImage(
-                        `/public/static/images/raid/hallOfFame/${banner.icon}.png`
+                        `/static/images/raid/hallOfFame/${banner.icon}.png`
                     ),
                     formatted: banner.formatter(banner.getter(stats)),
                 }))
