@@ -39,13 +39,13 @@ type Props = {
 async function readImage(url: string) {
     const image = await readFile(
         join(
-            process.cwd(),
-            process.env.NODE_ENV !== 'production' ? '/public/' : '',
+            process.env.NODE_ENV === 'development'
+                ? join(process.cwd(), '/public')
+                : 'https://raid.detta.dev/',
             url
         )
     );
-    const src = Uint8Array.from(image).buffer;
-    return src;
+    return Uint8Array.from(image).buffer;
 }
 
 function Level({
