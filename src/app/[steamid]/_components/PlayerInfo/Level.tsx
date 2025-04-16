@@ -1,7 +1,7 @@
 import { IAchievement } from '@/lib/IAchievement';
 import { ISteamStats } from '@/lib/ISteamStats';
 
-const possibleLevels = [40, 30, 20, 10, 5, 2];
+export const POSSIBLE_LEVELS = [40, 30, 20, 10, 5, 2];
 
 export function Level({
     stats,
@@ -20,7 +20,7 @@ export function Level({
             </span>
         );
     }
-    const highestAchievedLevel = possibleLevels.find((level) =>
+    const highestAchievedLevel = POSSIBLE_LEVELS.find((level) =>
         achievements.find(
             (achievement) =>
                 achievement.apiname === `ach_reach_level_${level}` &&

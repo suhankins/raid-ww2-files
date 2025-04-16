@@ -1,3 +1,4 @@
+import { type Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import Tooltip from './_components/Tooltip/Tooltip';
 import ErrorCard from './ErrorCard';
@@ -19,11 +20,23 @@ import { getUserInfo } from '@/utils/steamAPI/getUserInfo';
 import { getAchievementSchema } from '@/utils/steamAPI/getAchievementSchema';
 import { getInventory } from '@/utils/steamAPI/getInventory';
 
-export default async function Home({
-    params,
-}: {
+type Props = {
     params: Promise<{ steamid: string }>;
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    let { steamid } = await params;
+
+    const resolvedId = await resolveSteamId(decodeURIComponent(steamid));
+    const user = await getUserInfo(resolvedId);
+
+    return {
+        title: user.personaname,
+        description: `View ${user.personaname}'s stats in RAID: World War II`,
+    };
+}
+
+export default async function Home({ params }: Props) {
     let { steamid } = await params;
 
     // We can't just assume that numbers are SteamID because vanity URLs can be just numbers

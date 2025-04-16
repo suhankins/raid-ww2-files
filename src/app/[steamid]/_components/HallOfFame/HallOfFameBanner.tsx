@@ -10,6 +10,8 @@ export default function HallOfFameBanner({
     banner: (typeof HallOfFameBannersDB)[number];
     stats: ISteamStats;
 }) {
+    const { value, text } = banner.formatter(banner.getter(stats));
+
     return (
         <article className={styles.banner} data-negative={banner.negative}>
             <Image
@@ -18,7 +20,11 @@ export default function HallOfFameBanner({
                 src={`/static/images/raid/hallOfFame/${banner.icon}.png`}
                 alt=""
             />
-            <p>{banner.render(banner.getter(stats))}</p>
+            <p>
+                {value && <b>{value}</b>}
+                <br />
+                {text}
+            </p>
         </article>
     );
 }
