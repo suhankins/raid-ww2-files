@@ -37,15 +37,13 @@ type Props = {
 };
 
 async function readImage(url: string) {
-    const image = await readFile(
-        join(
-            process.env.NODE_ENV === 'development'
-                ? join(process.cwd(), '/public')
-                : 'https://raid.detta.dev/',
-            url
-        )
-    );
-    return Uint8Array.from(image).buffer;
+    if (process.env.NODE_ENV !== 'development') {
+        return Uint8Array.from(
+            await readFile(join(process.cwd(), '/public', url))
+        ).buffer;
+    } else {
+        return 'https://raid.detta.dev' + url;
+    }
 }
 
 function Level({
@@ -103,7 +101,9 @@ export default async function Image({ params }: Props) {
         cards,
     ] = await Promise.all([
         readImage(`/static/images/raid/characters/${character.id}.png`),
-        readImage(`/static/images/nationality/${character.nationality}.png`),
+        readImage(
+            `/static/images/nationality/${character.nationality.toLowerCase()}.png`
+        ),
         readImage('/static/images/raid/background.jpg'),
         readImage('/static/images/banner.png'),
         Promise.all(
