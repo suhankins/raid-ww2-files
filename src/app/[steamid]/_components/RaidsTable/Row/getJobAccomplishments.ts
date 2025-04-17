@@ -7,6 +7,28 @@ const checkAchievementStatus = (achievements: IAchievement[], name: string) =>
     !!achievements.find((achievement) => achievement.apiname === name)
         ?.achieved;
 
+const getProgressString = (
+    achievements: IAchievement[],
+    requirements: string[]
+) => {
+    const notCompletedAchievements = requirements.filter(
+        (achievement) => !checkAchievementStatus(achievements, achievement)
+    );
+    const total = requirements.length;
+    const current = total - notCompletedAchievements.length;
+    const progress = `${current}/${requirements.length}`;
+    if (current === total) {
+        return progress;
+    }
+    const missingAchievementNames = notCompletedAchievements.map(
+        (achievementName) =>
+            achievements.find(
+                (achievement) => achievement.apiname === achievementName
+            )?.name
+    );
+    return `${progress}<br />Missing achievements:<ul><li>${missingAchievementNames.join('</li><li>')}<ul />`;
+};
+
 export default function getJobAccomplishments(
     job: IJob,
     achievements: IAchievement[]
@@ -33,14 +55,7 @@ export default function getJobAccomplishments(
                   accomplishment.achievementName
               ),
         progress: Array.isArray(accomplishment.achievementName)
-            ? `${accomplishment.achievementName.reduce(
-                  (count, achievement) =>
-                      count +
-                      (checkAchievementStatus(achievements, achievement)
-                          ? 1
-                          : 0),
-                  0
-              )}/${accomplishment.achievementName.length}`
+            ? getProgressString(achievements, accomplishment.achievementName)
             : undefined,
     }));
 }

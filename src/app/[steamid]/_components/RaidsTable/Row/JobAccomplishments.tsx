@@ -17,7 +17,7 @@ export default function JobAccomplishments({
             width={32}
             height={32}
             data-tooltip-id="tooltip"
-            data-tooltip-content={getAccomplishmentString(accomplishment)}
+            data-tooltip-html={getAccomplishmentString(accomplishment)}
             loading="lazy"
             key={accomplishment.type}
             src={`/static/images/raid/accomplishments/${accomplishment.type}.png`}
