@@ -76,7 +76,17 @@ function Level({
                 achievement.achieved
         )
     );
-    return <span>{highestAchievedLevel ?? 1}</span>;
+    return (
+        <span
+            style={{
+                color: RAID_RED,
+                fontSize: FONT_SIZE_LARGE,
+                alignItems: 'baseline',
+            }}
+        >
+            {highestAchievedLevel ?? 1}
+        </span>
+    );
 }
 
 export default async function Image({ params }: Props) {
