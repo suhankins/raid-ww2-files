@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         const user = await getUserInfo(resolvedId);
 
         return {
-            title: user.personaname,
+            title: `${user.personaname} - RAID: WWII stats`,
             description: `View ${user.personaname}'s stats in RAID: World War II`,
         };
     } catch (e) {
