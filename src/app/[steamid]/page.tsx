@@ -28,12 +28,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     let { steamid } = await params;
 
     const resolvedId = await resolveSteamId(decodeURIComponent(steamid));
-    const user = await getUserInfo(resolvedId);
+    try {
+        const user = await getUserInfo(resolvedId);
 
-    return {
-        title: user.personaname,
-        description: `View ${user.personaname}'s stats in RAID: World War II`,
-    };
+        return {
+            title: user.personaname,
+            description: `View ${user.personaname}'s stats in RAID: World War II`,
+        };
+    } catch (e) {
+        return {};
+    }
 }
 
 export default async function Home({ params }: Props) {
