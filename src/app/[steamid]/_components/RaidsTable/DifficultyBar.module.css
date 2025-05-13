@@ -11,8 +11,23 @@
     min-width: 5px;
     height: 2.5em;
     position: relative;
-    background-color: var(--raid_dark_red);
     white-space: nowrap;
+}
+
+.bar:nth-child(1) {
+    background-color: var(--raid_red);
+}
+
+.bar:nth-child(2) {
+    background-color: var(--raid_dark_red);
+}
+
+.bar:nth-child(3) {
+    background-color: var(--raid_light_red);
+}
+
+.bar:nth-child(4) {
+    background-color: var(--raid_brown_red);
 }
 
 .caption {
