@@ -10,6 +10,7 @@ import { type IAchievement } from '@/lib/IAchievement';
 import Checkbox from '@/components/Checkbox/Checkbox';
 import RaidsTableRow from './Row/RaidsTableRow';
 import useTotalAndHighestStat from './useTotalAndHighestStat';
+import DifficultyBar from './DifficultyBar';
 
 export const DEFAULT_JOB_STAT = {
     id: 'completions',
@@ -47,6 +48,10 @@ export default function RaidsTable({
     return (
         <>
             <h2>Missions carried out</h2>
+            <h3>Successes by difficulty</h3>
+            <DifficultyBar stats={stats} status="success" />
+            <h3>Failures by difficulty</h3>
+            <DifficultyBar stats={stats} status="failure" />
             <div className="controls">
                 <Stepper
                     options={JOB_STATS}

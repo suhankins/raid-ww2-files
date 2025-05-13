@@ -37,13 +37,15 @@ export default function RaidsTableRow({
             <td>
                 <JobAccomplishments job={job} achievements={achievements} />
             </td>
-            <td>
+            <td
+                data-tooltip-id="tooltip"
+                data-tooltip-content={percentageOfTotal}
+            >
                 <div
                     className={styles.bar}
                     style={{
                         width: percentageOfMax,
                     }}
-                    title={percentageOfTotal}
                 >
                     <span>{formatJobStat(selectedStat, jobStat)}</span>
                 </div>

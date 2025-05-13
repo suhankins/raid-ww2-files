@@ -1,0 +1,33 @@
+.difficultyBar {
+    display: flex;
+    width: 100%;
+    gap: 3px;
+    background-color: var(--raid_list_background);
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.bar {
+    min-width: 5px;
+    height: 2.5em;
+    position: relative;
+    background-color: var(--raid_dark_red);
+    white-space: nowrap;
+}
+
+.caption {
+    position: absolute;
+    top: -1.25em;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.barText {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
