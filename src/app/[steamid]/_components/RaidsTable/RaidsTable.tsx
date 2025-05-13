@@ -11,6 +11,8 @@ import Checkbox from '@/components/Checkbox/Checkbox';
 import RaidsTableRow from './Row/RaidsTableRow';
 import useTotalAndHighestStat from './useTotalAndHighestStat';
 import DifficultyBar from './DifficultyBar';
+import { DIFFICULTIES } from '@/utils/Difficulties';
+import getDifficultyStat from '@/utils/getDifficultyStat';
 
 export const DEFAULT_JOB_STAT = {
     id: 'completions',
@@ -45,13 +47,40 @@ export default function RaidsTable({
         stats
     );
 
+    const totalSuccesses = DIFFICULTIES.reduce(
+        (acc, difficulty) =>
+            acc + getDifficultyStat(stats, difficulty.id, 'success'),
+        0
+    );
+    const totalFailures = DIFFICULTIES.reduce(
+        (acc, difficulty) =>
+            acc + getDifficultyStat(stats, difficulty.id, 'failure'),
+        0
+    );
+
     return (
         <>
             <h2>Missions carried out</h2>
-            <h3>Successes by difficulty</h3>
-            <DifficultyBar stats={stats} status="success" />
-            <h3>Failures by difficulty</h3>
-            <DifficultyBar stats={stats} status="failure" />
+            {totalSuccesses > 0 ? (
+                <>
+                    <h3>Successes by difficulty</h3>
+                    <DifficultyBar
+                        stats={stats}
+                        status="success"
+                        total={totalSuccesses}
+                    />
+                </>
+            ) : null}
+            {totalFailures > 0 ? (
+                <>
+                    <h3>Failures by difficulty</h3>
+                    <DifficultyBar
+                        stats={stats}
+                        status="failure"
+                        total={totalFailures}
+                    />
+                </>
+            ) : null}
             <div className="controls">
                 <Stepper
                     options={JOB_STATS}
