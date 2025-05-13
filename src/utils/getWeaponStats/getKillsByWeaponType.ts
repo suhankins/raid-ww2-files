@@ -1,6 +1,6 @@
 import { type IWeapon } from '../../lib/IWeapon';
 import type { ISteamStats } from '@/lib/ISteamStats';
-import getKillsForGivenWeapons from './getKillsForGivenWeapons';
+import { getKillsForGivenWeapons } from './getStatForGivenWeapons';
 import { getWeaponById } from '../WeaponsDB';
 
 export default function getKillsByWeaponType(

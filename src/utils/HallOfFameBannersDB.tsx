@@ -1,6 +1,6 @@
 import prettifyNumber from '@/utils/prettifyNumber';
 import { type ISteamStats } from '@/lib/ISteamStats';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import getKillsByWeaponType from '@/utils/getWeaponStats/getKillsByWeaponType';
 import toPercentage from '@/utils/toPercentage';
 import formatPluralString from './formatPluralString';
 

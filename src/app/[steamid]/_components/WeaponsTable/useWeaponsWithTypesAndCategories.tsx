@@ -5,7 +5,7 @@ import {
 } from '@/lib/WeaponCategories';
 import { DEFAULT_WEAPON_TYPE, WEAPON_TYPES } from '@/lib/WeaponTypes';
 import { WEAPONS_DB } from '@/utils/WeaponsDB';
-import getWeaponStats from '@/utils/getKills/getWeaponStats';
+import getWeaponStats from '@/utils/getWeaponStats/getWeaponStats';
 import { useEffect, useMemo, useState } from 'react';
 
 export default function useWeaponsWithTypesAndCategories(stats: ISteamStats) {

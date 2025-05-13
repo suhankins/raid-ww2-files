@@ -10,4 +10,5 @@ export const WEAPON_CATEGORIES = [
     { id: 'pistol', name: 'Pistol' },
     { id: 'grenade', name: 'Grenade' },
     { id: 'mine', name: 'Mine' },
+    { id: 'throwable', name: 'Throwable' },
 ] as const;

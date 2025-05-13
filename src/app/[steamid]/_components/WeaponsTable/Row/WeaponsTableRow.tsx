@@ -26,19 +26,29 @@ export default function WeaponsTableRow({
                     : '-'}
             </td>
             <td>
-                {weapon.categoryRatio === undefined
+                {weapon.killsTotalRatio === undefined
                     ? '-'
-                    : toPercentage(weapon.categoryRatio)}
+                    : toPercentage(weapon.killsTotalRatio)}
             </td>
             <td>
-                {weapon.typeRatio === undefined
+                {weapon.shotsFired === undefined
                     ? '-'
-                    : toPercentage(weapon.typeRatio)}
+                    : prettifyNumber(weapon.shotsFired)}
             </td>
             <td>
-                {weapon.totalRatio === undefined
+                {weapon.accuracy === undefined
                     ? '-'
-                    : toPercentage(weapon.totalRatio)}
+                    : toPercentage(weapon.accuracy)}
+            </td>
+            <td>
+                {weapon.timesEquipped === undefined
+                    ? '-'
+                    : prettifyNumber(weapon.timesEquipped)}
+            </td>
+            <td>
+                {weapon.usageRatio === undefined
+                    ? '-'
+                    : toPercentage(weapon.usageRatio)}
             </td>
         </tr>
     );

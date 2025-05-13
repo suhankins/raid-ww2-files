@@ -1,9 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IWeapon } from '@/lib/IWeapon';
-import { getWeaponKillCount } from '@/utils/getKills/getWeaponKillCount';
+import {
+    getWeaponAccuracy,
+    getWeaponKillCount,
+} from '@/utils/getWeaponStats/getWeaponStat';
 import styles from './Weapon.module.css';
 import prettifyNumber from '@/utils/prettifyNumber';
+import toPercentage from '@/utils/toPercentage';
 
 export function Weapon({
     stats,
@@ -16,6 +20,7 @@ export function Weapon({
         return <></>;
     }
     const killCount = getWeaponKillCount(weapon, stats);
+    const accuracy = getWeaponAccuracy(weapon, stats);
     return (
         <article className={styles.weaponCard}>
             <div className={styles.imgContainer}>
@@ -31,6 +36,7 @@ export function Weapon({
                     Confirmed kills:{' '}
                     {killCount ? prettifyNumber(killCount) : 'Unknown'}
                 </p>
+                {accuracy && <p>Accuracy: {toPercentage(accuracy)}</p>}
             </div>
         </article>
     );

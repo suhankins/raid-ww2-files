@@ -1,5 +1,5 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import getKillsByWeaponType from '@/utils/getWeaponStats/getKillsByWeaponType';
 import { HallOfFameBannersDB } from '@/utils/HallOfFameBannersDB';
 
 const getWeightedValue = (
