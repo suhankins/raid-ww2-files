@@ -10,7 +10,7 @@ export default function HallOfFameBanner({
     banner: (typeof HallOfFameBannersDB)[number];
     stats: ISteamStats;
 }) {
-    const { value, text } = banner.formatter(banner.getter(stats));
+    const { value, text } = banner.formatter(banner.getter(stats), stats);
 
     return (
         <article className={styles.banner} data-negative={banner.negative}>
