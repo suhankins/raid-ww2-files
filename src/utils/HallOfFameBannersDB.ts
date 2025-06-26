@@ -192,6 +192,5 @@ export const HallOfFameBannersDB: Banner[] = [
         }),
         weight: 50_000,
         requirement: (x) => x > 0.8,
-        negative: true,
     },
 ] as const;

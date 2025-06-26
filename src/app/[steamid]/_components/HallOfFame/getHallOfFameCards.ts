@@ -14,6 +14,7 @@ export function getHallOfFameCards(stats: ISteamStats) {
         ...card,
         value: card.getter(stats),
     }))
+        .filter((card) => !card.requirement || card.requirement(card.value))
         .filter((card) => card.value > 0)
         .sort(
             (a, b) =>
