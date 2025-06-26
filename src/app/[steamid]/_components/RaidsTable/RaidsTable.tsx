@@ -2,7 +2,7 @@
 
 import { type ISteamStats } from '@/lib/ISteamStats';
 import styles from './RaidsTable.module.css';
-import { JOBS, RAIDS_AND_DAYS_ONLY } from '../../../../utils/RaidDB';
+import { RAIDS } from '../../../../utils/RaidDB';
 import getJobStat from '../RaidsTable/getJobStat';
 import { useMemo, useState } from 'react';
 import Stepper from '@/components/Stepper/Stepper';
@@ -34,15 +34,9 @@ export default function RaidsTable({
 }) {
     const [selectedStat, setSelectedStat] =
         useState<(typeof JOB_STATS)[number]>(DEFAULT_JOB_STAT);
-    const [operationDaysSeparate, setOperationDaysSeparate] = useState(false);
-
-    const listOfJobs = useMemo(
-        () => (operationDaysSeparate ? RAIDS_AND_DAYS_ONLY : JOBS),
-        [operationDaysSeparate]
-    );
 
     const { total, highest } = useTotalAndHighestStat(
-        listOfJobs,
+        RAIDS,
         selectedStat,
         stats
     );
@@ -91,12 +85,6 @@ export default function RaidsTable({
                 >
                     Sort by
                 </Stepper>
-                <Checkbox
-                    checked={operationDaysSeparate}
-                    onChange={(value) => setOperationDaysSeparate(value)}
-                >
-                    Display operation days separately
-                </Checkbox>
             </div>
             <table className={styles.table}>
                 <thead>
@@ -108,23 +96,21 @@ export default function RaidsTable({
                     </tr>
                 </thead>
                 <tbody>
-                    {listOfJobs
-                        .sort(
-                            (job1, job2) =>
-                                getJobStat(job2, selectedStat, stats) -
-                                getJobStat(job1, selectedStat, stats)
-                        )
-                        .map((job) => (
-                            <RaidsTableRow
-                                key={job.id}
-                                stats={stats}
-                                job={job}
-                                achievements={achievements}
-                                selectedStat={selectedStat}
-                                total={total}
-                                highest={highest}
-                            />
-                        ))}
+                    {RAIDS.sort(
+                        (job1, job2) =>
+                            getJobStat(job2, selectedStat, stats) -
+                            getJobStat(job1, selectedStat, stats)
+                    ).map((job) => (
+                        <RaidsTableRow
+                            key={job.id}
+                            stats={stats}
+                            job={job}
+                            achievements={achievements}
+                            selectedStat={selectedStat}
+                            total={total}
+                            highest={highest}
+                        />
+                    ))}
                 </tbody>
             </table>
         </>
