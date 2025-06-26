@@ -138,6 +138,12 @@ export const GUNS: IWeapon[] = [
         type: 'secondary',
         category: 'shotgun',
     },
+    {
+        id: 'georg',
+        name: 'Parabellum P08',
+        type: 'secondary',
+        category: 'pistol',
+    },
 ] as const;
 
 export const OTHER: IWeapon[] = [
