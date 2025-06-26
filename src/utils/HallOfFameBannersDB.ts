@@ -172,7 +172,7 @@ export const HallOfFameBannersDB: Banner[] = [
         weight: 1_000,
     },
     {
-        icon: 'bounty',
+        icon: 'accuracy_bad',
         getter: (stats: ISteamStats) =>
             1.0 - getWeaponByWorstAccuracy(stats).accuracy,
         formatter: (x, stats) => ({
@@ -184,7 +184,7 @@ export const HallOfFameBannersDB: Banner[] = [
         negative: true,
     },
     {
-        icon: 'bounty',
+        icon: 'accuracy_good',
         getter: (stats: ISteamStats) => getWeaponByBestAccuracy(stats).accuracy,
         formatter: (x, stats) => ({
             text: `accuracy with ${getWeaponByBestAccuracy(stats).name}`,
