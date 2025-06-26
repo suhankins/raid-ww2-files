@@ -1,8 +1,14 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
 import { type IWeapon } from '@/lib/IWeapon';
-import getKillsByTypeAndCategory from '@/utils/getKills/getKillsByTypeAndCategory';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
-import getKillsForGivenWeapons from '@/utils/getKills/getKillsForGivenWeapons';
+import getKillsByTypeAndCategory from '@/utils/getWeaponStats/getKillsByTypeAndCategory';
+import getKillsByWeaponType from '@/utils/getWeaponStats/getKillsByWeaponType';
+import {
+    getAverageAccuracyForGivenWeapons,
+    getKillsForGivenWeapons,
+    getShotsForGivenWeapons,
+    getUsageCountForGivenWeapons,
+} from '@/utils/getWeaponStats/getStatForGivenWeapons';
+import { getTotalWeaponsUsageRatio } from '@/utils/getWeaponStats/getWeaponStat';
 import toPercentage from '@/utils/toPercentage';
 import { useMemo } from 'react';
 
@@ -33,9 +39,33 @@ export default function useTotalStats(
         [kills, stats]
     );
 
+    const shotsFired = useMemo(
+        () => getShotsForGivenWeapons(weapons, stats),
+        [weapons, stats]
+    );
+
+    const averageAccuracy = useMemo(
+        () => getAverageAccuracyForGivenWeapons(weapons, stats),
+        [weapons, stats]
+    );
+
+    const totalUsageCount = useMemo(
+        () => getUsageCountForGivenWeapons(weapons, stats),
+        [weapons, stats]
+    );
+
+    const slotUsage = useMemo(
+        () => getTotalWeaponsUsageRatio(weapons, stats),
+        [weapons, stats]
+    );
+
     return {
         kills,
         typePercentage,
         totalPercentage,
+        shotsFired,
+        averageAccuracy,
+        totalUsageCount,
+        slotUsage,
     };
 }

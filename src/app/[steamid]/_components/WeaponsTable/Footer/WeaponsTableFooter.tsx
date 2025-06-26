@@ -4,6 +4,7 @@ import { type IWeaponWithStats } from '@/lib/IWeaponWithStats';
 import useTotalStats from './useTotalStats';
 import prettifyNumber from '@/utils/prettifyNumber';
 import { useMemo } from 'react';
+import toPercentage from '@/utils/toPercentage';
 
 export default function WeaponsTableFooter({
     type,
@@ -18,8 +19,11 @@ export default function WeaponsTableFooter({
 }) {
     const {
         kills = 0,
-        typePercentage,
         totalPercentage,
+        shotsFired,
+        averageAccuracy,
+        totalUsageCount,
+        slotUsage,
     } = useTotalStats(type, category, weapons, stats);
     const actualTotalKills = useMemo(
         () => weapons.reduce((acc, weapon) => acc + (weapon.kills ?? 0), 0),
@@ -39,9 +43,15 @@ export default function WeaponsTableFooter({
                     </span>
                 )}
             </td>
-            <td>-</td>
-            <td>{typePercentage}</td>
             <td>{totalPercentage}</td>
+            <td>{shotsFired || '-'}</td>
+            <td>
+                {isFinite(averageAccuracy)
+                    ? toPercentage(averageAccuracy)
+                    : '-'}
+            </td>
+            <td>{totalUsageCount || '-'}</td>
+            <td>{slotUsage ? toPercentage(slotUsage) : '-'}</td>
         </tr>
     );
 }

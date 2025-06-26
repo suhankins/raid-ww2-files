@@ -1,17 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { IJob } from '../IJob';
+import { IRaid } from '../IJob';
 import styles from './JobIcon.module.css';
 
-export default function JobIcon({ job }: { job: IJob }) {
-    const id = job.type === 'raid' && job.parent ? job.parent : job.id;
-    const isOutlaw = job.type === 'raid' && job.isOutlaw;
-
+export default function JobIcon({ job }: { job: IRaid }) {
     return (
         <img
             loading="lazy"
-            className={isOutlaw ? styles.outlaw : undefined}
+            className={job.isOutlaw ? styles.outlaw : undefined}
             alt=""
-            src={`/static/images/raid/raids/${id}.png`}
+            src={`/static/images/raid/raids/${job.id}.png`}
         />
     );
 }

@@ -79,17 +79,15 @@ export default async function Home({ params }: Props) {
                         <HallOfFame stats={stats} />
                     </PlayerInfo>
                 </section>
-                <div className="limited-width">
-                    <section>
-                        <LastSeenWith stats={stats} />
-                    </section>
-                    <section>
-                        <WeaponsTable stats={stats} />
-                    </section>
-                    <section>
-                        <RaidsTable stats={stats} achievements={achievements} />
-                    </section>
-                </div>
+                <section className="limited-width">
+                    <LastSeenWith stats={stats} />
+                </section>
+                <section className="limited-width-wider">
+                    <WeaponsTable stats={stats} />
+                </section>
+                <section className="limited-width">
+                    <RaidsTable stats={stats} achievements={achievements} />
+                </section>
                 <section className="limited-width-wider">
                     {inventory instanceof Error ? (
                         <>

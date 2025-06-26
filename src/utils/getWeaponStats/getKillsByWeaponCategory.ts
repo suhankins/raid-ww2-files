@@ -1,7 +1,7 @@
 import type { ISteamStats } from '@/lib/ISteamStats';
 import { WEAPONS_DB } from '../WeaponsDB';
 import { type IWeapon } from '../../lib/IWeapon';
-import getKillsForGivenWeapons from './getKillsForGivenWeapons';
+import { getKillsForGivenWeapons } from './getStatForGivenWeapons';
 
 export default function getKillsByWeaponCategory(
     category: NonNullable<IWeapon['category']>,

@@ -124,7 +124,7 @@ export default async function Image({ params }: Props) {
                     icon: await readImage(
                         `/static/images/raid/hallOfFame/${banner.icon}.png`
                     ),
-                    formatted: banner.formatter(banner.getter(stats)),
+                    formatted: banner.formatter(banner.getter(stats), stats),
                 }))
         ),
     ]);

@@ -1,5 +1,4 @@
-import { type IJob } from '../IJob';
-import { OPERATIONS } from '@/utils/RaidDB';
+import { type IRaid } from '../IJob';
 import { type IAchievement } from '@/lib/IAchievement';
 import type IAccomplishmentStatus from './IAccomplishmentStatus';
 
@@ -30,18 +29,10 @@ const getProgressString = (
 };
 
 export default function getJobAccomplishments(
-    job: IJob,
+    job: IRaid,
     achievements: IAchievement[]
 ): IAccomplishmentStatus[] {
     if (!job.accomplishments) {
-        if ('parent' in job && job.parent) {
-            const operation = OPERATIONS.find(
-                (operation) => operation.id === job.parent
-            );
-            if (operation) {
-                return getJobAccomplishments(operation, achievements);
-            }
-        }
         return [];
     }
     return job.accomplishments.map((accomplishment) => ({

@@ -1,5 +1,5 @@
 import { type IAchievement } from '@/lib/IAchievement';
-import { type IJob } from '../IJob';
+import { type IRaid } from '../IJob';
 import getAccomplishmentString from './getAccomplishmentString';
 import getJobAccomplishments from './getJobAccomplishments';
 import styles from '../RaidsTable.module.css';
@@ -9,7 +9,7 @@ export default function JobAccomplishments({
     job,
     achievements,
 }: {
-    job: IJob;
+    job: IRaid;
     achievements: IAchievement[];
 }) {
     return getJobAccomplishments(job, achievements).map((accomplishment) => (

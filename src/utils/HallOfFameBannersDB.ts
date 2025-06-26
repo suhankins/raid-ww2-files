@@ -1,18 +1,26 @@
 import prettifyNumber from '@/utils/prettifyNumber';
 import { type ISteamStats } from '@/lib/ISteamStats';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import getKillsByWeaponType from '@/utils/getWeaponStats/getKillsByWeaponType';
 import toPercentage from '@/utils/toPercentage';
 import formatPluralString from './formatPluralString';
+import {
+    getWeaponByBestAccuracy,
+    getWeaponByWorstAccuracy,
+} from './getWeaponWeaponByCondition';
 
 export type Banner = {
     icon: string;
     getter: (stats: ISteamStats) => number;
-    formatter: (x: number) => {
+    formatter: (
+        x: number,
+        stats: ISteamStats
+    ) => {
         value?: string;
         text: string;
     };
     weight: number | ((x: number, totalKills: number) => number);
     negative?: boolean;
+    requirement?: (x: number) => boolean;
 };
 
 function getStringWithPluralNoun(
@@ -90,6 +98,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         formatter: getPercentageFormatter('kills with secondary'),
         weight: getPercentageWeight(20),
+        requirement: (x) => x > 0.2,
     },
     {
         icon: 'grenade',
@@ -98,6 +107,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         formatter: getPercentageFormatter('kills with explosives'),
         weight: getPercentageWeight(12),
+        requirement: (x) => x > 0.12,
     },
     {
         icon: 'melee',
@@ -106,6 +116,7 @@ export const HallOfFameBannersDB: Banner[] = [
             getKillsByWeaponType('all', stats),
         formatter: getPercentageFormatter('kills with melee'),
         weight: getPercentageWeight(10),
+        requirement: (x) => x > 0.1,
     },
     {
         icon: 'turret',
@@ -113,7 +124,8 @@ export const HallOfFameBannersDB: Banner[] = [
             (stats.ach_kill_enemies_with_turret ?? 0) /
             getKillsByWeaponType('all', stats),
         formatter: getPercentageFormatter('kills with mounted MG'),
-        weight: getPercentageWeight(10),
+        weight: getPercentageWeight(5),
+        requirement: (x) => x > 0.05,
     },
     {
         icon: 'box',
@@ -144,7 +156,7 @@ export const HallOfFameBannersDB: Banner[] = [
         icon: 'gold',
         getter: (stats: ISteamStats) => stats.player_gold_amount ?? 0,
         formatter: getNumberFormatter('gold bar', 'in the Camp'),
-        weight: 20,
+        weight: Infinity,
     },
     {
         icon: 'coin',
@@ -158,5 +170,27 @@ export const HallOfFameBannersDB: Banner[] = [
             stats.bounty_cards_complete_mission_grand_total ?? 0,
         formatter: getNumberFormatter('bounty', 'collected'),
         weight: 1_000,
+    },
+    {
+        icon: 'accuracy_bad',
+        getter: (stats: ISteamStats) =>
+            1.0 - getWeaponByWorstAccuracy(stats).accuracy,
+        formatter: (x, stats) => ({
+            text: `accuracy with ${getWeaponByWorstAccuracy(stats).name}`,
+            value: toPercentage(1.0 - x),
+        }),
+        weight: 20_000,
+        requirement: (x) => x > 0.95,
+        negative: true,
+    },
+    {
+        icon: 'accuracy_good',
+        getter: (stats: ISteamStats) => getWeaponByBestAccuracy(stats).accuracy,
+        formatter: (x, stats) => ({
+            text: `accuracy with ${getWeaponByBestAccuracy(stats).name}`,
+            value: toPercentage(x),
+        }),
+        weight: 50_000,
+        requirement: (x) => x > 0.8,
     },
 ] as const;

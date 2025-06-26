@@ -20,17 +20,6 @@ export type IRaid = {
     /**
      * Parent operation
      */
-    parent?: string;
     accomplishments?: IAccomplishment[];
     isOutlaw?: boolean;
 };
-
-export type IOperation = {
-    type: 'operation';
-    id: string;
-    name: string;
-    parts: IRaid[];
-    accomplishments: IAccomplishment[];
-};
-
-export type IJob = IRaid | IOperation;

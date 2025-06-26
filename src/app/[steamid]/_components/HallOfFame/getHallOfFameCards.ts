@@ -1,5 +1,5 @@
 import { type ISteamStats } from '@/lib/ISteamStats';
-import getKillsByWeaponType from '@/utils/getKills/getKillsByWeaponType';
+import getKillsByWeaponType from '@/utils/getWeaponStats/getKillsByWeaponType';
 import { HallOfFameBannersDB } from '@/utils/HallOfFameBannersDB';
 
 const getWeightedValue = (
@@ -14,6 +14,7 @@ export function getHallOfFameCards(stats: ISteamStats) {
         ...card,
         value: card.getter(stats),
     }))
+        .filter((card) => !card.requirement || card.requirement(card.value))
         .filter((card) => card.value > 0)
         .sort(
             (a, b) =>

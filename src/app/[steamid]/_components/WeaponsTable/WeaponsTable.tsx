@@ -68,22 +68,34 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                             Kills
                         </WeaponsTableHeaderCell>
                         <WeaponsTableHeaderCell
-                            assignedSortBy="categoryRatio"
+                            assignedSortBy="killsTotalRatio"
                             {...sortValuesAndSetters}
                         >
-                            % of category
+                            % of total kills
                         </WeaponsTableHeaderCell>
                         <WeaponsTableHeaderCell
-                            assignedSortBy="typeRatio"
+                            assignedSortBy="shotsFired"
                             {...sortValuesAndSetters}
                         >
-                            % of slot
+                            Shots fired
                         </WeaponsTableHeaderCell>
                         <WeaponsTableHeaderCell
-                            assignedSortBy="totalRatio"
+                            assignedSortBy="accuracy"
                             {...sortValuesAndSetters}
                         >
-                            % of total
+                            Accuracy
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="timesEquipped"
+                            {...sortValuesAndSetters}
+                        >
+                            Times equipped
+                        </WeaponsTableHeaderCell>
+                        <WeaponsTableHeaderCell
+                            assignedSortBy="usageRatio"
+                            {...sortValuesAndSetters}
+                        >
+                            % of slot usage
                         </WeaponsTableHeaderCell>
                     </tr>
                 </thead>

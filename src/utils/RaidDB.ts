@@ -1,8 +1,4 @@
-import {
-    type IRaid,
-    type IJob,
-    type IOperation,
-} from '../app/[steamid]/_components/RaidsTable/IJob';
+import { type IRaid } from '../app/[steamid]/_components/RaidsTable/IJob';
 
 export const RAIDS: IRaid[] = [
     {
@@ -285,139 +281,169 @@ export const RAIDS: IRaid[] = [
             },
         ],
     },
-] as const;
-
-export const OPERATIONS: IOperation[] = [
     {
-        id: 'clear_skies',
-        name: 'Clear Skies',
-        type: 'operation',
-        parts: [
+        id: 'jobs_oper_flamable_part_1',
+        name: 'Cloak and Dagger',
+        type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
             {
-                id: 'jobs_clear_skies_part_1',
-                name: 'Clear Skies 1: Communication Breakdown',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                ],
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_burn_hardest_no_bleedout',
             },
             {
-                id: 'jobs_clear_skies_part_2',
-                name: 'Clear Skies 2: Enigmatic',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                ],
-            },
-            {
-                id: 'jobs_clear_skies_part_3',
-                name: 'Clear Skies 3: Burning Man',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                ],
-            },
-            {
-                id: 'jobs_clear_skies_part_4',
-                name: 'Clear Skies 4: London Calling',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                ],
-            },
-            {
-                id: 'jobs_clear_skies_part_5',
-                name: 'Clear Skies 5: Rolling Stock',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                ],
-            },
-            {
-                id: 'jobs_clear_skies_part_6',
-                name: 'Clear Skies 6: Blinding Heimdall',
-                type: 'raid',
-                parent: 'clear_skies',
-                accomplishments: [
-                    {
-                        type: 'veryHard',
-                        achievementName: 'ach_clear_skies_hardest',
-                    },
-                    {
-                        type: 'veryHardNoBleedout',
-                        achievementName: 'ach_clear_skies_hardest_no_bleedout',
-                    },
-                    {
-                        type: 'noBleedout',
-                        achievementName: 'ach_clear_skies_no_bleedout',
-                    },
-                    {
-                        type: 'completion',
-                        achievementName: ['Flaktower - A Leap of Faith'],
-                    },
-                ],
+                type: 'noBleedout',
+                achievementName: 'ach_burn_no_bleedout',
             },
         ],
+    },
+    {
+        id: 'jobs_oper_flamable_part_2',
+        name: 'Fuel For The Fire',
+        type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_burn_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_burn_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_oper_flamable_part_3',
+        name: 'Urgent Delivery',
+        type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_burn_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_burn_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_oper_flamable_part_4',
+        name: 'Firestarter',
+        type: 'raid',
+        accomplishments: [
+            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_burn_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_burn_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_1',
+        name: 'Communication Breakdown',
+        type: 'raid',
+        accomplishments: [
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_2',
+        name: 'Enigmatic',
+        type: 'raid',
+        accomplishments: [
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_3',
+        name: 'Burning Man',
+        type: 'raid',
+        accomplishments: [
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_4',
+        name: 'London Calling',
+        type: 'raid',
+        accomplishments: [
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_5',
+        name: 'Rolling Stock',
+        type: 'raid',
+        accomplishments: [
+            {
+                type: 'veryHard',
+                achievementName: 'ach_clear_skies_hardest',
+            },
+            {
+                type: 'veryHardNoBleedout',
+                achievementName: 'ach_clear_skies_hardest_no_bleedout',
+            },
+            {
+                type: 'noBleedout',
+                achievementName: 'ach_clear_skies_no_bleedout',
+            },
+        ],
+    },
+    {
+        id: 'jobs_clear_skies_part_6',
+        name: 'Blinding Heimdall',
+        type: 'raid',
         accomplishments: [
             {
                 type: 'veryHard',
@@ -437,50 +463,4 @@ export const OPERATIONS: IOperation[] = [
             },
         ],
     },
-    {
-        id: 'rhinegold',
-        name: 'Rhinegold',
-        type: 'operation',
-        parts: [
-            {
-                id: 'jobs_oper_flamable_part_1',
-                name: 'Rhinegold 1: Cloak and Dagger',
-                type: 'raid',
-                parent: 'rhinegold',
-            },
-            {
-                id: 'jobs_oper_flamable_part_2',
-                name: 'Rhinegold 2: Fuel For The Fire',
-                type: 'raid',
-                parent: 'rhinegold',
-            },
-            {
-                id: 'jobs_oper_flamable_part_3',
-                name: 'Rhinegold 3: Urgent Delivery',
-                type: 'raid',
-                parent: 'rhinegold',
-            },
-            {
-                id: 'jobs_oper_flamable_part_4',
-                name: 'Rhinegold 4: Firestarter',
-                type: 'raid',
-                parent: 'rhinegold',
-            },
-        ],
-        accomplishments: [
-            { type: 'veryHard', achievementName: 'ach_burn_hardest' },
-            {
-                type: 'veryHardNoBleedout',
-                achievementName: 'ach_burn_hardest_no_bleedout',
-            },
-            { type: 'noBleedout', achievementName: 'ach_burn_no_bleedout' },
-        ],
-    },
-] as const;
-
-export const JOBS: IJob[] = [...RAIDS, ...OPERATIONS] as const;
-
-export const RAIDS_AND_DAYS_ONLY: IRaid[] = [
-    ...RAIDS,
-    ...OPERATIONS.flatMap((operation) => operation.parts),
 ] as const;
