@@ -41,12 +41,12 @@ export default function WeaponsTableRow({
                     : toPercentage(weapon.accuracy)}
             </td>
             <td>
-                {weapon.timesEquipped === undefined
+                {weapon.timesEquipped === undefined || weapon.ignoreUsage
                     ? '-'
                     : prettifyNumber(weapon.timesEquipped)}
             </td>
             <td>
-                {weapon.usageRatio === undefined
+                {weapon.usageRatio === undefined || weapon.ignoreUsage
                     ? '-'
                     : toPercentage(weapon.usageRatio)}
             </td>

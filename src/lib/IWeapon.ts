@@ -8,4 +8,5 @@ export interface IWeapon {
     hidden?: boolean;
     category?: (typeof WEAPON_CATEGORIES)[number]['id'];
     noIcon?: boolean;
+    ignoreUsage?: boolean;
 }

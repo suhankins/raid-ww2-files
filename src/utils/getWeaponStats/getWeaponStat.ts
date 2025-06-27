@@ -34,7 +34,8 @@ export function getWeaponTypeTotalUsedCount(
     stats: ISteamStats
 ): number {
     return WEAPONS_DB.filter((weapon) => weapon.type === type).reduce(
-        (acc, cur) => acc + (getWeaponUsedCount(cur, stats) ?? 0),
+        (acc, cur) =>
+            acc + (cur.ignoreUsage ? 0 : getWeaponUsedCount(cur, stats) ?? 0),
         0
     );
 }
@@ -43,6 +44,9 @@ export function getWeaponUsedCount(
     weapon: IWeapon,
     stats: ISteamStats
 ): number | undefined {
+    if (weapon.ignoreUsage) {
+        return undefined;
+    }
     switch (weapon.type) {
         case 'primary':
         case 'secondary':

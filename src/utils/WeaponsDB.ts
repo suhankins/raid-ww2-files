@@ -48,7 +48,13 @@ export const GRENADES: IWeapon[] = [
 ];
 
 export const MELEE: IWeapon[] = [
-    { id: 'weapon', name: 'Weapon butt', type: 'melee', noIcon: true },
+    {
+        id: 'weapon',
+        name: 'Weapon butt',
+        type: 'melee',
+        noIcon: true,
+        ignoreUsage: true,
+    },
     { id: 'fists', name: 'Fists', type: 'melee', hidden: true, noIcon: true },
     { id: 'm3_knife', name: 'M3 Combat Knife', type: 'melee' },
     {
