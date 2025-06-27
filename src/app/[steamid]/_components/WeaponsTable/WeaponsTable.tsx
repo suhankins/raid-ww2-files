@@ -89,7 +89,7 @@ export default function WeaponsTable({ stats }: { stats: ISteamStats }) {
                             assignedSortBy="timesEquipped"
                             {...sortValuesAndSetters}
                         >
-                            Times equipped
+                            Times used
                         </WeaponsTableHeaderCell>
                         <WeaponsTableHeaderCell
                             assignedSortBy="usageRatio"
