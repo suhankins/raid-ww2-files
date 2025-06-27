@@ -74,9 +74,9 @@ export const HallOfFameBannersDB: Banner[] = [
     {
         icon: 'cards',
         getter: (stats: ISteamStats) =>
-            (stats.challenge_cards_start_raid_total_count ?? 0) +
-            (stats.challenge_cards_start_operation_total_count ?? 0),
-        formatter: getNumberFormatter('mission', 'with cards played'),
+            (stats.challenge_cards_complete_mission_grand_total ?? 0) +
+            (stats.booster_cards_complete_mission_grand_total ?? 0),
+        formatter: getNumberFormatter('mission', 'with cards completed'),
         weight: 110,
     },
     {
