@@ -20,8 +20,13 @@
     background-color: var(--raid_list_background_more_transparent);
 }
 
+.table td:not(:empty).future {
+    opacity: 0.5;
+}
+
 .table td:not(:empty):hover {
     background-color: var(--raid_list_background);
+    opacity: 1;
 }
 
 .table td time {
@@ -32,8 +37,8 @@
     font-size: 1.2em;
 }
 
-.table td[data-current] time {
-    color: var(--raid_red);
+.table td.current time {
+    color: var(--raid_gold);
 }
 
 .rarityIcon {
@@ -42,6 +47,6 @@
     bottom: 5px;
 }
 
-.table td img[data-job-icon] {
+.table td img {
     max-width: 100%;
 }

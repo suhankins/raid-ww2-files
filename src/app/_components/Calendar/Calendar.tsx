@@ -223,16 +223,17 @@ export function Calendar() {
                         >
                             {week.map((day, dayIndex) => (
                                 <td
-                                    data-current={
-                                        (day?.date &&
-                                            isSameDay(day?.date, today)) ||
-                                        undefined
-                                    }
                                     key={`${spoilersAllowed} ${year} ${month} week ${index} day ${dayIndex}`}
                                     className={classNames({
                                         ['selected-corners']:
                                             day?.date &&
                                             isSameDay(day?.date, today),
+                                        [styles.current]:
+                                            day?.date &&
+                                            isSameDay(day?.date, today),
+                                        [styles.future]:
+                                            day?.date &&
+                                            !isBeforeOrSameDay(day.date, today),
                                     })}
                                     data-tooltip-id={
                                         !day ||
