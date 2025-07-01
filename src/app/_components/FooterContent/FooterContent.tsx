@@ -10,7 +10,8 @@ export default function FooterContent() {
                 Valve via Steam.
             </p>
             <p>
-                By Punished Bernadetta. Contribute on{' '}
+                By Punished Bernadetta. Special thanks to HW12Dev for porting
+                Diesel RNG algorithm to JavaScript. Contribute on{' '}
                 <a href="https://github.com/suhankins/raid-ww2-files">GitHub</a>
                 .
             </p>
