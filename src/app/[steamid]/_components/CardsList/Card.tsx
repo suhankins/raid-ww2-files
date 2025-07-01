@@ -1,9 +1,11 @@
-import { IInventoryCard } from '@/utils/steamAPI/getInventory';
+import { type IInventoryCard } from '@/utils/steamAPI/getInventory';
 import getCardType from './getCardType';
 import Image from 'next/image';
 import styles from './Card.module.css';
 import getSrcForCard from './getSrcForCard';
 import capitalize from '@/utils/capitalize';
+import { RarityIcon } from './RarityIcon';
+import { type IRarity } from '@/lib/IRarity';
 
 export default function Card({
     card,
@@ -33,16 +35,11 @@ export default function Card({
                 data-tooltip-id={onIconHoverShowTooltip ? 'tooltip' : undefined}
             />
             {'rarity' in card && card.rarity && (
-                <Image
+                <RarityIcon
                     className={styles.rarityIcon}
-                    width={iconSize * size}
-                    height={iconSize * size}
-                    src={`/static/images/raid/cardIcons/${card.rarity}.png`}
-                    alt=""
-                    data-tooltip-content={capitalize(card.rarity)}
-                    data-tooltip-id={
-                        onIconHoverShowTooltip ? 'tooltip' : undefined
-                    }
+                    size={iconSize * size}
+                    rarity={card.rarity as IRarity}
+                    showTooltip={onIconHoverShowTooltip}
                 />
             )}
             <Image

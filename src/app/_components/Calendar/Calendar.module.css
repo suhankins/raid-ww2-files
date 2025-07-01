@@ -1,0 +1,47 @@
+.table {
+    border-spacing: 3px 3px;
+}
+
+.table tr:nth-child(even) {
+    background-color: unset;
+}
+
+.table td {
+    height: 11.4ch;
+    position: relative;
+    text-align: center;
+}
+
+.table td * {
+    pointer-events: none;
+}
+
+.table td:not(:empty) {
+    background-color: var(--raid_list_background_more_transparent);
+}
+
+.table td:not(:empty):hover {
+    background-color: var(--raid_list_background);
+}
+
+.table td time {
+    position: absolute;
+    right: 0.5ch;
+    top: 0.2em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.table td[data-current] time {
+    color: var(--raid_red);
+}
+
+.rarityIcon {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+
+.table td img[data-job-icon] {
+    max-width: 100%;
+}

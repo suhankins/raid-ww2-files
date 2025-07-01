@@ -1,11 +1,15 @@
-export default function useOnChangeAddIndexCallback(
-    options: readonly { id: string; name: string }[],
-    selectedOption: { id: string; name: string },
-    onChange: (value: { id: string; name: string }) => void,
+import { type Option } from './Stepper';
+
+export default function useOnChangeAddIndexCallback<T extends string | number>(
+    options: readonly Option<T>[],
+    selectedOption: Option<T>,
+    onChange: (value: Option<T>) => void,
     additive: number
 ) {
     return () => {
-        const newOptionIndex = options.indexOf(selectedOption) + additive;
+        const newOptionIndex =
+            options.findIndex((option) => option.id === selectedOption.id) +
+            additive;
         if (newOptionIndex < 0) return;
         onChange(options[newOptionIndex]);
     };

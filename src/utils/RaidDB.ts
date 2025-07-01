@@ -23,6 +23,10 @@ export const RAIDS: IRaid[] = [
                 ],
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'level_radio_defense',
@@ -48,6 +52,10 @@ export const RAIDS: IRaid[] = [
                 ],
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'level_flakturm',
@@ -66,6 +74,10 @@ export const RAIDS: IRaid[] = [
                     'Flaktower - Ninja RAID',
                 ],
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -98,6 +110,10 @@ export const RAIDS: IRaid[] = [
                     'Castle - 100 Nazi Scalps',
                 ],
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -133,6 +149,10 @@ export const RAIDS: IRaid[] = [
                 type: 'completion',
                 achievementName: ['ach_hunters_stealth'],
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -189,6 +209,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_bring_them_home_airfield',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'level_bunker_test',
@@ -237,6 +261,10 @@ export const RAIDS: IRaid[] = [
                     'The seven wooden barrels',
                 ],
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -296,6 +324,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_burn_no_bleedout',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'jobs_oper_flamable_part_2',
@@ -311,6 +343,10 @@ export const RAIDS: IRaid[] = [
                 type: 'noBleedout',
                 achievementName: 'ach_burn_no_bleedout',
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -328,6 +364,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_burn_no_bleedout',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'jobs_oper_flamable_part_4',
@@ -343,6 +383,10 @@ export const RAIDS: IRaid[] = [
                 type: 'noBleedout',
                 achievementName: 'ach_burn_no_bleedout',
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -363,6 +407,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_clear_skies_no_bleedout',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'jobs_clear_skies_part_2',
@@ -381,6 +429,10 @@ export const RAIDS: IRaid[] = [
                 type: 'noBleedout',
                 achievementName: 'ach_clear_skies_no_bleedout',
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {
@@ -401,6 +453,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_clear_skies_no_bleedout',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'jobs_clear_skies_part_4',
@@ -420,6 +476,10 @@ export const RAIDS: IRaid[] = [
                 achievementName: 'ach_clear_skies_no_bleedout',
             },
         ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
+        ],
     },
     {
         id: 'jobs_clear_skies_part_5',
@@ -438,6 +498,10 @@ export const RAIDS: IRaid[] = [
                 type: 'noBleedout',
                 achievementName: 'ach_clear_skies_no_bleedout',
             },
+        ],
+        forbidBuffs: [
+            'bags_dont_slow_players_down',
+            'effect_player_carry_invert_speed',
         ],
     },
     {

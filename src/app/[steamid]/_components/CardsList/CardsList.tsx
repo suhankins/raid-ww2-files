@@ -4,10 +4,11 @@ import { type IInventoryCard } from '@/utils/steamAPI/getInventory';
 import styles from './CardsList.module.css';
 import { useId, useState } from 'react';
 import Card from './Card';
-import Effect from './Effect';
 import Tabs from '@/components/Tabs/Tabs';
 import Textbox from '@/components/Textbox/Textbox';
 import useFilteredCards from './useFilteredCards';
+import classNames from 'classnames';
+import { CardDescription } from './CardDescription';
 
 export const DEFAULT_RARITY = { id: 'all', name: 'All' };
 export const RARITIES = [
@@ -94,6 +95,10 @@ export default function CardsList({
                     <ul className={styles.cardsList} id={listId}>
                         {filteredCards.map((card, index) => (
                             <li
+                                className={classNames({
+                                    'selected-corners':
+                                        selectedCard === card.classid,
+                                })}
                                 key={index}
                                 tabIndex={0}
                                 aria-label={card.name}
@@ -126,28 +131,19 @@ export default function CardsList({
                             size={2.5}
                             onIconHoverShowTooltip
                         />
-                        <div>
-                            <h3>{currentCard.name}</h3>
-                            {'positiveEffect' in currentCard && (
-                                <Effect>{currentCard.positiveEffect}</Effect>
-                            )}
-                            {'negativeEffect' in currentCard && (
-                                <Effect negative>
-                                    {currentCard.negativeEffect}
-                                </Effect>
-                            )}
-                            {!(
-                                'positiveEffect' in currentCard ||
+                        <CardDescription
+                            name={currentCard.name}
+                            positiveEffect={
+                                'positiveEffect' in currentCard
+                                    ? currentCard.positiveEffect
+                                    : undefined
+                            }
+                            negativeEffect={
                                 'negativeEffect' in currentCard
-                            ) && (
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: currentCard.descriptions[0]
-                                            .value,
-                                    }}
-                                />
-                            )}
-                        </div>
+                                    ? currentCard.negativeEffect
+                                    : undefined
+                            }
+                        />
                     </div>
                 </div>
             </div>

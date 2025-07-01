@@ -22,6 +22,7 @@
         brightness(102%) contrast(98%);
     --raid_light_gold: #d8b883;
     --raid_list_background: rgba(215, 215, 215, 0.1);
+    --raid_list_background_more_transparent: rgba(215, 215, 215, 0.05);
     --banner_black: #0e0e0e;
 }
 
@@ -141,6 +142,10 @@ table thead th {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.controls-3-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 @media (max-width: 680px) {
     .controls {
         grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -176,4 +181,32 @@ code {
     .animate-in {
         animation: none;
     }
+}
+
+.selected-corners {
+    position: relative;
+}
+
+.selected-corners:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--raid_red);
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.selected-corners:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--raid_red);
+    clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
 }

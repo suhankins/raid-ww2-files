@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import Tooltip from './_components/Tooltip/Tooltip';
+import Tooltip from '@/components/Tooltip/Tooltip';
 import ErrorCard from './ErrorCard';
 import resolveSteamId from './_utils/resolveSteamId';
 

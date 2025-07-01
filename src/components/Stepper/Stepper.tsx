@@ -5,15 +5,20 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import useOnChangeAddIndexCallback from './useOnChangeCallback';
 import { useId } from 'react';
 
-export default function Stepper({
+export interface Option<T extends string | number> {
+    id: T;
+    name: string;
+}
+
+export default function Stepper<T extends string | number>({
     options,
     selectedOption,
     onChange,
     children,
 }: {
-    options: readonly { id: string; name: string }[];
-    selectedOption: { id: string; name: string };
-    onChange: (value: { id: string; name: string }) => void;
+    options: readonly Option<T>[];
+    selectedOption: Option<T>;
+    onChange: (value: Option<T>) => void;
     children: React.ReactNode;
 }) {
     const inputId = useId();
@@ -37,7 +42,11 @@ export default function Stepper({
                 <button
                     className={styles.chevron}
                     onClick={clickLeft}
-                    disabled={options.indexOf(selectedOption) === 0}
+                    disabled={
+                        options.findIndex(
+                            (option) => option.id === selectedOption.id
+                        ) === 0
+                    }
                     type="button"
                     aria-label="previous option"
                 >
@@ -46,7 +55,7 @@ export default function Stepper({
                 <select
                     onChange={(e) => {
                         const newOption = options.find(
-                            (option) => option.id === e.target.value
+                            (option) => option.id.toString() === e.target.value
                         );
                         if (newOption) {
                             onChange(newOption);
@@ -67,7 +76,10 @@ export default function Stepper({
                     className={styles.chevron}
                     onClick={clickRight}
                     disabled={
-                        options.indexOf(selectedOption) === options.length - 1
+                        options.findIndex(
+                            (option) => option.id === selectedOption.id
+                        ) ===
+                        options.length - 1
                     }
                     type="button"
                     aria-label="next option"

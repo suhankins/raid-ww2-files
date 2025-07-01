@@ -22,4 +22,5 @@ export type IRaid = {
      */
     accomplishments?: IAccomplishment[];
     isOutlaw?: boolean;
+    forbidBuffs?: string[];
 };
