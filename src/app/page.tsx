@@ -1,5 +1,5 @@
 import Tooltip from '@/components/Tooltip/Tooltip';
-import { Calendar } from './_components/Calendar/Calendar';
+import { CalendarNoSSRWrapper } from './_components/Calendar/CalendarNoSSRWrapper';
 
 export default function Home() {
     return (
@@ -10,7 +10,7 @@ export default function Home() {
                 the RAID gang.
             </p>
 
-            <Calendar />
+            <CalendarNoSSRWrapper />
             <Tooltip />
         </main>
     );

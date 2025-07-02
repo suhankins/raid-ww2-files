@@ -12,6 +12,8 @@ import { type IRarity } from '@/lib/IRarity';
 import { renderToString } from 'react-dom/server';
 import { CardDescription } from '@/app/[steamid]/_components/CardsList/CardDescription';
 
+export const dynamic = 'force-dynamic';
+
 const FIRST_BOUNTY_DATE = new Date(Date.UTC(2025, 5, 26));
 
 type Day =
