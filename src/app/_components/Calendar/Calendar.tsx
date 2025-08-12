@@ -11,6 +11,8 @@ import { RarityIcon } from '@/app/[steamid]/_components/CardsList/RarityIcon';
 import { type IRarity } from '@/lib/IRarity';
 import { renderToString } from 'react-dom/server';
 import { CardDescription } from '@/app/[steamid]/_components/CardsList/CardDescription';
+import { numberToIsoDate } from '@/utils/numberToIsoDate';
+import { BOUNTIES_DB } from '@/utils/BountiesDB';
 
 export const dynamic = 'force-dynamic';
 
@@ -51,20 +53,23 @@ const getWeeks = (
     const totalDays = monthEnd.getUTCDate();
 
     const days: Day[] = [];
-
     for (let i = 0; i < startDayOfTheWeek; i++) days.push(null);
+
     for (let i = 0; i < totalDays; i++) {
         const dayDate = new Date(monthStart.setUTCDate(i + 1));
         const dailyExists = !(dayDate < FIRST_BOUNTY_DATE);
         const shouldCensor =
             !spoilersAllowed && !isBeforeOrSameDay(dayDate, today);
-        const daily = dailyExists ? getDailyJob(getSeed(dayDate)) : null;
-        const rarity = daily?.card?.rarity;
+
+        const archivedDaily = BOUNTIES_DB[numberToIsoDate(dayDate)];
+        const daily =
+            archivedDaily ||
+            (dailyExists ? getDailyJob(getSeed(dayDate)) : null);
 
         days.push({
             day: i + 1,
             date: dayDate,
-            rarity,
+            rarity: daily?.card?.rarity,
             spoiler: shouldCensor,
             dailyExists,
             ...(shouldCensor ? null : daily),

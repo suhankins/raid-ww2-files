@@ -38,10 +38,12 @@ export const getSeed = (customDate?: Date) => {
     const __SEED_A = 92836596;
     const __SEED_B = 767;
 
-    // Format should be 06282025 `06 28 2025` UTC
+    // Format should be ddmmddyyyy
 
     const date = customDate || new Date();
-    const date_time = `${format(date.getUTCMonth() + 1)}${format(
+    const date_time = `${format(
+        date.getUTCDate()
+    )}${format(date.getUTCMonth() + 1)}${format(
         date.getUTCDate()
     )}${date.getUTCFullYear()}`;
 
