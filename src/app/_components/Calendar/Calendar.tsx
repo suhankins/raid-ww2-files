@@ -90,7 +90,7 @@ const getWeeks = (
 
 const fromSundayFirstToMondayFirst = (day: number) => {
     const convertedDay = day - 1;
-    return convertedDay > 0 ? convertedDay : 6;
+    return convertedDay >= 0 ? convertedDay : 6;
 };
 
 const MONTHS = [
